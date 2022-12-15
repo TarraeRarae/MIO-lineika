@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4959D285EA6A758FBE872CC6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */; };
+		8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */; };
+		8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B41294BB9560065E7D8 /* MainViewController.swift */; };
+		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
+		8AD07B4A294BB9570065E7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */; };
+		8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */; };
+		8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
+		5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
+		616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIO-lineika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AD07B41294BB9560065E7D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8AD07B46294BB9570065E7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AD07B49294BB9570065E7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8AD07B4B294BB9570065E7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8AD07B37294BB9560065E7D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4959D285EA6A758FBE872CC6 /* Pods_MIO_lineika.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		434E86945B370A4C9CADEEA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AD07B31294BB9560065E7D8 = {
+			isa = PBXGroup;
+			children = (
+				8AD07B3C294BB9560065E7D8 /* MIO-lineika */,
+				8AD07B3B294BB9560065E7D8 /* Products */,
+				A4C51B3AE6B8EE2E3FE02BDD /* Pods */,
+				434E86945B370A4C9CADEEA4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8AD07B3B294BB9560065E7D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AD07B3C294BB9560065E7D8 /* MIO-lineika */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B51294BBD090065E7D8 /* Modules */,
+				8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */,
+				8AD07B46294BB9570065E7D8 /* Assets.xcassets */,
+				8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */,
+				8AD07B4B294BB9570065E7D8 /* Info.plist */,
+			);
+			path = "MIO-lineika";
+			sourceTree = "<group>";
+		};
+		8AD07B51294BBD090065E7D8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B52294BBD0F0065E7D8 /* MainScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8AD07B52294BBD0F0065E7D8 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */,
+				8AD07B54294BBD1C0065E7D8 /* ViewModel */,
+				8AD07B53294BBD180065E7D8 /* View */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		8AD07B53294BBD180065E7D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B41294BB9560065E7D8 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8AD07B54294BBD1C0065E7D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4C51B3AE6B8EE2E3FE02BDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */,
+				5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8AD07B39294BB9560065E7D8 /* MIO-lineika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AD07B4E294BB9570065E7D8 /* Build configuration list for PBXNativeTarget "MIO-lineika" */;
+			buildPhases = (
+				6B6EE7777DBCD42555523550 /* [CP] Check Pods Manifest.lock */,
+				8AD07B36294BB9560065E7D8 /* Sources */,
+				8AD07B37294BB9560065E7D8 /* Frameworks */,
+				8AD07B38294BB9560065E7D8 /* Resources */,
+				350DC3501696FFB48009EC33 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MIO-lineika";
+			productName = "MIO-lineika";
+			productReference = 8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AD07B32294BB9560065E7D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8AD07B39294BB9560065E7D8 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 8AD07B35294BB9560065E7D8 /* Build configuration list for PBXProject "MIO-lineika" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8AD07B31294BB9560065E7D8;
+			productRefGroup = 8AD07B3B294BB9560065E7D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8AD07B39294BB9560065E7D8 /* MIO-lineika */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AD07B38294BB9560065E7D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AD07B4A294BB9570065E7D8 /* LaunchScreen.storyboard in Resources */,
+				8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		350DC3501696FFB48009EC33 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B6EE7777DBCD42555523550 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MIO-lineika-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AD07B36294BB9560065E7D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
+				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
+				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
+				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AD07B49294BB9570065E7D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8AD07B4C294BB9570065E7D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8AD07B4D294BB9570065E7D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8AD07B4F294BB9570065E7D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6C4272876R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MIO-lineika/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.alexey.zubkov.MIO-lineika";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8AD07B50294BB9570065E7D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6C4272876R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MIO-lineika/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.alexey.zubkov.MIO-lineika";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AD07B35294BB9560065E7D8 /* Build configuration list for PBXProject "MIO-lineika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD07B4C294BB9570065E7D8 /* Debug */,
+				8AD07B4D294BB9570065E7D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AD07B4E294BB9570065E7D8 /* Build configuration list for PBXNativeTarget "MIO-lineika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD07B4F294BB9570065E7D8 /* Debug */,
+				8AD07B50294BB9570065E7D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AD07B32294BB9560065E7D8 /* Project object */;
+}
