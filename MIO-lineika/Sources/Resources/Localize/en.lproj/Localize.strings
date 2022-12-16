@@ -1,0 +1,9 @@
+/* 
+  Localize.strings
+  MIO-lineika
+
+  Created by Alexey Zubkov on 16.12.2022.
+  
+*/
+
+App.title = "МИО-Линейка";

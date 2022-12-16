@@ -8,10 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		4959D285EA6A758FBE872CC6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */; };
+		8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */; };
+		8A093F70294D030C0088C9A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6E294D030C0088C9A1 /* Strings.swift */; };
+		8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */; };
+		8A093F80294D04260088C9A1 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7D294D04260088C9A1 /* Localize.strings */; };
+		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
+		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
+		8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */; };
+		8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */; };
+		8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B20294BCEE500C04DF9 /* Color.swift */; };
+		8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B22294BD1C300C04DF9 /* BaseController.swift */; };
+		8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */; };
+		8AB42B29294BD75F00C04DF9 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */; };
+		8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */; };
 		8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */; };
 		8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B41294BB9560065E7D8 /* MainViewController.swift */; };
 		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
-		8AD07B4A294BB9570065E7D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */; };
 		8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */; };
 		8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -20,11 +32,23 @@
 		111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
 		5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
 		616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		8A093F6E294D030C0088C9A1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		8A093F7C294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A093F7E294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localize.strings; sourceTree = "<group>"; };
+		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
+		8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		8AB42B20294BCEE500C04DF9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8AB42B22294BD1C300C04DF9 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableItem.swift; sourceTree = "<group>"; };
+		8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonCell.swift; sourceTree = "<group>"; };
 		8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIO-lineika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD07B41294BB9560065E7D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8AD07B46294BB9570065E7D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8AD07B49294BB9570065E7D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AD07B4B294BB9570065E7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -50,6 +74,95 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8A093F3C294CFA530088C9A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8A093F3E294CFA5D0088C9A1 /* Generated */,
+				8A093F3D294CFA580088C9A1 /* Resources */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8A093F3D294CFA580088C9A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A093F3F294CFA710088C9A1 /* Localize */,
+				8AD07B46294BB9570065E7D8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A093F3E294CFA5D0088C9A1 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				8A093F6E294D030C0088C9A1 /* Strings.swift */,
+				8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		8A093F3F294CFA710088C9A1 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				8A093F7A294D04260088C9A1 /* en.lproj */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		8A093F7A294D04260088C9A1 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */,
+				8A093F7D294D04260088C9A1 /* Localize.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B1D294BCE1B00C04DF9 /* Extensions */,
+				8AB42B19294BCD2500C04DF9 /* Theme.swift */,
+				8AB42B20294BCEE500C04DF9 /* Color.swift */,
+				8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		8AB42B16294BCC9700C04DF9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B17294BCCA600C04DF9 /* Coordinator.swift */,
+				8AB42B22294BD1C300C04DF9 /* BaseController.swift */,
+				8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */,
+				8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8AB42B1D294BCE1B00C04DF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8AB42B2A294BD94000C04DF9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8AB42B2B294BD94300C04DF9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8AD07B31294BB9560065E7D8 = {
 			isa = PBXGroup;
 			children = (
@@ -71,10 +184,11 @@
 		8AD07B3C294BB9560065E7D8 /* MIO-lineika */ = {
 			isa = PBXGroup;
 			children = (
+				8A093F3C294CFA530088C9A1 /* Sources */,
+				8AB42B16294BCC9700C04DF9 /* Base */,
+				8AB42B15294BCC8800C04DF9 /* DesignSystem */,
 				8AD07B51294BBD090065E7D8 /* Modules */,
 				8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */,
-				8AD07B46294BB9570065E7D8 /* Assets.xcassets */,
-				8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */,
 				8AD07B4B294BB9570065E7D8 /* Info.plist */,
 			);
 			path = "MIO-lineika";
@@ -101,6 +215,7 @@
 		8AD07B53294BBD180065E7D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8AB42B2A294BD94000C04DF9 /* Cell */,
 				8AD07B41294BB9560065E7D8 /* MainViewController.swift */,
 			);
 			path = View;
@@ -109,6 +224,7 @@
 		8AD07B54294BBD1C0065E7D8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8AB42B2B294BD94300C04DF9 /* Cell */,
 				8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
@@ -135,6 +251,7 @@
 				8AD07B37294BB9560065E7D8 /* Frameworks */,
 				8AD07B38294BB9560065E7D8 /* Resources */,
 				350DC3501696FFB48009EC33 /* [CP] Embed Pods Frameworks */,
+				8A093F3B294CF1F80088C9A1 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -166,7 +283,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 8AD07B31294BB9560065E7D8;
 			productRefGroup = 8AD07B3B294BB9560065E7D8 /* Products */;
@@ -183,8 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD07B4A294BB9570065E7D8 /* LaunchScreen.storyboard in Resources */,
+				8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */,
 				8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */,
+				8A093F80294D04260088C9A1 /* Localize.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +347,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A093F3B294CF1F80088C9A1 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -238,21 +373,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
+				8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */,
+				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
 				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
+				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
+				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
+				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
+				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
+				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
+				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
+				8AB42B29294BD75F00C04DF9 /* TableViewCellViewModel.swift in Sources */,
+				8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */,
 				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
+				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8AD07B48294BB9570065E7D8 /* LaunchScreen.storyboard */ = {
+		8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8AD07B49294BB9570065E7D8 /* Base */,
+				8A093F7C294D04260088C9A1 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8A093F7D294D04260088C9A1 /* Localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A093F7E294D04260088C9A1 /* en */,
+			);
+			name = Localize.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -322,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -1,0 +1,10 @@
+/* 
+  Localize.strings
+  MIO-lineika
+
+  Created by Alexey Zubkov on 16.12.2022.
+  
+*/
+
+Example.test = "Some text";
+Example2.text = "Some text 2";
