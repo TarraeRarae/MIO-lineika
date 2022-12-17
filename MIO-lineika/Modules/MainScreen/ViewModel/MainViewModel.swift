@@ -28,14 +28,23 @@ final class MainViewModel: MainViewModelProtocol {
 
     // MARK: - Private properties
 
-    private var selectedSettings: (method: MethodType?, optimization: OptimizationType?) = (
+    private var selectedSettings: (
+        method: MethodType?,
+        optimization: OptimizationType?,
+        variables: Int,
+        constraints: Int
+    ) = (
         method: nil,
-        optimization: nil
+        optimization: nil,
+        variables: 0,
+        constraints: 0
     )
 
     private var cellViewModels = [TableCellViewModelProtocol]()
 
     private var methodsCellModels = [TableCellViewModelProtocol]()
+
+    private var settingsCellModel = [TableCellViewModelProtocol]()
 
     private var optimizationsCellModels = [TableCellViewModelProtocol]()
 
@@ -70,32 +79,36 @@ private extension MainViewModel {
         let optimizationCellTapAction: (UUID) -> Void = { [weak self] uniqueId in
             self?.setOptimizationCellSelected(with: uniqueId)
         }
+
+        let settingCellDidEdit: (UUID, Int) -> Void = { [weak self] uniqueId, value in
+            self?.settingCellDidEdit(with: value, for: uniqueId)
+        }
     
-        let titleCell = TableCellConstructor.shared.makeTitleCellViewModel(
+        let titleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
             with: L10n.Methods.title,
             roundCornersStyle: .top
         )
 
         methodsCellModels = [
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.graphic),
                 selectionAction: methodCellTapAction
             ),
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.straightSimplex),
                 selectionAction: methodCellTapAction
             ),
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.artificialVariables),
                 isEnabled: false,
                 selectionAction: methodCellTapAction
             ),
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.modifiedSimplex),
                 isEnabled: false,
                 selectionAction: methodCellTapAction
             ),
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.binarySimplex),
                 isEnabled: false,
                 selectionAction: methodCellTapAction
@@ -103,19 +116,37 @@ private extension MainViewModel {
         ]
 
         optimizationsCellModels = [
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.max),
                 selectionAction: optimizationCellTapAction
             ),
-            TableCellConstructor.shared.makeRadiobuttonCellViewModel(
+            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.min),
                 selectionAction: optimizationCellTapAction
             )
         ]
+    
+        settingsCellModel = [
+            TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
+                configurableSetting: .variables(value: selectedSettings.variables),
+                editingAction: settingCellDidEdit
+            ),
+            TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
+                configurableSetting: .constraints(value: selectedSettings.constraints),
+                editingAction: settingCellDidEdit
+            )
+        ]
 
-        let dividerCell = TableCellConstructor.shared.makeDividerCellViewModel()
+        let dividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel()
 
-        cellViewModels = [titleCell] + methodsCellModels + [dividerCell] + optimizationsCellModels
+        cellViewModels =
+        [titleCell] +
+        methodsCellModels +
+        [dividerCellModel] +
+        settingsCellModel +
+        [dividerCellModel] +
+        optimizationsCellModels
+
         delegate?.reloadData()
     }
 }
@@ -173,4 +204,6 @@ private extension MainViewModel {
 
         delegate?.reloadData()
     }
+
+    func settingCellDidEdit(with value: Int, for uuid: UUID) {}
 }

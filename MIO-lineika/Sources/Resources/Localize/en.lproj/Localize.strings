@@ -10,6 +10,7 @@
 
 App.title = "МИО-Линейка";
 
+
 // MARK: - Methods
 
 Methods.title = "Метод решения";
@@ -23,3 +24,14 @@ Methods.artificialVariables.title = "Метод искусственных пе�
 Methods.modifiedSimplex.title = "Модифицированный симплекс-метод";
 
 Methods.binarySimplex.title = "Двойственный симплекс-метод";
+
+
+// MARK: - Optimizations
+
+Optimizations.title = "Вид оптимизации";
+
+// MARK: - Variable and constraints settings
+
+VariableConstaints.variables.title = "Количество переменных";
+
+VariableConstaints.constraints.title = "Количество ограничений";

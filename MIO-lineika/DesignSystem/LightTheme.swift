@@ -18,13 +18,15 @@ class LighTheme: Theme {
             case .tableCell:
                 return UIColor(hex: "#FFFFFFFF")
             case .divider:
-                return UIColor(hex: "#FFE7FEFF")
+                return UIColor(hex: "#FD79A866")
             }
 
         case .text(let textColor):
             switch textColor {
             case .primary:
                 return UIColor(hex: "#2D2031FF")
+            case .secondary:
+                return UIColor(hex: "#A5A0A6FF")
             }
         }
     }

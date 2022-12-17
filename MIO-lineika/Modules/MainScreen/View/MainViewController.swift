@@ -76,7 +76,8 @@ private extension MainViewController {
             [
                 RadiobuttonTableCell.self,
                 TitleTableCell.self,
-                DividerTableCell.self
+                DividerTableCell.self,
+                TextFieldTableCell.self
             ]
         )
         tableView.separatorStyle = .none

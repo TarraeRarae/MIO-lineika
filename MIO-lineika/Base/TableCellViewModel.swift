@@ -45,6 +45,8 @@ final class TableCellViewModel<
     }
 }
 
+// MARK: - CellType.Type == RadiobuttonTableCell.Type
+
 extension TableCellViewModel where CellType.Type == RadiobuttonTableCell.Type,
                                    CellModel == RadiobuttonTableCell.Configuration {
 
@@ -54,5 +56,15 @@ extension TableCellViewModel where CellType.Type == RadiobuttonTableCell.Type,
 
     func cellDidSelected(_ isSelected: Bool) {
         configuration.isCellSelected = isSelected
+    }
+}
+
+// MARK: - CellType.Type == TextFieldTableCell.Type
+
+extension TableCellViewModel where CellType.Type == TextFieldTableCell.Type,
+                                   CellModel == TextFieldTableCell.Configuration {
+
+    var configurableSetting: VariableConstraintsSettingsType {
+        return configuration.configurableSetting
     }
 }

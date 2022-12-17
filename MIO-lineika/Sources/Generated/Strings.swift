@@ -38,6 +38,20 @@ internal enum L10n {
       internal static let title = L10n.tr("Localize", "Methods.straightSimplex.title", fallback: "Прямой симплекс метод")
     }
   }
+  internal enum Optimizations {
+    /// Вид оптимизации
+    internal static let title = L10n.tr("Localize", "Optimizations.title", fallback: "Вид оптимизации")
+  }
+  internal enum VariableConstaints {
+    internal enum Constraints {
+      /// Количество ограничений
+      internal static let title = L10n.tr("Localize", "VariableConstaints.constraints.title", fallback: "Количество ограничений")
+    }
+    internal enum Variables {
+      /// Количество переменных
+      internal static let title = L10n.tr("Localize", "VariableConstaints.variables.title", fallback: "Количество переменных")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

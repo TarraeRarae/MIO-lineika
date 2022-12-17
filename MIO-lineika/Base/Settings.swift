@@ -32,3 +32,17 @@ enum OptimizationType: String {
     case max
     case min
 }
+
+enum VariableConstraintsSettingsType {
+    case variables(value: Int)
+    case constraints(value: Int)
+
+    var title: String {
+        switch self {
+        case .variables:
+            return L10n.VariableConstaints.Variables.title
+        case .constraints:
+            return L10n.VariableConstaints.Constraints.title
+        }
+    }
+}

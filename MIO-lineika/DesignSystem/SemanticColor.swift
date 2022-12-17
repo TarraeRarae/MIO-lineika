@@ -17,6 +17,7 @@ enum SemanticColor {
 
     enum TextColor {
         case primary
+        case secondary
     }
 
     case background(BackgroundColor)

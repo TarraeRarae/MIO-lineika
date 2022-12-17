@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4959D285EA6A758FBE872CC6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */; };
 		8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */; };
 		8A093F70294D030C0088C9A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6E294D030C0088C9A1 /* Strings.swift */; };
 		8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,7 @@
 		8A1623F6294D2A1B0068744D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F5294D2A1B0068744D /* TableViewCell.swift */; };
 		8A1623F8294DE2490068744D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F7294DE2490068744D /* Settings.swift */; };
 		8A1623FC294DF49C0068744D /* TitleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623FB294DF49C0068744D /* TitleTableCell.swift */; };
-		8A1623FF294DF9080068744D /* TableCellConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623FE294DF9080068744D /* TableCellConstructor.swift */; };
+		8A1623FF294DF9080068744D /* TableCellViewModelConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623FE294DF9080068744D /* TableCellViewModelConstructor.swift */; };
 		8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162400294DFF720068744D /* UITableView+Extension.swift */; };
 		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
 		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
@@ -35,12 +34,10 @@
 		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
 		8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */; };
 		8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */; };
+		D8A092C90C716E8849F098A6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
-		5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
-		616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		8A093F6E294D030C0088C9A1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8A093F7C294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,7 +47,7 @@
 		8A1623F5294D2A1B0068744D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A1623F7294DE2490068744D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8A1623FB294DF49C0068744D /* TitleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableCell.swift; sourceTree = "<group>"; };
-		8A1623FE294DF9080068744D /* TableCellConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConstructor.swift; sourceTree = "<group>"; };
+		8A1623FE294DF9080068744D /* TableCellViewModelConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewModelConstructor.swift; sourceTree = "<group>"; };
 		8A162400294DFF720068744D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
@@ -70,6 +67,9 @@
 		8AD07B4B294BB9570065E7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CC19E05BC1C01E5DCE7A8EA2 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
+		EC375CF9809B23AB1AAEDFCD /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
+		F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,21 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4959D285EA6A758FBE872CC6 /* Pods_MIO_lineika.framework in Frameworks */,
+				D8A092C90C716E8849F098A6 /* Pods_MIO_lineika.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		434E86945B370A4C9CADEEA4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				616FB535C8FD5E37E5EE1062 /* Pods_MIO_lineika.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		8A093F3C294CFA530088C9A1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +143,7 @@
 		8A1623FD294DF8FB0068744D /* Constructor  */ = {
 			isa = PBXGroup;
 			children = (
-				8A1623FE294DF9080068744D /* TableCellConstructor.swift */,
+				8A1623FE294DF9080068744D /* TableCellViewModelConstructor.swift */,
 			);
 			path = "Constructor ";
 			sourceTree = "<group>";
@@ -198,7 +190,7 @@
 				8AD07B3C294BB9560065E7D8 /* MIO-lineika */,
 				8AD07B3B294BB9560065E7D8 /* Products */,
 				A4C51B3AE6B8EE2E3FE02BDD /* Pods */,
-				434E86945B370A4C9CADEEA4 /* Frameworks */,
+				8B8ED28B7D94D74F78DE0970 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,11 +249,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8B8ED28B7D94D74F78DE0970 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4C51B3AE6B8EE2E3FE02BDD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */,
-				5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */,
+				EC375CF9809B23AB1AAEDFCD /* Pods-MIO-lineika.debug.xcconfig */,
+				CC19E05BC1C01E5DCE7A8EA2 /* Pods-MIO-lineika.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -273,12 +273,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AD07B4E294BB9570065E7D8 /* Build configuration list for PBXNativeTarget "MIO-lineika" */;
 			buildPhases = (
-				6B6EE7777DBCD42555523550 /* [CP] Check Pods Manifest.lock */,
+				A85EB2DC471BEBCD2350A984 /* [CP] Check Pods Manifest.lock */,
 				8AD07B36294BB9560065E7D8 /* Sources */,
 				8AD07B37294BB9560065E7D8 /* Frameworks */,
 				8AD07B38294BB9560065E7D8 /* Resources */,
-				350DC3501696FFB48009EC33 /* [CP] Embed Pods Frameworks */,
 				8A093F3B294CF1F80088C9A1 /* SwiftGen */,
+				46C53CD943C39FCC8EC80FA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,7 +335,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		350DC3501696FFB48009EC33 /* [CP] Embed Pods Frameworks */ = {
+		46C53CD943C39FCC8EC80FA1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,28 +350,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6B6EE7777DBCD42555523550 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MIO-lineika-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A093F3B294CF1F80088C9A1 /* SwiftGen */ = {
@@ -393,6 +371,28 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
+		A85EB2DC471BEBCD2350A984 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MIO-lineika-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -409,7 +409,7 @@
 				8A1623F2294D244B0068744D /* CellModel.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
 				8A1623F8294DE2490068744D /* Settings.swift in Sources */,
-				8A1623FF294DF9080068744D /* TableCellConstructor.swift in Sources */,
+				8A1623FF294DF9080068744D /* TableCellViewModelConstructor.swift in Sources */,
 				8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */,
 				8A162406294E03F00068744D /* DividerTableCell.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
@@ -567,7 +567,7 @@
 		};
 		8AD07B4F294BB9570065E7D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 111877A0C403290148B9AA7B /* Pods-MIO-lineika.debug.xcconfig */;
+			baseConfigurationReference = EC375CF9809B23AB1AAEDFCD /* Pods-MIO-lineika.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -597,7 +597,7 @@
 		};
 		8AD07B50294BB9570065E7D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B06CBC1E8F2ECF4D2D59D53 /* Pods-MIO-lineika.release.xcconfig */;
+			baseConfigurationReference = CC19E05BC1C01E5DCE7A8EA2 /* Pods-MIO-lineika.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

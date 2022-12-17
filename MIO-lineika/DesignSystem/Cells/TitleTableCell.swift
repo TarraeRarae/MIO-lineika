@@ -125,11 +125,11 @@ extension TitleTableCell {
             case none
         }
 
-        /// Тип ячейки для конфигурации
-        let cellType = TitleTableCell.self
-
         /// Уникальный идентификатор ячейки
         let uniqueId = UUID()
+
+        /// Тип ячейки для конфигурации
+        let cellType = TitleTableCell.self
 
         /// Отображаемый текст
         let title: String
