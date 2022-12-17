@@ -1,28 +1,24 @@
 PODS:
-  - RxSwift (6.5.0)
   - SnapKit (5.6.0)
   - SwiftGen (6.6.2)
   - Swinject (2.8.2)
 
 DEPENDENCIES:
-  - RxSwift
   - SnapKit
   - SwiftGen
   - Swinject
 
 SPEC REPOS:
   trunk:
-    - RxSwift
     - SnapKit
     - SwiftGen
     - Swinject
 
 SPEC CHECKSUMS:
-  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
-PODFILE CHECKSUM: 19f2e68e97d8944429cba52eb1ca1c083aaafeab
+PODFILE CHECKSUM: fd0983a5f14c12d514929478eb5ad57adacf8d62
 
 COCOAPODS: 1.11.3

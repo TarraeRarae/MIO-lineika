@@ -157,7 +157,7 @@ private extension MainViewModel {
 
     func setMethodCellSelected(with uuid: UUID) {
         for model in methodsCellModels {
-            guard let selectableCellModel =  model as? TableCellViewModel<
+            guard let selectableCellModel = model as? TableCellViewModel<
                     RadiobuttonTableCell,
                     RadiobuttonTableCell.Configuration
             > else { continue }
@@ -176,13 +176,11 @@ private extension MainViewModel {
                 break
             }
         }
-
-        delegate?.reloadData()
     }
 
     func setOptimizationCellSelected(with uuid: UUID) {
         for model in optimizationsCellModels {
-            guard let selectableCellModel =  model as? TableCellViewModel<
+            guard let selectableCellModel = model as? TableCellViewModel<
                     RadiobuttonTableCell,
                     RadiobuttonTableCell.Configuration
             > else { continue }
@@ -201,8 +199,6 @@ private extension MainViewModel {
                 selectedSettings.optimization = optimization
             }
         }
-
-        delegate?.reloadData()
     }
 
     func settingCellDidEdit(with value: Int, for uuid: UUID) {}

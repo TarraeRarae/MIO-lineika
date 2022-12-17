@@ -21,6 +21,8 @@ final class TableCellViewModel<
 
     // MARK: - Private properties
 
+    private var configurableCell: CellType?
+
     private var configuration: CellModel
 
     // MARK: - Internal properties
@@ -42,6 +44,7 @@ final class TableCellViewModel<
     func configure(_ cell: UITableViewCell) {
         guard let cell = cell as? CellType else { return }
         cell.configure(configuration)
+        configurableCell = cell
     }
 }
 
@@ -55,7 +58,9 @@ extension TableCellViewModel where CellType.Type == RadiobuttonTableCell.Type,
     }
 
     func cellDidSelected(_ isSelected: Bool) {
+        if configurableCell?.uniqueId != uniqueId { return }
         configuration.isCellSelected = isSelected
+        configurableCell?.setCellSelected(isSelected)
     }
 }
 

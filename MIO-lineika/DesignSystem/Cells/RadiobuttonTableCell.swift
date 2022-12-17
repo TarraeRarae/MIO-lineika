@@ -33,6 +33,7 @@ final class RadiobuttonTableCell: TableViewCell {
     private let radiobuttonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.image = Asset.Radiobutton.radiobuttonDisabled.image
         return imageView
     }()
 
@@ -43,17 +44,7 @@ final class RadiobuttonTableCell: TableViewCell {
         return label
     }()
 
-    private var isCellSelected: Bool = false {
-        didSet {
-            if isCellSelected {
-                radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
-                return
-            }
-            radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
-        }
-    }
-
-    private var uniqueId: UUID?
+    var uniqueId: UUID?
 
     private var selectionAction: ((UUID) -> Void)?
 
@@ -82,9 +73,9 @@ final class RadiobuttonTableCell: TableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        isSelected = false
-        isEnabled = true
         titleLabel.text = nil
+        radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
+        isEnabled = true
         layer.maskedCorners = [
             .layerMinXMinYCorner,
             .layerMaxXMinYCorner,
@@ -111,7 +102,9 @@ final class RadiobuttonTableCell: TableViewCell {
         }
 
         isEnabled = configuration.isEnabled
-        isCellSelected = configuration.isCellSelected
+
+        setCellSelected(configuration.isCellSelected)
+
         selectionAction = configuration.selectionAction
 
         switch configuration.roundCornersStyle {
@@ -125,6 +118,29 @@ final class RadiobuttonTableCell: TableViewCell {
             layer.cornerRadius = Constants.cornerRadius
         case .none:
             break
+        }
+    }
+
+    // MARK: - Internal methods
+
+    func setCellSelected(_ isSelected: Bool) {
+        if !isEnabled { return }
+        if isSelected {
+            UIView.transition(
+                with: radiobuttonImage,
+                duration: 0.2,
+                options: .transitionCrossDissolve
+            ) { [weak self] in
+                self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
+            }
+            return
+        }
+        UIView.transition(
+            with: radiobuttonImage,
+            duration: 0.2,
+            options: .transitionCrossDissolve
+        ) { [weak self] in
+            self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
         }
     }
 }

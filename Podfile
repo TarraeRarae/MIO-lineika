@@ -8,6 +8,5 @@ target 'MIO-lineika' do
   pod 'SnapKit'
   pod 'Swinject'
   pod 'SwiftGen'
-  pod 'RxSwift'
 
 end
