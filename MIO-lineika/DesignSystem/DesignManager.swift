@@ -7,7 +7,7 @@
 
 import UIKit
 
-public final class DesignManager {
+final class DesignManager {
 
     // MARK: - Static properties
 
@@ -15,11 +15,19 @@ public final class DesignManager {
 
     // MARK: - Private properties
 
+    /// Конструктор ячеек таблицы
+//    private let tableCellConstructor = TableCellConstructor()
+
+    /// Конфигурация для светлой темы
     private let lightTheme = LighTheme()
 
-    // MARK: - Public properties
+    // MARK: - Internal properties
 
-    public var theme: Theme {
+    var theme: Theme {
         return lightTheme
     }
+
+//    var cellConstructor: TableCellConstructor {
+//        return tableCellConstructor
+//    }
 }

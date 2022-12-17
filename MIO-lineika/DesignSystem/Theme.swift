@@ -7,15 +7,13 @@
 
 import UIKit
 
-public protocol Theme: AnyObject {
-    func color(_ color: Color) -> UIColor
+protocol Theme: AnyObject {
+    var color: (SemanticColor) -> UIColor { get }
 }
 
-public class LighTheme: Theme {
+extension Theme {
 
-    // MARK: - Public functions
-
-    public func color(_ color: Color) -> UIColor {
-        return color.color
+    subscript(_ color: SemanticColor) -> UIColor {
+        self.color(color)
     }
 }

@@ -7,9 +7,6 @@
 
 import UIKit
 
-//protocol SelectableCell
-
 class TableViewCell: UITableViewCell, ConfigurableItem {
-
     func configure(_ params: Any) {}
 }

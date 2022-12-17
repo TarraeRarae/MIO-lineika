@@ -14,9 +14,29 @@ internal enum L10n {
     /// МИО-Линейка
     internal static let title = L10n.tr("Localize", "App.title", fallback: "МИО-Линейка")
   }
-  internal enum GraphicMethod {
-    /// Графический метод
-    internal static let title = L10n.tr("Localize", "GraphicMethod.title", fallback: "Графический метод")
+  internal enum Methods {
+    /// Метод решения
+    internal static let title = L10n.tr("Localize", "Methods.title", fallback: "Метод решения")
+    internal enum ArtificialVariables {
+      /// Метод искусственных переменных
+      internal static let title = L10n.tr("Localize", "Methods.artificialVariables.title", fallback: "Метод искусственных переменных")
+    }
+    internal enum BinarySimplex {
+      /// Двойственный симплекс-метод
+      internal static let title = L10n.tr("Localize", "Methods.binarySimplex.title", fallback: "Двойственный симплекс-метод")
+    }
+    internal enum GraphicMethod {
+      /// Графический метод
+      internal static let title = L10n.tr("Localize", "Methods.graphicMethod.title", fallback: "Графический метод")
+    }
+    internal enum ModifiedSimplex {
+      /// Модифицированный симплекс-метод
+      internal static let title = L10n.tr("Localize", "Methods.modifiedSimplex.title", fallback: "Модифицированный симплекс-метод")
+    }
+    internal enum StraightSimplex {
+      /// Прямой симплекс метод
+      internal static let title = L10n.tr("Localize", "Methods.straightSimplex.title", fallback: "Прямой симплекс метод")
+    }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

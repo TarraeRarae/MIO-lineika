@@ -9,6 +9,7 @@ import UIKit
 
 protocol TableCellViewModelProtocol: AnyObject {
     var cellId: String { get }
+    var uniqueId: UUID { get }
 
     func configure(_ cell: UITableViewCell)
 }
@@ -26,6 +27,10 @@ final class TableCellViewModel<
 
     var cellId = String(describing: CellType.self)
 
+    var uniqueId: UUID {
+        return configuration.uniqueId
+    }
+
     // MARK: - Initializers
 
     init(_ configuration: CellModel) {
@@ -40,8 +45,12 @@ final class TableCellViewModel<
     }
 }
 
-extension TableCellViewModel where CellType.Type == RadiobuttonCell.Type,
-                                   CellModel == RadiobuttonCell.Configuration {
+extension TableCellViewModel where CellType.Type == RadiobuttonTableCell.Type,
+                                   CellModel == RadiobuttonTableCell.Configuration {
+
+    var configurableSetting: RadiobuttonTableCell.Configuration.ConfigurableSetting {
+        return configuration.configurableSetting
+    }
 
     func cellDidSelected(_ isSelected: Bool) {
         configuration.isCellSelected = isSelected

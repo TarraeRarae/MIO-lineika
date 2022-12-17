@@ -8,6 +8,7 @@
 import UIKit
 
 protocol CellModelProtocol {
+    var uniqueId: UUID { get }
     var cellType: CellType { get }
 
     associatedtype CellType = TableViewCell

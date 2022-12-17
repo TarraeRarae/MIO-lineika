@@ -15,14 +15,21 @@
 		8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623ED294D1E690068744D /* TableCellViewModel.swift */; };
 		8A1623F2294D244B0068744D /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F1294D244B0068744D /* CellModel.swift */; };
 		8A1623F6294D2A1B0068744D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F5294D2A1B0068744D /* TableViewCell.swift */; };
+		8A1623F8294DE2490068744D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F7294DE2490068744D /* Settings.swift */; };
+		8A1623FC294DF49C0068744D /* TitleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623FB294DF49C0068744D /* TitleTableCell.swift */; };
+		8A1623FF294DF9080068744D /* TableCellConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623FE294DF9080068744D /* TableCellConstructor.swift */; };
+		8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162400294DFF720068744D /* UITableView+Extension.swift */; };
+		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
+		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
+		8A162409294E18460068744D /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* TextFieldTableCell.swift */; };
 		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
 		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
 		8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */; };
 		8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */; };
-		8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B20294BCEE500C04DF9 /* Color.swift */; };
+		8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B20294BCEE500C04DF9 /* SemanticColor.swift */; };
 		8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B22294BD1C300C04DF9 /* BaseController.swift */; };
 		8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */; };
-		8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */; };
+		8AB42B2D294BD98900C04DF9 /* RadiobuttonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B2C294BD98900C04DF9 /* RadiobuttonTableCell.swift */; };
 		8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */; };
 		8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B41294BB9560065E7D8 /* MainViewController.swift */; };
 		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
@@ -41,14 +48,21 @@
 		8A1623ED294D1E690068744D /* TableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewModel.swift; sourceTree = "<group>"; };
 		8A1623F1294D244B0068744D /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		8A1623F5294D2A1B0068744D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		8A1623F7294DE2490068744D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		8A1623FB294DF49C0068744D /* TitleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableCell.swift; sourceTree = "<group>"; };
+		8A1623FE294DF9080068744D /* TableCellConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellConstructor.swift; sourceTree = "<group>"; };
+		8A162400294DFF720068744D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
+		8A162408294E18460068744D /* TextFieldTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
 		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
 		8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		8AB42B20294BCEE500C04DF9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8AB42B20294BCEE500C04DF9 /* SemanticColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticColor.swift; sourceTree = "<group>"; };
 		8AB42B22294BD1C300C04DF9 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableItem.swift; sourceTree = "<group>"; };
-		8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonCell.swift; sourceTree = "<group>"; };
+		8AB42B2C294BD98900C04DF9 /* RadiobuttonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCell.swift; sourceTree = "<group>"; };
 		8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIO-lineika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD07B41294BB9560065E7D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -125,19 +139,21 @@
 		8A1623E7294D17FC0068744D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8A1623F3294D248B0068744D /* Base */,
-				8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */,
+				8A1623FD294DF8FB0068744D /* Constructor  */,
+				8AB42B2C294BD98900C04DF9 /* RadiobuttonTableCell.swift */,
+				8A1623FB294DF49C0068744D /* TitleTableCell.swift */,
+				8A162405294E03F00068744D /* DividerTableCell.swift */,
+				8A162408294E18460068744D /* TextFieldTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		8A1623F3294D248B0068744D /* Base */ = {
+		8A1623FD294DF8FB0068744D /* Constructor  */ = {
 			isa = PBXGroup;
 			children = (
-				8A1623ED294D1E690068744D /* TableCellViewModel.swift */,
-				8A1623F1294D244B0068744D /* CellModel.swift */,
+				8A1623FE294DF9080068744D /* TableCellConstructor.swift */,
 			);
-			path = Base;
+			path = "Constructor ";
 			sourceTree = "<group>";
 		};
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
@@ -146,7 +162,8 @@
 				8A1623E7294D17FC0068744D /* Cells */,
 				8AB42B1D294BCE1B00C04DF9 /* Extensions */,
 				8AB42B19294BCD2500C04DF9 /* Theme.swift */,
-				8AB42B20294BCEE500C04DF9 /* Color.swift */,
+				8A162402294E02D20068744D /* LightTheme.swift */,
+				8AB42B20294BCEE500C04DF9 /* SemanticColor.swift */,
 				8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */,
 			);
 			path = DesignSystem;
@@ -159,6 +176,10 @@
 				8AB42B22294BD1C300C04DF9 /* BaseController.swift */,
 				8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */,
 				8A1623F5294D2A1B0068744D /* TableViewCell.swift */,
+				8A1623ED294D1E690068744D /* TableCellViewModel.swift */,
+				8A1623F1294D244B0068744D /* CellModel.swift */,
+				8A1623F7294DE2490068744D /* Settings.swift */,
+				8A162400294DFF720068744D /* UITableView+Extension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -355,6 +376,7 @@
 		};
 		8A093F3B294CF1F80088C9A1 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 12;
 			files = (
 			);
@@ -379,20 +401,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
-				8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */,
+				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
+				8A162409294E18460068744D /* TextFieldTableCell.swift in Sources */,
+				8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */,
 				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
 				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
 				8A1623F2294D244B0068744D /* CellModel.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
+				8A1623F8294DE2490068744D /* Settings.swift in Sources */,
+				8A1623FF294DF9080068744D /* TableCellConstructor.swift in Sources */,
 				8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */,
+				8A162406294E03F00068744D /* DividerTableCell.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
+				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
 				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
 				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
-				8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */,
+				8AB42B2D294BD98900C04DF9 /* RadiobuttonTableCell.swift in Sources */,
 				8A1623F6294D2A1B0068744D /* TableViewCell.swift in Sources */,
+				8A1623FC294DF49C0068744D /* TitleTableCell.swift in Sources */,
 				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 			);

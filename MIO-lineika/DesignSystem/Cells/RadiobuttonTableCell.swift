@@ -1,5 +1,5 @@
 //
-//  RadiobuttonsCell.swift
+//  RadiobuttonTableCell.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 16.12.2022.
@@ -8,13 +8,15 @@
 import UIKit
 import SnapKit
 
-final class RadiobuttonCell: TableViewCell {
+final class RadiobuttonTableCell: TableViewCell {
 
     // MARK: - Constants
 
     private enum Constants {
-        static let cellId = String(describing: RadiobuttonCell.self)
         static let cornerRadius: CGFloat = 30
+        static let defaultCornerRadius: CGFloat = 0
+        static let disabledContentViewAlpha: CGFloat = 0.4
+        static let enabledContentViewAlpha: CGFloat = 1
 
         enum Radiobutton {
             static let size = CGSize(width: 16, height: 16)
@@ -25,10 +27,6 @@ final class RadiobuttonCell: TableViewCell {
             static let insets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 10)
         }
     }
-
-    // MARK: - Static properties
-
-    static let cellId = Constants.cellId
 
     // MARK: - Private properties
 
@@ -41,7 +39,7 @@ final class RadiobuttonCell: TableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
-        label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
 
@@ -56,7 +54,14 @@ final class RadiobuttonCell: TableViewCell {
     }
 
     private var uniqueId: UUID?
+
     private var selectionAction: ((UUID) -> Void)?
+
+    private var isEnabled: Bool = true {
+        didSet {
+            contentView.alpha = isEnabled ? Constants.enabledContentViewAlpha:  Constants.disabledContentViewAlpha
+        }
+    }
 
     // MARK: - Initializers
 
@@ -73,7 +78,23 @@ final class RadiobuttonCell: TableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Internal methods
+    // MARK: - Lifecycle
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isSelected = false
+        isEnabled = true
+        titleLabel.text = nil
+        layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner,
+            .layerMinXMaxYCorner,
+            .layerMaxXMaxYCorner
+        ]
+        layer.cornerRadius = Constants.defaultCornerRadius
+    }
+
+    // MARK: - Configurable Item
 
     override func configure(_ params: Any) {
         guard let configuration = params as? Configuration else {
@@ -81,9 +102,18 @@ final class RadiobuttonCell: TableViewCell {
         }
 
         uniqueId = configuration.uniqueId
-        titleLabel.text = configuration.title
+
+        switch configuration.configurableSetting {
+        case .method(let method):
+            titleLabel.text = method.title
+        case .optimization(let optimization):
+            titleLabel.text = optimization.rawValue
+        }
+
+        isEnabled = configuration.isEnabled
         isCellSelected = configuration.isCellSelected
         selectionAction = configuration.selectionAction
+
         switch configuration.roundCornersStyle {
         case .top:
             layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -97,22 +127,16 @@ final class RadiobuttonCell: TableViewCell {
             break
         }
     }
-
-    func didSelect(indexPath: IndexPath) {
-        guard let uuid = uniqueId else { return }
-
-        isCellSelected = true
-        selectionAction?(uuid)
-    }
 }
 
 // MARK: - Private methods
 
-private extension RadiobuttonCell {
+private extension RadiobuttonTableCell {
 
     func commonInit() {
         setupSubviews()
         setupLayouts()
+        setupGestureRecognizers()
         applyTheme()
     }
     
@@ -137,16 +161,32 @@ private extension RadiobuttonCell {
         }
     }
 
+    func setupGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(cellDidSelect)
+        )
+        addGestureRecognizer(tapGestureRecognizer)
+    }
+
     func applyTheme() {
         contentView.backgroundColor = .clear
-        backgroundColor = DesignManager.shared.theme.color(.background(.tableCell))
-        titleLabel.textColor = DesignManager.shared.theme.color(.text(.primary))
+        backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
+        titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
+    }
+
+    @objc
+    func cellDidSelect() {
+        guard let uuid = uniqueId, isEnabled
+        else { return }
+
+        selectionAction?(uuid)
     }
 }
 
 // MARK: - Configuration
 
-extension RadiobuttonCell {
+extension RadiobuttonTableCell {
 
     struct Configuration: CellModelProtocol {
 
@@ -157,19 +197,25 @@ extension RadiobuttonCell {
             case none
         }
 
-        typealias CellType = RadiobuttonCell.Type
+        enum ConfigurableSetting {
+            case method(MethodType)
+            case optimization(OptimizationType)
+        }
 
         /// Тип ячейки для конфигурации
-        let cellType: CellType = RadiobuttonCell.self
+        let cellType = RadiobuttonTableCell.self
 
         /// Уникальный идентификатор ячейки
         let uniqueId = UUID()
 
+        /// Настройка, за которую отвечает ячейка
+        var configurableSetting: ConfigurableSetting
+
         /// Состояние radiobutton
         var isCellSelected: Bool
 
-        /// Текст справа от кнопки
-        let title: String
+        ///
+        let isEnabled: Bool
 
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
@@ -178,13 +224,15 @@ extension RadiobuttonCell {
         let selectionAction: (UUID) -> Void
 
         init(
-            isEnabled: Bool = false,
-            title: String,
-            roundCornersStyle: RoundCornersStyle = .none,
+            configurableSetting: ConfigurableSetting,
+            isCellSelected: Bool = false,
+            isEnabled: Bool,
+            roundCornersStyle: RoundCornersStyle,
             selectionAction: @escaping (UUID) -> Void
         ) {
-            self.isCellSelected = isEnabled
-            self.title = title
+            self.configurableSetting = configurableSetting
+            self.isCellSelected = isCellSelected
+            self.isEnabled = isEnabled
             self.roundCornersStyle = roundCornersStyle
             self.selectionAction = selectionAction
         }

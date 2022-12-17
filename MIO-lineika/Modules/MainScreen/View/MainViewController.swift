@@ -44,7 +44,7 @@ final class MainViewController: BaseController {
     }
 
     override func applyTheme() {
-        view.backgroundColor = DesignManager.shared.theme.color(.background(.main))
+        view.backgroundColor = DesignManager.shared.theme[.background(.main)]
     }
 }
 
@@ -72,10 +72,17 @@ private extension MainViewController {
     }
 
     func setupTableView() {
-        tableView.register(RadiobuttonCell.self, forCellReuseIdentifier: RadiobuttonCell.cellId)
+        tableView.register(
+            [
+                RadiobuttonTableCell.self,
+                TitleTableCell.self,
+                DividerTableCell.self
+            ]
+        )
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 

@@ -6,5 +6,20 @@
   
 */
 
+// MARK: - App
+
 App.title = "МИО-Линейка";
-GraphicMethod.title = "Графический метод";
+
+// MARK: - Methods
+
+Methods.title = "Метод решения";
+
+Methods.graphicMethod.title = "Графический метод";
+
+Methods.straightSimplex.title = "Прямой симплекс метод";
+
+Methods.artificialVariables.title = "Метод искусственных переменных";
+
+Methods.modifiedSimplex.title = "Модифицированный симплекс-метод";
+
+Methods.binarySimplex.title = "Двойственный симплекс-метод";
