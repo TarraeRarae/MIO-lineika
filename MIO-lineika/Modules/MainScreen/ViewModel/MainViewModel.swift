@@ -84,7 +84,7 @@ private extension MainViewModel {
             self?.settingCellDidEdit(with: value, for: uniqueId)
         }
     
-        let titleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
+        let methodsTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
             with: L10n.Methods.title,
             roundCornersStyle: .top
         )
@@ -115,6 +115,10 @@ private extension MainViewModel {
             )
         ]
 
+        let optimizationTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
+            with: L10n.Optimizations.title
+        )
+
         optimizationsCellModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.max),
@@ -140,11 +144,12 @@ private extension MainViewModel {
         let dividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel()
 
         cellViewModels =
-        [titleCell] +
+        [methodsTitleCell] +
         methodsCellModels +
         [dividerCellModel] +
         settingsCellModel +
         [dividerCellModel] +
+        [optimizationTitleCell] +
         optimizationsCellModels
 
         delegate?.reloadData()

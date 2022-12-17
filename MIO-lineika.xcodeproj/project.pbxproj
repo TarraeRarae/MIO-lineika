@@ -21,6 +21,7 @@
 		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
 		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
 		8A162409294E18460068744D /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* TextFieldTableCell.swift */; };
+		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
 		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
 		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
 		8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */; };
@@ -52,6 +53,7 @@
 		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
 		8A162408294E18460068744D /* TextFieldTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
+		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
 		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				8A1623FB294DF49C0068744D /* TitleTableCell.swift */,
 				8A162405294E03F00068744D /* DividerTableCell.swift */,
 				8A162408294E18460068744D /* TextFieldTableCell.swift */,
+				8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				8A1623FF294DF9080068744D /* TableCellViewModelConstructor.swift in Sources */,
 				8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */,
 				8A162406294E03F00068744D /* DividerTableCell.swift in Sources */,
+				8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
