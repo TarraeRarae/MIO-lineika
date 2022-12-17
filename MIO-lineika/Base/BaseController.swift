@@ -9,12 +9,5 @@ import UIKit
 
 class BaseController: UIViewController {
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        applyTheme()
-    }
-
-    func applyTheme() {
-        view.backgroundColor = DesignManager.shared.theme.color(.background(.main))
-    }
+    func applyTheme() {}
 }

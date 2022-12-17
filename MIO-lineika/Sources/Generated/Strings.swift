@@ -14,6 +14,10 @@ internal enum L10n {
     /// МИО-Линейка
     internal static let title = L10n.tr("Localize", "App.title", fallback: "МИО-Линейка")
   }
+  internal enum GraphicMethod {
+    /// Графический метод
+    internal static let title = L10n.tr("Localize", "GraphicMethod.title", fallback: "Графический метод")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

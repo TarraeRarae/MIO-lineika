@@ -7,3 +7,4 @@
 */
 
 App.title = "МИО-Линейка";
+GraphicMethod.title = "Графический метод";

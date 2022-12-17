@@ -12,6 +12,9 @@
 		8A093F70294D030C0088C9A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6E294D030C0088C9A1 /* Strings.swift */; };
 		8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */; };
 		8A093F80294D04260088C9A1 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7D294D04260088C9A1 /* Localize.strings */; };
+		8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623ED294D1E690068744D /* TableCellViewModel.swift */; };
+		8A1623F2294D244B0068744D /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F1294D244B0068744D /* CellModel.swift */; };
+		8A1623F6294D2A1B0068744D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1623F5294D2A1B0068744D /* TableViewCell.swift */; };
 		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
 		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
 		8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */; };
@@ -19,7 +22,6 @@
 		8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B20294BCEE500C04DF9 /* Color.swift */; };
 		8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B22294BD1C300C04DF9 /* BaseController.swift */; };
 		8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */; };
-		8AB42B29294BD75F00C04DF9 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */; };
 		8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */; };
 		8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */; };
 		8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B41294BB9560065E7D8 /* MainViewController.swift */; };
@@ -36,6 +38,9 @@
 		8A093F6E294D030C0088C9A1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8A093F7C294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A093F7E294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localize.strings; sourceTree = "<group>"; };
+		8A1623ED294D1E690068744D /* TableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellViewModel.swift; sourceTree = "<group>"; };
+		8A1623F1294D244B0068744D /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		8A1623F5294D2A1B0068744D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
@@ -43,7 +48,6 @@
 		8AB42B20294BCEE500C04DF9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8AB42B22294BD1C300C04DF9 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableItem.swift; sourceTree = "<group>"; };
-		8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonCell.swift; sourceTree = "<group>"; };
 		8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIO-lineika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,9 +122,28 @@
 			path = en.lproj;
 			sourceTree = "<group>";
 		};
+		8A1623E7294D17FC0068744D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8A1623F3294D248B0068744D /* Base */,
+				8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8A1623F3294D248B0068744D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8A1623ED294D1E690068744D /* TableCellViewModel.swift */,
+				8A1623F1294D244B0068744D /* CellModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				8A1623E7294D17FC0068744D /* Cells */,
 				8AB42B1D294BCE1B00C04DF9 /* Extensions */,
 				8AB42B19294BCD2500C04DF9 /* Theme.swift */,
 				8AB42B20294BCEE500C04DF9 /* Color.swift */,
@@ -135,7 +158,7 @@
 				8AB42B17294BCCA600C04DF9 /* Coordinator.swift */,
 				8AB42B22294BD1C300C04DF9 /* BaseController.swift */,
 				8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */,
-				8AB42B28294BD75F00C04DF9 /* TableViewCellViewModel.swift */,
+				8A1623F5294D2A1B0068744D /* TableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -146,21 +169,6 @@
 				8AB42B1E294BCE2700C04DF9 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8AB42B2A294BD94000C04DF9 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				8AB42B2C294BD98900C04DF9 /* RadiobuttonCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		8AB42B2B294BD94300C04DF9 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		8AD07B31294BB9560065E7D8 = {
@@ -215,7 +223,6 @@
 		8AD07B53294BBD180065E7D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8AB42B2A294BD94000C04DF9 /* Cell */,
 				8AD07B41294BB9560065E7D8 /* MainViewController.swift */,
 			);
 			path = View;
@@ -224,7 +231,6 @@
 		8AD07B54294BBD1C0065E7D8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8AB42B2B294BD94300C04DF9 /* Cell */,
 				8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
@@ -376,15 +382,17 @@
 				8AB42B21294BCEE500C04DF9 /* Color.swift in Sources */,
 				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
 				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
+				8A1623F2294D244B0068744D /* CellModel.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
+				8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
 				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
 				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
-				8AB42B29294BD75F00C04DF9 /* TableViewCellViewModel.swift in Sources */,
 				8AB42B2D294BD98900C04DF9 /* RadiobuttonCell.swift in Sources */,
+				8A1623F6294D2A1B0068744D /* TableViewCell.swift in Sources */,
 				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 			);

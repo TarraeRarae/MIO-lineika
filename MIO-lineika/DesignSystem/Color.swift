@@ -11,6 +11,7 @@ public enum Color {
 
     public enum BackgroundColorType {
         case main
+        case tableCell
     }
 
     public enum TextColorType {
@@ -25,13 +26,15 @@ public enum Color {
         case .background(let backgroundColorType):
             switch backgroundColorType {
             case .main:
-                return UIColor(hex: "#F6F6F6")
+                return UIColor(hex: "#F6F6F6FF")
+            case .tableCell:
+                return UIColor(hex: "#FFFFFFFF")
             }
 
         case .text(let textColorType):
             switch textColorType {
             case .primary:
-                return UIColor(hex: "#2D2031")
+                return UIColor(hex: "#2D2031FF")
             }
         }
     }

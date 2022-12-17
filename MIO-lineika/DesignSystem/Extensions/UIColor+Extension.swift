@@ -13,11 +13,11 @@ public extension UIColor {
         let red, green, blue, alpha: CGFloat
 
         if !hex.hasPrefix("#") {
-            fatalError("Hex color # is ")
+            fatalError("Hex color # is necessary")
         }
         let start = hex.index(hex.startIndex, offsetBy: 1)
         let hexColor = String(hex[start...])
-        
+
         if hexColor.count == 8 {
             let scanner = Scanner(string: hexColor)
             var hexNumber: UInt64 = 0

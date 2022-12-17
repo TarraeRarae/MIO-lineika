@@ -22,16 +22,29 @@ final class MainViewController: BaseController {
     private let tableView: UITableView
 
     // MARK: - Initializers
+
     init(viewModel: MainViewModelProtocol) {
         self.viewModel = viewModel
         self.tableView = UITableView(frame: .zero, style: .grouped)
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
         commonInit()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyTheme()
+    }
+
+    override func applyTheme() {
+        view.backgroundColor = DesignManager.shared.theme.color(.background(.main))
     }
 }
 
@@ -42,6 +55,7 @@ private extension MainViewController {
     func commonInit() {
         setupSubviews()
         setupLayouts()
+        setupTableView()
     }
 
     func setupSubviews() {
@@ -58,11 +72,10 @@ private extension MainViewController {
     }
 
     func setupTableView() {
-//        tableView.register(CellClass.self, forCellReuseIdentifier: "reuseID")
-        tableView.separatorColor = .clear
+        tableView.register(RadiobuttonCell.self, forCellReuseIdentifier: RadiobuttonCell.cellId)
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.dataSource = self
-        tableView.delegate = self
     }
 }
 
@@ -75,18 +88,18 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cellModel = viewModel.cellFor(indexPath: indexPath),
-              let configurableCell = tableView.dequeueReusableCell(
-                withIdentifier: cellModel.cellId,
-                for: indexPath
-              ) as? ConfigurableItem
+        guard let cellModel = viewModel.cellViewModelFor(indexPath: indexPath)
         else {
             fatalError("Unexpected error for \(indexPath) in MainViewController (cell doesn't exist")
         }
 
-        guard let cell = configurableCell as? UITableViewCell else {
-            fatalError("Unexpected error for \(indexPath) in MainViewController (cast failed)")
-        }
+        let cell = tableView.dequeueReusableCell(
+          withIdentifier: cellModel.cellId,
+          for: indexPath
+        )
+        cell.selectionStyle = .none
+
+        cellModel.configure(cell)
 
         return cell
     }
@@ -96,7 +109,18 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != 0 { return nil }
+
+        return nil // TODO: Add section header
+    }
+}
+
+// MARK: - MainViewModelDelegate
+
+extension MainViewController: MainViewModelDelegate {
+
+    func reloadData() {
+        tableView.reloadData()
     }
 }

@@ -8,12 +8,13 @@
 import UIKit
 import SnapKit
 
-final class RadiobuttonCell: UITableViewCell {
+final class RadiobuttonCell: TableViewCell {
 
     // MARK: - Constants
 
     private enum Constants {
         static let cellId = String(describing: RadiobuttonCell.self)
+        static let cornerRadius: CGFloat = 30
 
         enum Radiobutton {
             static let size = CGSize(width: 16, height: 16)
@@ -44,13 +45,13 @@ final class RadiobuttonCell: UITableViewCell {
         return label
     }()
 
-    private var isEnabled: Bool = false {
+    private var isCellSelected: Bool = false {
         didSet {
-            if isEnabled {
+            if isCellSelected {
                 radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
                 return
             }
-            radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
+            radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
         }
     }
 
@@ -74,9 +75,33 @@ final class RadiobuttonCell: UITableViewCell {
 
     // MARK: - Internal methods
 
+    override func configure(_ params: Any) {
+        guard let configuration = params as? Configuration else {
+            return
+        }
+
+        uniqueId = configuration.uniqueId
+        titleLabel.text = configuration.title
+        isCellSelected = configuration.isCellSelected
+        selectionAction = configuration.selectionAction
+        switch configuration.roundCornersStyle {
+        case .top:
+            layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            layer.cornerRadius = Constants.cornerRadius
+        case .bottom:
+            layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+            layer.cornerRadius = Constants.cornerRadius
+        case .full:
+            layer.cornerRadius = Constants.cornerRadius
+        case .none:
+            break
+        }
+    }
+
     func didSelect(indexPath: IndexPath) {
         guard let uuid = uniqueId else { return }
 
+        isCellSelected = true
         selectionAction?(uuid)
     }
 }
@@ -113,43 +138,55 @@ private extension RadiobuttonCell {
     }
 
     func applyTheme() {
+        contentView.backgroundColor = .clear
+        backgroundColor = DesignManager.shared.theme.color(.background(.tableCell))
         titleLabel.textColor = DesignManager.shared.theme.color(.text(.primary))
     }
 }
-
-// MARK: - ConfigurableItem
-
-extension RadiobuttonCell: ConfigurableItem {
-
-    func configure(_ params: Any) {
-        guard let configuration = params as? Configuration else {
-            return
-        }
-
-        uniqueId = configuration.uniqueId
-        titleLabel.text = configuration.title
-        isEnabled = configuration.isEnabled
-        selectionAction = configuration.selectionAction
-    }
-}
-
 
 // MARK: - Configuration
 
 extension RadiobuttonCell {
 
-    struct Configuration {
+    struct Configuration: CellModelProtocol {
+
+        enum RoundCornersStyle {
+            case top
+            case bottom
+            case full
+            case none
+        }
+
+        typealias CellType = RadiobuttonCell.Type
+
+        /// Тип ячейки для конфигурации
+        let cellType: CellType = RadiobuttonCell.self
 
         /// Уникальный идентификатор ячейки
         let uniqueId = UUID()
 
         /// Состояние radiobutton
-        let isEnabled: Bool
+        var isCellSelected: Bool
 
         /// Текст справа от кнопки
         let title: String
 
+        /// Стиль скругления углов
+        let roundCornersStyle: RoundCornersStyle
+
         /// Замыкание при выборе ячейки
         let selectionAction: (UUID) -> Void
+
+        init(
+            isEnabled: Bool = false,
+            title: String,
+            roundCornersStyle: RoundCornersStyle = .none,
+            selectionAction: @escaping (UUID) -> Void
+        ) {
+            self.isCellSelected = isEnabled
+            self.title = title
+            self.roundCornersStyle = roundCornersStyle
+            self.selectionAction = selectionAction
+        }
     }
 }
