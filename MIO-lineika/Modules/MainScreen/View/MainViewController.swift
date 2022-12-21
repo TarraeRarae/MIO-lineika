@@ -56,6 +56,7 @@ private extension MainViewController {
         setupSubviews()
         setupLayouts()
         setupTableView()
+        setupGestures()
     }
 
     func setupSubviews() {
@@ -72,11 +73,13 @@ private extension MainViewController {
     }
 
     func setupTableView() {
+        tableView.showsVerticalScrollIndicator = false
+
         tableView.registerCells(
             RadiobuttonTableCellViewModel.self,
             TitleTableCellViewModel.self,
             DividerTableCellViewModel.self,
-            TextFieldTableCellViewModel.self,
+            VariablesAndConstraintsTableCellViewModel.self,
             ButtonTableCellViewModel.self
         )
 
@@ -84,6 +87,17 @@ private extension MainViewController {
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    func setupGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc
+    func viewDidTap() {
+        view.endEditing(true)
     }
 }
 
@@ -115,9 +129,7 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section != 0 { return nil }
-
-        return nil // TODO: Add section header
+        return viewModel.headerFor(section: section)
     }
 }
 
@@ -127,5 +139,18 @@ extension MainViewController: MainViewModelDelegate {
 
     func reloadData() {
         tableView.reloadData()
+    }
+
+    func showAlert(title: String, description: String?) {
+        let alert = UIAlertController(
+            title: title,
+            message: description,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: L10n.Alert.Action.ok, style: .default)
+        alert.addAction(okAction)
+
+        present(alert, animated: true)
     }
 }

@@ -19,6 +19,8 @@ class LighTheme: Theme {
                 return UIColor(hex: "#FFFFFFFF")
             case .divider:
                 return UIColor(hex: "#FD79A866")
+            case .textFieldBorder:
+                return UIColor(hex: "#727272FF")
             }
 
         case .text(let textColor):
@@ -27,6 +29,8 @@ class LighTheme: Theme {
                 return UIColor(hex: "#2D2031FF")
             case .secondary:
                 return UIColor(hex: "#A5A0A6FF")
+            case .error:
+                return UIColor(hex: "#ED4337FF")
             }
         case .mainButton(let buttonColor):
             switch buttonColor {

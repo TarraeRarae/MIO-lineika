@@ -11,6 +11,8 @@ final class ButtonTableCellViewModel {
 
     // MARK: - Private properties
 
+    private var cell: ButtonTableCell?
+
     private let model: ButtonTableCell.Configuration
 
     // MARK: - Initializers
@@ -26,5 +28,15 @@ extension ButtonTableCellViewModel: TableCellViewModelProtocol {
 
     func configure(_ cell: ButtonTableCell) {
         cell.configure(model)
+        self.cell = cell
+    }
+}
+
+// MARK: - ButtonTableCellViewModelInput
+
+extension ButtonTableCellViewModel: ButtonTableCellViewModelInput {
+
+    func setIsButtonEnabled(state: Bool) {
+        cell?.setIsButtonEnabled(state: state)
     }
 }

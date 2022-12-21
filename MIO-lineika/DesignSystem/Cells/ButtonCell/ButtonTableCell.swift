@@ -59,6 +59,12 @@ final class ButtonTableCell: TableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+
+    // MARK: - Internal properties
+
+    func setIsButtonEnabled(state: Bool) {
+        button.setButtonEnabledState(state: state)
+    }
 }
 
 // MARK: - Private methods

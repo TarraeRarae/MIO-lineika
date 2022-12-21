@@ -10,9 +10,31 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Alert {
+    internal enum Action {
+      /// ОК
+      internal static let ok = L10n.tr("Localize", "Alert.action.ok", fallback: "ОК")
+    }
+  }
   internal enum App {
     /// МИО-Линейка
     internal static let title = L10n.tr("Localize", "App.title", fallback: "МИО-Линейка")
+  }
+  internal enum Error {
+    /// Ошибка
+    internal static let title = L10n.tr("Localize", "Error.title", fallback: "Ошибка")
+    internal enum Constraints {
+      /// Максимально допустимое число ограничений равно 3
+      internal static let maxThree = L10n.tr("Localize", "Error.constraints.maxThree", fallback: "Максимально допустимое число ограничений равно 3")
+    }
+    internal enum TextField {
+      /// Вы можете ввести только одну цифру 2 или 3
+      internal static let onlyNumbers = L10n.tr("Localize", "Error.textField.onlyNumbers", fallback: "Вы можете ввести только одну цифру 2 или 3")
+    }
+    internal enum Variables {
+      /// Максимально допустимое число переменных равно 3
+      internal static let maxThree = L10n.tr("Localize", "Error.variables.maxThree", fallback: "Максимально допустимое число переменных равно 3")
+    }
   }
   internal enum MainButton {
     internal enum Conclusion {
@@ -22,6 +44,14 @@ internal enum L10n {
     internal enum Onward {
       /// Далее
       internal static let title = L10n.tr("Localize", "MainButton.onward.title", fallback: "Далее")
+    }
+  }
+  internal enum MainScreen {
+    internal enum Header {
+      /// Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.
+      internal static let subtitle = L10n.tr("Localize", "MainScreen.Header.subtitle", fallback: "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.")
+      /// Решение задач линейного программирования
+      internal static let title = L10n.tr("Localize", "MainScreen.Header.title", fallback: "Решение задач линейного программирования")
     }
   }
   internal enum Methods {

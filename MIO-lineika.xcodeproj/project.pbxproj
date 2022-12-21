@@ -19,7 +19,7 @@
 		8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162400294DFF720068744D /* UITableView+Extension.swift */; };
 		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
 		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
-		8A162409294E18460068744D /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* TextFieldTableCell.swift */; };
+		8A162409294E18460068744D /* VariablesAndConstraintsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */; };
 		8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75A295274D500EA18C6 /* MainButton.swift */; };
 		8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
@@ -42,9 +42,14 @@
 		8AF8C872295380C3007246E2 /* TitleTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C871295380C3007246E2 /* TitleTableCellViewModel.swift */; };
 		8AF8C87529538181007246E2 /* DividerTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C87429538181007246E2 /* DividerTableCellViewModel.swift */; };
 		8AF8C877295381D6007246E2 /* RadiobuttonCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C876295381D6007246E2 /* RadiobuttonCellProtocols.swift */; };
-		8AF8C87A295382BE007246E2 /* TextFieldTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C879295382BE007246E2 /* TextFieldTableCellViewModel.swift */; };
-		8AF8C87C295382D0007246E2 /* TextFieldCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C87B295382D0007246E2 /* TextFieldCellProtocols.swift */; };
+		8AF8C87A295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C879295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift */; };
+		8AF8C87C295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C87B295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift */; };
 		8AF8C87F29538358007246E2 /* ButtonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C87E29538358007246E2 /* ButtonTableCellViewModel.swift */; };
+		8AF8C88129538BA7007246E2 /* BottomLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C88029538BA7007246E2 /* BottomLineTextField.swift */; };
+		8AF8C883295399A4007246E2 /* MainScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C882295399A4007246E2 /* MainScreenAssembly.swift */; };
+		8AF8C8852953AB59007246E2 /* ButtonCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C8842953AB59007246E2 /* ButtonCellProtocols.swift */; };
+		8AF8C88A2953B074007246E2 /* TitleTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C8892953B074007246E2 /* TitleTableHeader.swift */; };
+		8AF8C88E2953B2F0007246E2 /* TableHeaderConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */; };
 		D8A092C90C716E8849F098A6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +66,7 @@
 		8A162400294DFF720068744D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
-		8A162408294E18460068744D /* TextFieldTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
+		8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesAndConstraintsTableCell.swift; sourceTree = "<group>"; };
 		8A49B75A295274D500EA18C6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCellViewModel.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
@@ -86,9 +91,14 @@
 		8AF8C871295380C3007246E2 /* TitleTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableCellViewModel.swift; sourceTree = "<group>"; };
 		8AF8C87429538181007246E2 /* DividerTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCellViewModel.swift; sourceTree = "<group>"; };
 		8AF8C876295381D6007246E2 /* RadiobuttonCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonCellProtocols.swift; sourceTree = "<group>"; };
-		8AF8C879295382BE007246E2 /* TextFieldTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableCellViewModel.swift; sourceTree = "<group>"; };
-		8AF8C87B295382D0007246E2 /* TextFieldCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCellProtocols.swift; sourceTree = "<group>"; };
+		8AF8C879295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesAndConstraintsTableCellViewModel.swift; sourceTree = "<group>"; };
+		8AF8C87B295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesAndConstraintsCellProtocols.swift; sourceTree = "<group>"; };
 		8AF8C87E29538358007246E2 /* ButtonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCellViewModel.swift; sourceTree = "<group>"; };
+		8AF8C88029538BA7007246E2 /* BottomLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLineTextField.swift; sourceTree = "<group>"; };
+		8AF8C882295399A4007246E2 /* MainScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenAssembly.swift; sourceTree = "<group>"; };
+		8AF8C8842953AB59007246E2 /* ButtonCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellProtocols.swift; sourceTree = "<group>"; };
+		8AF8C8892953B074007246E2 /* TitleTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableHeader.swift; sourceTree = "<group>"; };
+		8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderConstructor.swift; sourceTree = "<group>"; };
 		CC19E05BC1C01E5DCE7A8EA2 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
 		EC375CF9809B23AB1AAEDFCD /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
 		F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +165,7 @@
 			children = (
 				8A1623FD294DF8FB0068744D /* Constructor  */,
 				8AF8C87D2953834A007246E2 /* ButtonCell */,
-				8AF8C878295382A2007246E2 /* TextFieldCell */,
+				8AF8C878295382A2007246E2 /* VariablesAndConstraintsCell */,
 				8AF8C87329538171007246E2 /* DividerCell */,
 				8AF8C870295380A8007246E2 /* TitleCell */,
 				8A49B75C2952816400EA18C6 /* RadiobuttonCell */,
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				8A49B75A295274D500EA18C6 /* MainButton.swift */,
+				8AF8C88029538BA7007246E2 /* BottomLineTextField.swift */,
 			);
 			path = ReusableItems;
 			sourceTree = "<group>";
@@ -192,14 +203,14 @@
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8C8882953B05D007246E2 /* Headers */,
+				8AF8C8872953B04D007246E2 /* Color */,
+				8AF8C8862953B044007246E2 /* Theme */,
 				8AF8C86D29536F78007246E2 /* Base */,
 				8A49B759295274C800EA18C6 /* ReusableItems */,
 				8A1623E7294D17FC0068744D /* Cells */,
 				8AB42B1D294BCE1B00C04DF9 /* Extensions */,
-				8AB42B19294BCD2500C04DF9 /* Theme.swift */,
-				8A162402294E02D20068744D /* LightTheme.swift */,
 				8AB42B20294BCEE500C04DF9 /* SemanticColor.swift */,
-				8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -264,6 +275,7 @@
 		8AD07B52294BBD0F0065E7D8 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8C882295399A4007246E2 /* MainScreenAssembly.swift */,
 				8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */,
 				8AD07B54294BBD1C0065E7D8 /* ViewModel */,
 				8AD07B53294BBD180065E7D8 /* View */,
@@ -319,14 +331,14 @@
 			path = DividerCell;
 			sourceTree = "<group>";
 		};
-		8AF8C878295382A2007246E2 /* TextFieldCell */ = {
+		8AF8C878295382A2007246E2 /* VariablesAndConstraintsCell */ = {
 			isa = PBXGroup;
 			children = (
-				8A162408294E18460068744D /* TextFieldTableCell.swift */,
-				8AF8C879295382BE007246E2 /* TextFieldTableCellViewModel.swift */,
-				8AF8C87B295382D0007246E2 /* TextFieldCellProtocols.swift */,
+				8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */,
+				8AF8C879295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift */,
+				8AF8C87B295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift */,
 			);
-			path = TextFieldCell;
+			path = VariablesAndConstraintsCell;
 			sourceTree = "<group>";
 		};
 		8AF8C87D2953834A007246E2 /* ButtonCell */ = {
@@ -334,8 +346,51 @@
 			children = (
 				8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */,
 				8AF8C87E29538358007246E2 /* ButtonTableCellViewModel.swift */,
+				8AF8C8842953AB59007246E2 /* ButtonCellProtocols.swift */,
 			);
 			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		8AF8C8862953B044007246E2 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B19294BCD2500C04DF9 /* Theme.swift */,
+				8A162402294E02D20068744D /* LightTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		8AF8C8872953B04D007246E2 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		8AF8C8882953B05D007246E2 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8C88C2953B2E3007246E2 /* Constructor */,
+				8AF8C88B2953B2DD007246E2 /* TitleTableHeader */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		8AF8C88B2953B2DD007246E2 /* TitleTableHeader */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8C8892953B074007246E2 /* TitleTableHeader.swift */,
+			);
+			path = TitleTableHeader;
+			sourceTree = "<group>";
+		};
+		8AF8C88C2953B2E3007246E2 /* Constructor */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */,
+			);
+			path = Constructor;
 			sourceTree = "<group>";
 		};
 		8B8ED28B7D94D74F78DE0970 /* Frameworks */ = {
@@ -493,11 +548,13 @@
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
-				8A162409294E18460068744D /* TextFieldTableCell.swift in Sources */,
+				8A162409294E18460068744D /* VariablesAndConstraintsTableCell.swift in Sources */,
 				8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */,
 				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
+				8AF8C88A2953B074007246E2 /* TitleTableHeader.swift in Sources */,
 				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
 				8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */,
+				8AF8C8852953AB59007246E2 /* ButtonCellProtocols.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
 				8AF8C877295381D6007246E2 /* RadiobuttonCellProtocols.swift in Sources */,
 				8A1623F8294DE2490068744D /* Settings.swift in Sources */,
@@ -509,10 +566,12 @@
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
+				8AF8C88E2953B2F0007246E2 /* TableHeaderConstructor.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
 				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
-				8AF8C87A295382BE007246E2 /* TextFieldTableCellViewModel.swift in Sources */,
+				8AF8C87A295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift in Sources */,
+				8AF8C88129538BA7007246E2 /* BottomLineTextField.swift in Sources */,
 				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
 				8AB42B2D294BD98900C04DF9 /* RadiobuttonTableCell.swift in Sources */,
@@ -521,9 +580,10 @@
 				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
 				8AF8C86C29536F62007246E2 /* Reusable.swift in Sources */,
 				8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */,
+				8AF8C883295399A4007246E2 /* MainScreenAssembly.swift in Sources */,
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 				8AF8C87F29538358007246E2 /* ButtonTableCellViewModel.swift in Sources */,
-				8AF8C87C295382D0007246E2 /* TextFieldCellProtocols.swift in Sources */,
+				8AF8C87C295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

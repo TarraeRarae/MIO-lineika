@@ -36,10 +36,22 @@ final class MainButton: UIButton {
     func setButtonEnabledState(state: Bool) {
         isEnabled = state
         if isEnabled {
-            backgroundColor = DesignManager.shared.theme[.mainButton(.enabled)]
+            UIView.transition(
+                with: self,
+                duration: 0.2,
+                options: .transitionCrossDissolve
+            ) { [weak self] in
+                self?.backgroundColor = DesignManager.shared.theme[.mainButton(.enabled)]
+            }
             return
         }
-        backgroundColor = DesignManager.shared.theme[.mainButton(.disabled)]
+        UIView.transition(
+            with: self,
+            duration: 0.2,
+            options: .transitionCrossDissolve
+        ) { [weak self] in
+            self?.backgroundColor = DesignManager.shared.theme[.mainButton(.disabled)]
+        }
     }
 }
 

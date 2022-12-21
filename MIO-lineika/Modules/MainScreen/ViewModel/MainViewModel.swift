@@ -9,15 +9,22 @@ import UIKit
 
 // MARK: - Protocols
 
+enum MainViewModelRoute {
+    case toMethodConfiguration
+}
+
 protocol MainViewModelProtocol: AnyObject {
     var delegate: MainViewModelDelegate? { get set }
+    var route: (MainViewModelRoute) -> Void { get set }
 
     func numberOfRows(in section: Int) -> Int
     func cellViewModelFor(indexPath: IndexPath) -> AnyTableViewCellModelProtocol?
+    func headerFor(section: Int) -> UIView?
 }
 
 protocol MainViewModelDelegate: AnyObject {
     func reloadData()
+    func showAlert(title: String, description: String?)
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -25,6 +32,8 @@ final class MainViewModel: MainViewModelProtocol {
     // MARK: - Internal properties
 
     weak var delegate: MainViewModelDelegate?
+
+    var route: (MainViewModelRoute) -> Void = { _ in }
 
     // MARK: - Private properties
 
@@ -38,20 +47,32 @@ final class MainViewModel: MainViewModelProtocol {
         optimization: nil,
         variables: 0,
         constraints: 0
-    )
+    ) {
+        didSet {
+            if validateSelectedSettings() {
+                setMainButtonIsEnabled(state: true)
+                return
+            }
+            setMainButtonIsEnabled(state: false)
+        }
+    }
 
     private var cellViewModels = [AnyTableViewCellModelProtocol]()
 
-    private var methodsCellModels = [AnyTableViewCellModelProtocol]()
+    private var methodsCellViewModels = [AnyTableViewCellModelProtocol]()
 
-    private var settingsCellModel = [AnyTableViewCellModelProtocol]()
+    private var settingsCellViewModels = [AnyTableViewCellModelProtocol]()
 
-    private var optimizationsCellModels = [AnyTableViewCellModelProtocol]()
+    private var optimizationsCellViewModels = [AnyTableViewCellModelProtocol]()
+
+    private var mainButtonCellViewModel: AnyTableViewCellModelProtocol?
+
+    private var headers = [UIView]()
 
     // MARK: - Initializers
 
     init() {
-        setupCellModels()
+        commonInit()
     }
 
     // MARK: - Internal methods
@@ -65,11 +86,21 @@ final class MainViewModel: MainViewModelProtocol {
         if indexPath.section != 0 { return nil }
         return indexPath.row <= cellViewModels.count ? cellViewModels[indexPath.row] : nil
     }
+
+    func headerFor(section: Int) -> UIView? {
+        if section > headers.count { return nil }
+        return headers[section]
+    }
 }
 
 // MARK: - Private methods
 
 private extension MainViewModel {
+
+    func commonInit() {
+        setupCellModels()
+        setupHeaders()
+    }
 
     func setupCellModels() {
         let methodsTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
@@ -77,7 +108,7 @@ private extension MainViewModel {
             roundCornersStyle: .top
         )
     
-        methodsCellModels = [
+        methodsCellViewModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.graphic),
                 delegate: self
@@ -104,7 +135,7 @@ private extension MainViewModel {
             title: L10n.Optimizations.title
         )
 
-        optimizationsCellModels = [
+        optimizationsCellViewModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.max),
                 delegate: self
@@ -115,32 +146,64 @@ private extension MainViewModel {
             )
         ]
 
-        settingsCellModel = [
+        settingsCellViewModels = [
             TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
-                configurableSetting: .variables(value: selectedSettings.variables)
+                configurableSetting: .variables(value: selectedSettings.variables),
+                delegate: self
             ),
             TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
-                configurableSetting: .constraints(value: selectedSettings.constraints)
+                configurableSetting: .constraints(value: selectedSettings.constraints),
+                delegate: self
             )
         ]
 
         let buttonCellViewModel = TableCellViewModelConstructor.shared.makeButtonCellViewModel(
             buttonType: .onward,
-            isEnabled: true,
+            isEnabled: false,
             roundCornersStyle: .bottom
-        )
+        ) {
+            self.route(.toMethodConfiguration)
+        }
+
+        mainButtonCellViewModel = buttonCellViewModel
 
         let dividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel()
     
-        cellViewModels = [methodsTitleCell] + methodsCellModels + [dividerCellModel]
+        cellViewModels = [methodsTitleCell] + methodsCellViewModels + [dividerCellModel]
 
-        cellViewModels += settingsCellModel + [dividerCellModel]
+        cellViewModels += settingsCellViewModels + [dividerCellModel]
 
-        cellViewModels += [optimizationTitleCell] + optimizationsCellModels
+        cellViewModels += [optimizationTitleCell] + optimizationsCellViewModels
 
         cellViewModels += [buttonCellViewModel]
 
         delegate?.reloadData()
+    }
+
+    func setupHeaders() {
+        let titleTableHeader = TableHeaderConstructor.shared.makeTitleTableHeader(
+            title: L10n.MainScreen.Header.title,
+            subtitle: L10n.MainScreen.Header.subtitle
+        )
+
+        headers.append(titleTableHeader)
+    }
+
+    func validateSelectedSettings() -> Bool {
+        if (2...3).contains(selectedSettings.variables) &&
+           (2...3).contains(selectedSettings.constraints) &&
+           selectedSettings.method != nil &&
+           selectedSettings.optimization != nil {
+            return true
+        }
+
+        return false
+    }
+
+    func setMainButtonIsEnabled(state: Bool) {
+        guard let buttonViewModel = mainButtonCellViewModel as? ButtonTableCellViewModelInput
+            else { return }
+        buttonViewModel.setIsButtonEnabled(state: state)
     }
 }
 
@@ -149,12 +212,13 @@ private extension MainViewModel {
 private extension MainViewModel {
 
     func methodDidSelect(with uniqueId: UUID, method: MethodType) {
-        for model in methodsCellModels {
+        for model in methodsCellViewModels {
             guard let radioButtonCellModel = model as? RadiobuttonCellViewModelInput
             else { continue }
 
             if radioButtonCellModel.uniqueId != uniqueId {
                 radioButtonCellModel.deselectCell()
+                continue
             }
 
             selectedSettings.method = method
@@ -162,20 +226,21 @@ private extension MainViewModel {
     }
 
     func optimizationDidSelect(with uniqueId: UUID, optimization: OptimizationType) {
-        for model in optimizationsCellModels {
+        for model in optimizationsCellViewModels {
             guard let radioButtonCellModel = model as? RadiobuttonCellViewModelInput
             else { continue }
 
             if radioButtonCellModel.uniqueId != uniqueId {
                 radioButtonCellModel.deselectCell()
+                continue
             }
 
             selectedSettings.optimization = optimization
         }
     }
-
-    func settingCellDidEdit(with value: Int, for uuid: UUID) {}
 }
+
+// MARK: - RadiobuttonCellViewModelDelegate
 
 extension MainViewModel: RadiobuttonCellViewModelDelegate {
 
@@ -189,5 +254,23 @@ extension MainViewModel: RadiobuttonCellViewModelDelegate {
         case .optimization(let optimizationType):
             optimizationDidSelect(with: uniquedId, optimization: optimizationType)
         }
+    }
+}
+
+// MARK: - VariablesAndConstraintsTableCellViewModelDelegate
+
+extension MainViewModel: VariablesAndConstraintsTableCellViewModelDelegate {
+
+    func valueDidChange(for setting: VariableConstraintsSettingsType, with value: Int) {
+        switch setting {
+        case .variables:
+            selectedSettings.variables = value
+        case .constraints:
+            selectedSettings.constraints = value
+        }
+    }
+    
+    func showAlert(title: String, description: String?) {
+        delegate?.showAlert(title: title, description: description)
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TextFieldTableCell: TableViewCell {
+final class VariablesAndConstraintsTableCell: TableViewCell {
 
     // MARK: - Constants
 
@@ -26,7 +26,13 @@ final class TextFieldTableCell: TableViewCell {
         }
     }
 
+    // MARK: - Internal properties
+
+    var viewModel: VariablesAndConstraintsTableCellViewModelOutput?
+    
     // MARK: - Private properties
+
+    private let textField = BottomLineTextField()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -34,14 +40,6 @@ final class TextFieldTableCell: TableViewCell {
         label.backgroundColor = .clear
         return label
     }()
-
-    private let textField: UITextField = {
-        let textField = UITextField()
-        textField.keyboardType = .numberPad
-        return textField
-    }()
-
-    private var uniqueId: UUID?
 
     // MARK: - Initializers
 
@@ -76,14 +74,19 @@ final class TextFieldTableCell: TableViewCell {
         guard let configuration = params as? Configuration
         else { return }
 
-        titleLabel.text = configuration.configurableSetting.title
+        var textFieldText = ""
 
         switch configuration.configurableSetting {
         case .variables(let value):
-            textField.text = String(value)
+            textFieldText = String(value)
         case .constraints(let value):
-            textField.text = String(value)
+            textFieldText = String(value)
         }
+
+        let textFieldModel = BottomLineTextField.Configuration(text: textFieldText)
+        textField.configure(textFieldModel)
+
+        titleLabel.text = configuration.configurableSetting.title
 
         switch configuration.roundCornersStyle {
         case .top:
@@ -102,7 +105,7 @@ final class TextFieldTableCell: TableViewCell {
 
 // MARK: - Private methods
 
-private extension TextFieldTableCell {
+private extension VariablesAndConstraintsTableCell {
 
     func commonInit() {
         setupSubviews()
@@ -111,6 +114,7 @@ private extension TextFieldTableCell {
     }
 
     func setupSubviews() {
+        textField.delegate = self
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
     }
@@ -142,7 +146,7 @@ private extension TextFieldTableCell {
 
 // MARK: - Configuration
 
-extension TextFieldTableCell {
+extension VariablesAndConstraintsTableCell {
 
     struct Configuration {
 
@@ -152,12 +156,6 @@ extension TextFieldTableCell {
             case full
             case none
         }
-
-        /// Уникальный идентификатор ячейки
-        let uniqueId = UUID()
-
-        /// Тип ячейки для конфигурации
-        let cellType = TextFieldTableCell.self
 
         /// Конфигурируемая настройка
         let configurableSetting: VariableConstraintsSettingsType
@@ -177,18 +175,40 @@ extension TextFieldTableCell {
 
 // MARK: - UITextFieldDelegate
 
-extension TextFieldTableCell: UITextFieldDelegate {
+extension VariablesAndConstraintsTableCell: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.text = ""
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if let result = viewModel?.valueDidChange(text: text),
+           !result.0 {
+            textField.textColor = DesignManager.shared.theme[.text(.error)]
+            viewModel?.showAlert(title: L10n.Error.title, description: result.1)
+            return
+        }
+
+        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+    }
 
     func textField(
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        guard let uniqueId = uniqueId,
-              let text = textField.text,
-              let value = Int(text)
-        else { return false }
+        let maxLength = 1
+        let currentString = (textField.text ?? "") as NSString
+        let newString = currentString.replacingCharacters(in: range, with: string)
 
-        return true
+        return newString.count <= maxLength
     }
 }

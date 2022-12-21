@@ -9,7 +9,11 @@ import UIKit
 
 final class TableCellViewModelConstructor {
 
+    // MARK: - Static properties
+
     static let shared = TableCellViewModelConstructor()
+
+    // MARK: - Internal properties
 
     func makeRadiobuttonCellViewModel(
         configurableSetting: RadiobuttonTableCell.Configuration.ConfigurableSetting,
@@ -50,13 +54,17 @@ final class TableCellViewModelConstructor {
     }
 
     func makeTextFieldCellViewModel(
-        configurableSetting: VariableConstraintsSettingsType
-    ) -> TextFieldTableCellViewModel {
-        let configuration = TextFieldTableCell.Configuration(
+        configurableSetting: VariableConstraintsSettingsType,
+        delegate: VariablesAndConstraintsTableCellViewModelDelegate? = nil
+    ) -> VariablesAndConstraintsTableCellViewModel {
+        let configuration = VariablesAndConstraintsTableCell.Configuration(
             configurableSetting: configurableSetting
         )
 
-        return TextFieldTableCellViewModel(model: configuration)
+        let viewModel = VariablesAndConstraintsTableCellViewModel(model: configuration)
+        viewModel.delegate = delegate
+
+        return viewModel
     }
 
     func makeButtonCellViewModel(
