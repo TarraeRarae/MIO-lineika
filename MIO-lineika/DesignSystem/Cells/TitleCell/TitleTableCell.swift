@@ -116,7 +116,7 @@ private extension TitleTableCell {
 
 extension TitleTableCell {
 
-    struct Configuration: CellModelProtocol {
+    struct Configuration {
 
         enum RoundCornersStyle {
             case top
@@ -124,12 +124,6 @@ extension TitleTableCell {
             case full
             case none
         }
-
-        /// Уникальный идентификатор ячейки
-        let uniqueId = UUID()
-
-        /// Тип ячейки для конфигурации
-        let cellType = TitleTableCell.self
 
         /// Отображаемый текст
         let title: String

@@ -8,5 +8,6 @@
 import UIKit
 
 class TableViewCell: UITableViewCell, ConfigurableItem {
+    
     func configure(_ params: Any) {}
 }

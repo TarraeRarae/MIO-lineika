@@ -14,6 +14,16 @@ internal enum L10n {
     /// МИО-Линейка
     internal static let title = L10n.tr("Localize", "App.title", fallback: "МИО-Линейка")
   }
+  internal enum MainButton {
+    internal enum Conclusion {
+      /// Решение
+      internal static let title = L10n.tr("Localize", "MainButton.conclusion.title", fallback: "Решение")
+    }
+    internal enum Onward {
+      /// Далее
+      internal static let title = L10n.tr("Localize", "MainButton.onward.title", fallback: "Далее")
+    }
+  }
   internal enum Methods {
     /// Метод решения
     internal static let title = L10n.tr("Localize", "Methods.title", fallback: "Метод решения")

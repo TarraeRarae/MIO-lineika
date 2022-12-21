@@ -20,6 +20,12 @@ enum SemanticColor {
         case secondary
     }
 
+    enum MainButtonColor {
+        case enabled
+        case disabled
+    }
+
     case background(BackgroundColor)
     case text(TextColor)
+    case mainButton(MainButtonColor)
 }

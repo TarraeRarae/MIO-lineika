@@ -28,6 +28,10 @@ final class RadiobuttonTableCell: TableViewCell {
         }
     }
 
+    // MARK: - Internal properties
+
+    var viewModel: RadiobuttonCellViewModelOutput?
+
     // MARK: - Private properties
 
     private let radiobuttonImage: UIImageView = {
@@ -44,9 +48,27 @@ final class RadiobuttonTableCell: TableViewCell {
         return label
     }()
 
-    var uniqueId: UUID?
-
-    private var selectionAction: ((UUID) -> Void)?
+    private var isRadiobuttonSelected: Bool = false {
+        didSet {
+            if isRadiobuttonSelected {
+                UIView.transition(
+                    with: radiobuttonImage,
+                    duration: 0.2,
+                    options: .transitionCrossDissolve
+                ) { [weak self] in
+                    self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
+                }
+                return
+            }
+            UIView.transition(
+                with: radiobuttonImage,
+                duration: 0.2,
+                options: .transitionCrossDissolve
+            ) { [weak self] in
+                self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
+            }
+        }
+    }
 
     private var isEnabled: Bool = true {
         didSet {
@@ -92,8 +114,6 @@ final class RadiobuttonTableCell: TableViewCell {
             return
         }
 
-        uniqueId = configuration.uniqueId
-
         switch configuration.configurableSetting {
         case .method(let method):
             titleLabel.text = method.title
@@ -103,9 +123,7 @@ final class RadiobuttonTableCell: TableViewCell {
 
         isEnabled = configuration.isEnabled
 
-        setCellSelected(configuration.isCellSelected)
-
-        selectionAction = configuration.selectionAction
+        setCellSelected(configuration.isRadiobuttonSelected)
 
         switch configuration.roundCornersStyle {
         case .top:
@@ -123,25 +141,9 @@ final class RadiobuttonTableCell: TableViewCell {
 
     // MARK: - Internal methods
 
-    func setCellSelected(_ isSelected: Bool) {
-        if !isEnabled { return }
-        if isSelected {
-            UIView.transition(
-                with: radiobuttonImage,
-                duration: 0.2,
-                options: .transitionCrossDissolve
-            ) { [weak self] in
-                self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonEnabled.image
-            }
-            return
-        }
-        UIView.transition(
-            with: radiobuttonImage,
-            duration: 0.2,
-            options: .transitionCrossDissolve
-        ) { [weak self] in
-            self?.radiobuttonImage.image = Asset.Radiobutton.radiobuttonDisabled.image
-        }
+    func setCellSelected(_ isSelected: Bool = true) {
+        if !isEnabled || (!isSelected && !isRadiobuttonSelected) { return }
+        isRadiobuttonSelected = isSelected
     }
 }
 
@@ -193,10 +195,10 @@ private extension RadiobuttonTableCell {
 
     @objc
     func cellDidSelect() {
-        guard let uuid = uniqueId, isEnabled
-        else { return }
+        if isRadiobuttonSelected { return }
 
-        selectionAction?(uuid)
+        setCellSelected()
+        viewModel?.radiobuttonDidSelect()
     }
 }
 
@@ -204,7 +206,7 @@ private extension RadiobuttonTableCell {
 
 extension RadiobuttonTableCell {
 
-    struct Configuration: CellModelProtocol {
+    struct Configuration {
 
         enum RoundCornersStyle {
             case top
@@ -218,39 +220,31 @@ extension RadiobuttonTableCell {
             case optimization(OptimizationType)
         }
 
-        /// Тип ячейки для конфигурации
-        let cellType = RadiobuttonTableCell.self
-
-        /// Уникальный идентификатор ячейки
+        /// Уникальный идентификатор модели ячейки
         let uniqueId = UUID()
 
         /// Настройка, за которую отвечает ячейка
         var configurableSetting: ConfigurableSetting
 
         /// Состояние radiobutton
-        var isCellSelected: Bool
+        var isRadiobuttonSelected: Bool
 
-        ///
+        /// Состояние ячейки
         let isEnabled: Bool
 
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
 
-        /// Замыкание при выборе ячейки
-        let selectionAction: (UUID) -> Void
-
         init(
             configurableSetting: ConfigurableSetting,
-            isCellSelected: Bool = false,
+            isRadiobuttonSelected: Bool = false,
             isEnabled: Bool,
-            roundCornersStyle: RoundCornersStyle,
-            selectionAction: @escaping (UUID) -> Void
+            roundCornersStyle: RoundCornersStyle
         ) {
             self.configurableSetting = configurableSetting
-            self.isCellSelected = isCellSelected
+            self.isRadiobuttonSelected = isRadiobuttonSelected
             self.isEnabled = isEnabled
             self.roundCornersStyle = roundCornersStyle
-            self.selectionAction = selectionAction
         }
     }
 }

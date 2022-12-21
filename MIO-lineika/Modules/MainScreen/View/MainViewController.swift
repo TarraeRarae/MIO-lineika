@@ -72,14 +72,14 @@ private extension MainViewController {
     }
 
     func setupTableView() {
-        tableView.register(
-            [
-                RadiobuttonTableCell.self,
-                TitleTableCell.self,
-                DividerTableCell.self,
-                TextFieldTableCell.self
-            ]
+        tableView.registerCells(
+            RadiobuttonTableCellViewModel.self,
+            TitleTableCellViewModel.self,
+            DividerTableCellViewModel.self,
+            TextFieldTableCellViewModel.self,
+            ButtonTableCellViewModel.self
         )
+
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.dataSource = self
@@ -101,13 +101,10 @@ extension MainViewController: UITableViewDataSource {
             fatalError("Unexpected error for \(indexPath) in MainViewController (cell doesn't exist")
         }
 
-        let cell = tableView.dequeueReusableCell(
-          withIdentifier: cellModel.cellId,
-          for: indexPath
-        )
+        let cell = tableView.dequeueReusableCell(withModel: cellModel, for: indexPath)
         cell.selectionStyle = .none
 
-        cellModel.configure(cell)
+        cellModel.configureAny(cell)
 
         return cell
     }

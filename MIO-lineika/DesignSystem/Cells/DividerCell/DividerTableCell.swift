@@ -17,7 +17,6 @@ final class DividerTableCell: TableViewCell {
         enum Divider {
             static let height: CGFloat = 1
             static let topOffset: CGFloat = 14
-            
         }
     }
 
@@ -92,17 +91,11 @@ private extension DividerTableCell {
 
 extension DividerTableCell {
 
-    struct Configuration: CellModelProtocol {
+    struct Configuration {
 
         enum DividerStyle {
             case fullWidth
         }
-
-        /// Уникальный индентификатор ячейк
-        let uniqueId = UUID()
-
-        /// Тип ячейки для конфигурации
-        let cellType = DividerTableCell.self
 
         /// Стиль линии-разделителя
         let dividerStyle: DividerStyle

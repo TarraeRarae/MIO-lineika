@@ -15,71 +15,65 @@ final class TableCellViewModelConstructor {
         configurableSetting: RadiobuttonTableCell.Configuration.ConfigurableSetting,
         isEnabled: Bool = true,
         roundCornersStyle: RadiobuttonTableCell.Configuration.RoundCornersStyle = .none,
-        selectionAction: @escaping (UUID) -> Void
-    ) -> TableCellViewModel<
-        RadiobuttonTableCell,
-        RadiobuttonTableCell.Configuration
-    > {
+        delegate: RadiobuttonCellViewModelDelegate? = nil
+    ) -> AnyTableViewCellModelProtocol {
         let configuration = RadiobuttonTableCell.Configuration(
             configurableSetting: configurableSetting,
             isEnabled: isEnabled,
-            roundCornersStyle: roundCornersStyle,
-            selectionAction: selectionAction
+            roundCornersStyle: roundCornersStyle
         )
         
-        return TableCellViewModel<
-            RadiobuttonTableCell,
-            RadiobuttonTableCell.Configuration
-        >(configuration)
+        let viewModel = RadiobuttonTableCellViewModel(model: configuration)
+        viewModel.delegate = delegate
+
+        return viewModel
     }
 
     func makeTitleCellViewModel(
-        with title: String,
+        title: String,
         roundCornersStyle: TitleTableCell.Configuration.RoundCornersStyle = .none
-    ) -> TableCellViewModel<
-        TitleTableCell,
-        TitleTableCell.Configuration
-    > {
+    ) -> TitleTableCellViewModel {
         let configuration = TitleTableCell.Configuration(
             title: title,
             roundCornersStyle: roundCornersStyle
         )
-        
-        return TableCellViewModel<
-            TitleTableCell,
-            TitleTableCell.Configuration
-        >(configuration)
+
+        return TitleTableCellViewModel(model: configuration)
     }
 
     func makeDividerCellViewModel(
         dividerStyle: DividerTableCell.Configuration.DividerStyle = .fullWidth
-    ) -> TableCellViewModel<
-        DividerTableCell,
-        DividerTableCell.Configuration
-    > {
+    ) -> DividerTableCellViewModel {
         let configuration = DividerTableCell.Configuration(dividerStyle: dividerStyle)
 
-        return TableCellViewModel<
-            DividerTableCell,
-            DividerTableCell.Configuration
-        >(configuration)
+        return DividerTableCellViewModel(model: configuration)
     }
 
     func makeTextFieldCellViewModel(
-        configurableSetting: VariableConstraintsSettingsType,
-        editingAction: @escaping (UUID, Int) -> Void
-    ) -> TableCellViewModel<
-        TextFieldTableCell,
-        TextFieldTableCell.Configuration
-    > {
+        configurableSetting: VariableConstraintsSettingsType
+    ) -> TextFieldTableCellViewModel {
         let configuration = TextFieldTableCell.Configuration(
-            configurableSetting: configurableSetting,
-            editingAction: editingAction
+            configurableSetting: configurableSetting
         )
-        
-        return TableCellViewModel<
-            TextFieldTableCell,
-            TextFieldTableCell.Configuration
-        >(configuration)
+
+        return TextFieldTableCellViewModel(model: configuration)
+    }
+
+    func makeButtonCellViewModel(
+        buttonType: MainButton.Configuration.ButtonType,
+        isEnabled: Bool,
+        roundCornersStyle: ButtonTableCell.Configuration.RoundCornersStyle = .none,
+        action: (() -> Void)? = nil
+    ) -> ButtonTableCellViewModel {
+        let configuration = ButtonTableCell.Configuration(
+            buttonConfiguration: MainButton.Configuration(
+                buttonType: buttonType,
+                isEnabled: isEnabled,
+                buttonAction: action
+            ),
+            roundCornersStyle: roundCornersStyle
+        )
+
+        return ButtonTableCellViewModel(model: configuration)
     }
 }

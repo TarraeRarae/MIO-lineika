@@ -43,8 +43,6 @@ final class TextFieldTableCell: TableViewCell {
 
     private var uniqueId: UUID?
 
-    private var editingAction: ((UUID, Int) -> Void)?
-
     // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -146,7 +144,7 @@ private extension TextFieldTableCell {
 
 extension TextFieldTableCell {
 
-    struct Configuration: CellModelProtocol {
+    struct Configuration {
 
         enum RoundCornersStyle {
             case top
@@ -167,17 +165,12 @@ extension TextFieldTableCell {
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
 
-        /// Действие при изменении значения в TextField
-        let editingAction: (UUID, Int) -> Void
-
         init(
             configurableSetting: VariableConstraintsSettingsType,
-            roundCornersStyle: RoundCornersStyle = .none,
-            editingAction: @escaping (UUID, Int) -> Void
+            roundCornersStyle: RoundCornersStyle = .none
         ) {
             self.configurableSetting = configurableSetting
             self.roundCornersStyle = roundCornersStyle
-            self.editingAction = editingAction
         }
     }
 }
@@ -196,7 +189,6 @@ extension TextFieldTableCell: UITextFieldDelegate {
               let value = Int(text)
         else { return false }
 
-        editingAction?(uniqueId, value)
         return true
     }
 }

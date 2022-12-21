@@ -30,8 +30,16 @@ Methods.binarySimplex.title = "Двойственный симплекс-мет�
 
 Optimizations.title = "Вид оптимизации";
 
+
 // MARK: - Variable and constraints settings
 
 VariableConstaints.variables.title = "Количество переменных";
 
 VariableConstaints.constraints.title = "Количество ограничений";
+
+
+// MARK: - MainButton
+
+MainButton.onward.title = "Далее";
+
+MainButton.conclusion.title = "Решение";

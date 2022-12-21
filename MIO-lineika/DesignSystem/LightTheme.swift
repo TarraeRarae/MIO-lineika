@@ -28,6 +28,13 @@ class LighTheme: Theme {
             case .secondary:
                 return UIColor(hex: "#A5A0A6FF")
             }
+        case .mainButton(let buttonColor):
+            switch buttonColor {
+            case .enabled:
+                return UIColor(hex: "#FD79A8FF")
+            case .disabled:
+                return UIColor(hex: "#C5C0C6FF")
+            }
         }
     }
 }
