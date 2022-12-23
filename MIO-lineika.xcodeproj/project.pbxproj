@@ -19,7 +19,7 @@
 		8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162400294DFF720068744D /* UITableView+Extension.swift */; };
 		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
 		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
-		8A162409294E18460068744D /* VariablesAndConstraintsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */; };
+		8A162409294E18460068744D /* VariablesConstraintsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* VariablesConstraintsTableCell.swift */; };
 		8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75A295274D500EA18C6 /* MainButton.swift */; };
 		8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
@@ -50,6 +50,15 @@
 		8AF8C8852953AB59007246E2 /* ButtonCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C8842953AB59007246E2 /* ButtonCellProtocols.swift */; };
 		8AF8C88A2953B074007246E2 /* TitleTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C8892953B074007246E2 /* TitleTableHeader.swift */; };
 		8AF8C88E2953B2F0007246E2 /* TableHeaderConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */; };
+		8AF8C8902953B7E3007246E2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C88F2953B7E3007246E2 /* Fonts.swift */; };
+		8AF8C8AB2953BC02007246E2 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A32953BC02007246E2 /* Nunito-Medium.ttf */; };
+		8AF8C8AC2953BC02007246E2 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A42953BC02007246E2 /* Nunito-ExtraBold.ttf */; };
+		8AF8C8AD2953BC02007246E2 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A52953BC02007246E2 /* Nunito-Light.ttf */; };
+		8AF8C8AE2953BC02007246E2 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A62953BC02007246E2 /* Nunito-Regular.ttf */; };
+		8AF8C8AF2953BC02007246E2 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A72953BC02007246E2 /* Nunito-SemiBold.ttf */; };
+		8AF8C8B02953BC02007246E2 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A82953BC02007246E2 /* Nunito-Bold.ttf */; };
+		8AF8C8B12953BC02007246E2 /* Nunito-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8A92953BC02007246E2 /* Nunito-Black.ttf */; };
+		8AF8C8B22953BC02007246E2 /* Nunito-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8C8AA2953BC02007246E2 /* Nunito-ExtraLight.ttf */; };
 		D8A092C90C716E8849F098A6 /* Pods_MIO_lineika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +75,7 @@
 		8A162400294DFF720068744D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
-		8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesAndConstraintsTableCell.swift; sourceTree = "<group>"; };
+		8A162408294E18460068744D /* VariablesConstraintsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesConstraintsTableCell.swift; sourceTree = "<group>"; };
 		8A49B75A295274D500EA18C6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCellViewModel.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
@@ -99,6 +108,15 @@
 		8AF8C8842953AB59007246E2 /* ButtonCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellProtocols.swift; sourceTree = "<group>"; };
 		8AF8C8892953B074007246E2 /* TitleTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableHeader.swift; sourceTree = "<group>"; };
 		8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderConstructor.swift; sourceTree = "<group>"; };
+		8AF8C88F2953B7E3007246E2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		8AF8C8A32953BC02007246E2 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
+		8AF8C8A42953BC02007246E2 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
+		8AF8C8A52953BC02007246E2 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		8AF8C8A62953BC02007246E2 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		8AF8C8A72953BC02007246E2 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		8AF8C8A82953BC02007246E2 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		8AF8C8A92953BC02007246E2 /* Nunito-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Black.ttf"; sourceTree = "<group>"; };
+		8AF8C8AA2953BC02007246E2 /* Nunito-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraLight.ttf"; sourceTree = "<group>"; };
 		CC19E05BC1C01E5DCE7A8EA2 /* Pods-MIO-lineika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.release.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.release.xcconfig"; sourceTree = "<group>"; };
 		EC375CF9809B23AB1AAEDFCD /* Pods-MIO-lineika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIO-lineika.debug.xcconfig"; path = "Target Support Files/Pods-MIO-lineika/Pods-MIO-lineika.debug.xcconfig"; sourceTree = "<group>"; };
 		F4B124CA2ACD349AA63A5448 /* Pods_MIO_lineika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIO_lineika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +146,7 @@
 		8A093F3D294CFA580088C9A1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8C8A22953BC02007246E2 /* Fonts */,
 				8A093F3F294CFA710088C9A1 /* Localize */,
 				8AD07B46294BB9570065E7D8 /* Assets.xcassets */,
 			);
@@ -137,6 +156,7 @@
 		8A093F3E294CFA5D0088C9A1 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8C88F2953B7E3007246E2 /* Fonts.swift */,
 				8A093F6E294D030C0088C9A1 /* Strings.swift */,
 				8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */,
 			);
@@ -334,7 +354,7 @@
 		8AF8C878295382A2007246E2 /* VariablesAndConstraintsCell */ = {
 			isa = PBXGroup;
 			children = (
-				8A162408294E18460068744D /* VariablesAndConstraintsTableCell.swift */,
+				8A162408294E18460068744D /* VariablesConstraintsTableCell.swift */,
 				8AF8C879295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift */,
 				8AF8C87B295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift */,
 			);
@@ -391,6 +411,21 @@
 				8AF8C88D2953B2F0007246E2 /* TableHeaderConstructor.swift */,
 			);
 			path = Constructor;
+			sourceTree = "<group>";
+		};
+		8AF8C8A22953BC02007246E2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8C8A32953BC02007246E2 /* Nunito-Medium.ttf */,
+				8AF8C8A42953BC02007246E2 /* Nunito-ExtraBold.ttf */,
+				8AF8C8A52953BC02007246E2 /* Nunito-Light.ttf */,
+				8AF8C8A62953BC02007246E2 /* Nunito-Regular.ttf */,
+				8AF8C8A72953BC02007246E2 /* Nunito-SemiBold.ttf */,
+				8AF8C8A82953BC02007246E2 /* Nunito-Bold.ttf */,
+				8AF8C8A92953BC02007246E2 /* Nunito-Black.ttf */,
+				8AF8C8AA2953BC02007246E2 /* Nunito-ExtraLight.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8B8ED28B7D94D74F78DE0970 /* Frameworks */ = {
@@ -470,7 +505,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF8C8AF2953BC02007246E2 /* Nunito-SemiBold.ttf in Resources */,
+				8AF8C8B12953BC02007246E2 /* Nunito-Black.ttf in Resources */,
+				8AF8C8AB2953BC02007246E2 /* Nunito-Medium.ttf in Resources */,
 				8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */,
+				8AF8C8B22953BC02007246E2 /* Nunito-ExtraLight.ttf in Resources */,
+				8AF8C8AD2953BC02007246E2 /* Nunito-Light.ttf in Resources */,
+				8AF8C8B02953BC02007246E2 /* Nunito-Bold.ttf in Resources */,
+				8AF8C8AC2953BC02007246E2 /* Nunito-ExtraBold.ttf in Resources */,
+				8AF8C8AE2953BC02007246E2 /* Nunito-Regular.ttf in Resources */,
 				8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */,
 				8A093F80294D04260088C9A1 /* Localize.strings in Resources */,
 			);
@@ -548,7 +591,7 @@
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
-				8A162409294E18460068744D /* VariablesAndConstraintsTableCell.swift in Sources */,
+				8A162409294E18460068744D /* VariablesConstraintsTableCell.swift in Sources */,
 				8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */,
 				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
 				8AF8C88A2953B074007246E2 /* TitleTableHeader.swift in Sources */,
@@ -563,6 +606,7 @@
 				8A162406294E03F00068744D /* DividerTableCell.swift in Sources */,
 				8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */,
 				8AF8C87529538181007246E2 /* DividerTableCellViewModel.swift in Sources */,
+				8AF8C8902953B7E3007246E2 /* Fonts.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,

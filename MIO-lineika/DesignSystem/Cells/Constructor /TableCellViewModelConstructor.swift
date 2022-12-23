@@ -19,12 +19,16 @@ final class TableCellViewModelConstructor {
         configurableSetting: RadiobuttonTableCell.Configuration.ConfigurableSetting,
         isEnabled: Bool = true,
         roundCornersStyle: RadiobuttonTableCell.Configuration.RoundCornersStyle = .none,
+        insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+        horizontalOffset: CGFloat = 0,
         delegate: RadiobuttonCellViewModelDelegate? = nil
     ) -> AnyTableViewCellModelProtocol {
         let configuration = RadiobuttonTableCell.Configuration(
             configurableSetting: configurableSetting,
             isEnabled: isEnabled,
-            roundCornersStyle: roundCornersStyle
+            roundCornersStyle: roundCornersStyle,
+            insets: insets,
+            horizontalOffset: horizontalOffset
         )
         
         let viewModel = RadiobuttonTableCellViewModel(model: configuration)
@@ -35,30 +39,44 @@ final class TableCellViewModelConstructor {
 
     func makeTitleCellViewModel(
         title: String,
-        roundCornersStyle: TitleTableCell.Configuration.RoundCornersStyle = .none
+        roundCornersStyle: TitleTableCell.Configuration.RoundCornersStyle = .none,
+        insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     ) -> TitleTableCellViewModel {
         let configuration = TitleTableCell.Configuration(
             title: title,
-            roundCornersStyle: roundCornersStyle
+            roundCornersStyle: roundCornersStyle,
+            insets: insets
         )
 
         return TitleTableCellViewModel(model: configuration)
     }
 
     func makeDividerCellViewModel(
-        dividerStyle: DividerTableCell.Configuration.DividerStyle = .fullWidth
+        dividerStyle: DividerTableCell.Configuration.DividerStyle = .fullWidth,
+        topOffset: CGFloat = 0,
+        bottomOffset: CGFloat = 0
     ) -> DividerTableCellViewModel {
-        let configuration = DividerTableCell.Configuration(dividerStyle: dividerStyle)
+        let configuration = DividerTableCell.Configuration(
+            dividerStyle: dividerStyle,
+            topOffset: topOffset,
+            bottomOffset: bottomOffset
+        )
 
         return DividerTableCellViewModel(model: configuration)
     }
 
-    func makeTextFieldCellViewModel(
+    func makeVariableConstraintsViewModel(
         configurableSetting: VariableConstraintsSettingsType,
+        insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+        roundCornersStyle: VariablesConstraintsTableCell.Configuration.RoundCornersStyle = .none,
+        horizontalOffset: CGFloat = 0,
         delegate: VariablesAndConstraintsTableCellViewModelDelegate? = nil
     ) -> VariablesAndConstraintsTableCellViewModel {
-        let configuration = VariablesAndConstraintsTableCell.Configuration(
-            configurableSetting: configurableSetting
+        let configuration = VariablesConstraintsTableCell.Configuration(
+            configurableSetting: configurableSetting,
+            roundCornersStyle: roundCornersStyle,
+            insets: insets,
+            horizontalOffset: horizontalOffset
         )
 
         let viewModel = VariablesAndConstraintsTableCellViewModel(model: configuration)
@@ -71,6 +89,7 @@ final class TableCellViewModelConstructor {
         buttonType: MainButton.Configuration.ButtonType,
         isEnabled: Bool,
         roundCornersStyle: ButtonTableCell.Configuration.RoundCornersStyle = .none,
+        insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
         action: (() -> Void)? = nil
     ) -> ButtonTableCellViewModel {
         let configuration = ButtonTableCell.Configuration(
@@ -79,7 +98,8 @@ final class TableCellViewModelConstructor {
                 isEnabled: isEnabled,
                 buttonAction: action
             ),
-            roundCornersStyle: roundCornersStyle
+            roundCornersStyle: roundCornersStyle,
+            insets: insets
         )
 
         return ButtonTableCellViewModel(model: configuration)

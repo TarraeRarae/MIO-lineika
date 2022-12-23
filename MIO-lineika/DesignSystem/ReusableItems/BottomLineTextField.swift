@@ -16,7 +16,7 @@ final class BottomLineTextField: UITextField {
 
         enum BottomBorder {
             static let height: CGFloat = 1
-            static let bottomOffset: CGFloat = 1
+            static let bottomInset: CGFloat = 2
         }
     }
 
@@ -68,7 +68,7 @@ private extension BottomLineTextField {
         bottomLine.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(Constants.BottomBorder.bottomOffset)
+            $0.bottom.equalToSuperview().inset(Constants.BottomBorder.bottomInset)
             $0.height.equalTo(Constants.BottomBorder.height)
         }
     }

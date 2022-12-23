@@ -13,13 +13,14 @@ final class TitleTableHeader: UITableViewHeaderFooterView {
     // MARK: - Constants
 
     private enum Constants {
-
+    
         enum TitleLabel {
-            static let insets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            static let lineHeight: CGFloat = 26
         }
 
         enum SubtitleLabel {
-            static let insets = UIEdgeInsets(top: 20, left: 20, bottom: 26, right: 20)
+            static let insets = UIEdgeInsets(top: 20, left: 0, bottom: 26, right: 0)
+            static let lineHeight: CGFloat = 19
         }
     }
 
@@ -57,9 +58,26 @@ extension TitleTableHeader: ConfigurableItem {
     func configure(_ params: Any) {
         guard let configuration = params as? Configuration
         else { return }
-        
-        titleLabel.text = configuration.title
-        subtitleLabel.text = configuration.subtitle
+    
+        let titleParagraphStyle = NSMutableParagraphStyle()
+        titleParagraphStyle.maximumLineHeight = Constants.TitleLabel.lineHeight
+
+        let attributedTitle = NSAttributedString(
+            string: configuration.title,
+            attributes: [.paragraphStyle: titleParagraphStyle]
+        )
+
+        titleLabel.attributedText = attributedTitle
+
+        let subtitleParagraphStyle = NSMutableParagraphStyle()
+        subtitleParagraphStyle.maximumLineHeight = Constants.SubtitleLabel.lineHeight
+
+        let attributedSubtitle = NSAttributedString(
+            string: configuration.subtitle,
+            attributes: [.paragraphStyle: subtitleParagraphStyle]
+        )
+    
+        subtitleLabel.attributedText = attributedSubtitle
     }
 }
 
@@ -81,14 +99,14 @@ private extension TitleTableHeader {
     func setupLayouts() {
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().offset(Constants.TitleLabel.insets.left)
-            $0.trailing.equalToSuperview().inset(Constants.TitleLabel.insets.right)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
         }
 
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleLabel.insets.top)
-            $0.leading.equalToSuperview().offset(Constants.SubtitleLabel.insets.left)
-            $0.trailing.equalToSuperview().inset(Constants.SubtitleLabel.insets.right)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().inset(Constants.SubtitleLabel.insets.bottom)
         }
     }
@@ -97,6 +115,8 @@ private extension TitleTableHeader {
         backgroundColor = .clear
         titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
         subtitleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
+        titleLabel.font = FontFamily.Nunito.bold.font(size: 24)
+        subtitleLabel.font = FontFamily.Nunito.extraLight.font(size: 15)
     }
 }
 

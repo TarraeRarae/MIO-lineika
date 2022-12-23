@@ -20,11 +20,6 @@ final class RadiobuttonTableCell: TableViewCell {
 
         enum Radiobutton {
             static let size = CGSize(width: 16, height: 16)
-            static let leadingOffset: CGFloat = 25
-        }
-
-        enum Title {
-            static let insets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 10)
         }
     }
 
@@ -137,6 +132,11 @@ final class RadiobuttonTableCell: TableViewCell {
         case .none:
             break
         }
+
+        setupLayouts(
+            insets: configuration.insets,
+            horizontalOffset: configuration.horizontalOffset
+        )
     }
 
     // MARK: - Internal methods
@@ -153,7 +153,6 @@ private extension RadiobuttonTableCell {
 
     func commonInit() {
         setupSubviews()
-        setupLayouts()
         setupGestureRecognizers()
         applyTheme()
     }
@@ -163,19 +162,23 @@ private extension RadiobuttonTableCell {
         contentView.addSubview(titleLabel)
     }
 
-    func setupLayouts() {
+    func setupLayouts(
+        insets: UIEdgeInsets,
+        horizontalOffset: CGFloat
+    ) {
         radiobuttonImage.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().offset(insets.top)
             $0.height.equalTo(Constants.Radiobutton.size.height)
             $0.width.equalTo(Constants.Radiobutton.size.width)
-            $0.leading.equalToSuperview().offset(Constants.Radiobutton.leadingOffset)
+            $0.bottom.equalToSuperview().inset(insets.bottom)
+            $0.leading.equalToSuperview().offset(insets.left)
         }
 
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.Title.insets.top)
-            $0.leading.equalTo(radiobuttonImage.snp.trailing).offset(Constants.Title.insets.left)
-            $0.bottom.equalToSuperview().inset(Constants.Title.insets.bottom)
-            $0.trailing.equalToSuperview().inset(Constants.Title.insets.right)
+            $0.top.equalToSuperview().offset(insets.top)
+            $0.leading.equalTo(radiobuttonImage.snp.trailing).offset(horizontalOffset)
+            $0.bottom.equalToSuperview().inset(insets.bottom)
+            $0.trailing.equalToSuperview().inset(insets.right)
         }
     }
 
@@ -191,6 +194,7 @@ private extension RadiobuttonTableCell {
         contentView.backgroundColor = .clear
         backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
         titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
+        titleLabel.font = FontFamily.Nunito.regular.font(size: 14)
     }
 
     @objc
@@ -235,16 +239,26 @@ extension RadiobuttonTableCell {
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
 
+        /// Отступы
+        let insets: UIEdgeInsets
+
+        /// Расстояние между radiobutton и label
+        let horizontalOffset: CGFloat
+
         init(
             configurableSetting: ConfigurableSetting,
             isRadiobuttonSelected: Bool = false,
             isEnabled: Bool,
-            roundCornersStyle: RoundCornersStyle
+            roundCornersStyle: RoundCornersStyle,
+            insets: UIEdgeInsets,
+            horizontalOffset: CGFloat
         ) {
             self.configurableSetting = configurableSetting
             self.isRadiobuttonSelected = isRadiobuttonSelected
             self.isEnabled = isEnabled
             self.roundCornersStyle = roundCornersStyle
+            self.insets = insets
+            self.horizontalOffset = horizontalOffset
         }
     }
 }

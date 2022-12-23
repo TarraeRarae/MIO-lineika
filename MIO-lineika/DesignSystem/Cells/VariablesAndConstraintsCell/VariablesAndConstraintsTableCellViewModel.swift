@@ -15,11 +15,11 @@ final class VariablesAndConstraintsTableCellViewModel {
 
     // MARK: - Private properties
 
-    private let model: VariablesAndConstraintsTableCell.Configuration
+    private let model: VariablesConstraintsTableCell.Configuration
 
     // MARK: - Initializers
 
-    init(model: VariablesAndConstraintsTableCell.Configuration) {
+    init(model: VariablesConstraintsTableCell.Configuration) {
         self.model = model
     }
 }
@@ -42,7 +42,7 @@ private extension VariablesAndConstraintsTableCellViewModel {
 
 extension VariablesAndConstraintsTableCellViewModel: TableCellViewModelProtocol {
 
-    func configure(_ cell: VariablesAndConstraintsTableCell) {
+    func configure(_ cell: VariablesConstraintsTableCell) {
         cell.configure(model)
         cell.viewModel = self
     }

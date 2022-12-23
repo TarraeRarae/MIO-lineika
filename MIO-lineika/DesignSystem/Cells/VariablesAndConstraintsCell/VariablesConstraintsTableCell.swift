@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class VariablesAndConstraintsTableCell: TableViewCell {
+final class VariablesConstraintsTableCell: TableViewCell {
 
     // MARK: - Constants
 
@@ -18,11 +18,7 @@ final class VariablesAndConstraintsTableCell: TableViewCell {
 
         enum TextField {
             static let width: CGFloat = 37
-            static let insets = UIEdgeInsets(top: 2, left: 15, bottom: 8, right: 15)
-        }
-
-        enum TitleLabel {
-            static let insets = UIEdgeInsets(top: 10, left: 25, bottom: 8, right: 0)
+            static let height: CGFloat = 24
         }
     }
 
@@ -100,16 +96,17 @@ final class VariablesAndConstraintsTableCell: TableViewCell {
         case .none:
             break
         }
+
+        setupLayouts(with: configuration.insets, offset: configuration.horizontalOffset)
     }
 }
 
 // MARK: - Private methods
 
-private extension VariablesAndConstraintsTableCell {
+private extension VariablesConstraintsTableCell {
 
     func commonInit() {
         setupSubviews()
-        setupLayouts()
         applyTheme()
     }
 
@@ -119,21 +116,22 @@ private extension VariablesAndConstraintsTableCell {
         contentView.addSubview(textField)
     }
 
-    func setupLayouts() {
+    func setupLayouts(with insets: UIEdgeInsets, offset horizontalOffset: CGFloat) {
         titleLabel.snp.contentHuggingHorizontalPriority = .infinity
 
         textField.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.TextField.insets.top)
+            $0.top.equalToSuperview().offset(insets.top)
             $0.width.equalTo(Constants.TextField.width)
-            $0.bottom.equalToSuperview().inset(Constants.TextField.insets.bottom)
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(Constants.TextField.insets.left)
-            $0.trailing.lessThanOrEqualToSuperview().inset(Constants.TextField.insets.right)
+            $0.height.equalTo(Constants.TextField.height)
+            $0.trailing.equalToSuperview().inset(insets.right)
         }
 
+
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.TitleLabel.insets.top)
-            $0.leading.equalToSuperview().offset(Constants.TitleLabel.insets.left)
-            $0.bottom.equalToSuperview().inset(Constants.TitleLabel.insets.bottom)
+            $0.top.equalToSuperview().offset(insets.top + 2)
+            $0.leading.equalToSuperview().offset(insets.left)
+            $0.bottom.equalToSuperview().inset(insets.bottom)
+            $0.trailing.equalTo(textField.snp.leading).inset(horizontalOffset)
         }
     }
 
@@ -141,41 +139,14 @@ private extension VariablesAndConstraintsTableCell {
         contentView.backgroundColor = .clear
         backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
         textField.textColor = DesignManager.shared.theme[.text(.secondary)]
-    }
-}
-
-// MARK: - Configuration
-
-extension VariablesAndConstraintsTableCell {
-
-    struct Configuration {
-
-        enum RoundCornersStyle {
-            case top
-            case bottom
-            case full
-            case none
-        }
-
-        /// Конфигурируемая настройка
-        let configurableSetting: VariableConstraintsSettingsType
-
-        /// Стиль скругления углов
-        let roundCornersStyle: RoundCornersStyle
-
-        init(
-            configurableSetting: VariableConstraintsSettingsType,
-            roundCornersStyle: RoundCornersStyle = .none
-        ) {
-            self.configurableSetting = configurableSetting
-            self.roundCornersStyle = roundCornersStyle
-        }
+        titleLabel.font = FontFamily.Nunito.medium.font(size: 16)
+        textField.font = FontFamily.Nunito.regular.font(size: 14)
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension VariablesAndConstraintsTableCell: UITextFieldDelegate {
+extension VariablesConstraintsTableCell: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -210,5 +181,44 @@ extension VariablesAndConstraintsTableCell: UITextFieldDelegate {
         let newString = currentString.replacingCharacters(in: range, with: string)
 
         return newString.count <= maxLength
+    }
+}
+
+// MARK: - Configuration
+
+extension VariablesConstraintsTableCell {
+
+    struct Configuration {
+
+        enum RoundCornersStyle {
+            case top
+            case bottom
+            case full
+            case none
+        }
+
+        /// Конфигурируемая настройка
+        let configurableSetting: VariableConstraintsSettingsType
+
+        /// Стиль скругления углов
+        let roundCornersStyle: RoundCornersStyle
+
+        /// Отступы
+        let insets: UIEdgeInsets
+
+        /// Расстояние между textField и label
+        let horizontalOffset: CGFloat
+
+        init(
+            configurableSetting: VariableConstraintsSettingsType,
+            roundCornersStyle: RoundCornersStyle,
+            insets: UIEdgeInsets,
+            horizontalOffset: CGFloat
+        ) {
+            self.configurableSetting = configurableSetting
+            self.roundCornersStyle = roundCornersStyle
+            self.insets = insets
+            self.horizontalOffset = horizontalOffset
+        }
     }
 }

@@ -16,7 +16,6 @@ final class DividerTableCell: TableViewCell {
 
         enum Divider {
             static let height: CGFloat = 1
-            static let topOffset: CGFloat = 14
         }
     }
 
@@ -52,7 +51,14 @@ final class DividerTableCell: TableViewCell {
         guard let configuration = params as? Configuration
         else { return }
 
-        setupLayouts(with: configuration.dividerStyle)
+        let topOffset = configuration.topOffset
+        let bottomOffset = configuration.bottomOffset
+
+        setupLayouts(
+            for: configuration.dividerStyle,
+            topOffset: topOffset,
+            bottomOffset: bottomOffset
+        )
     }
 }
 
@@ -69,13 +75,17 @@ private extension DividerTableCell {
         contentView.addSubview(dividerView)
     }
 
-    func setupLayouts(with dividerStyle: Configuration.DividerStyle) {
+    func setupLayouts(
+        for dividerStyle: Configuration.DividerStyle,
+        topOffset: CGFloat,
+        bottomOffset: CGFloat
+    ) {
         switch dividerStyle {
         case .fullWidth:
             dividerView.snp.makeConstraints {
-                $0.top.equalToSuperview().offset(Constants.Divider.topOffset)
+                $0.top.equalToSuperview().offset(topOffset)
                 $0.height.equalTo(Constants.Divider.height)
-                $0.centerY.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(bottomOffset)
                 $0.leading.equalToSuperview()
                 $0.trailing.equalToSuperview()
             }
@@ -99,5 +109,21 @@ extension DividerTableCell {
 
         /// Стиль линии-разделителя
         let dividerStyle: DividerStyle
+
+        /// Верхний отступ
+        let topOffset: CGFloat
+
+        /// Нижний отступ
+        let bottomOffset: CGFloat
+
+        init(
+            dividerStyle: DividerStyle,
+            topOffset: CGFloat,
+            bottomOffset: CGFloat
+        ) {
+            self.dividerStyle = dividerStyle
+            self.topOffset = topOffset
+            self.bottomOffset = bottomOffset
+        }
     }
 }

@@ -16,3 +16,9 @@ xcassets:
           output: XCAssets+Generated.swift
           params:
             forceProvidesNamespaces: true
+
+fonts:
+  inputs: Fonts
+  outputs:
+    templateName: swift5
+    output: Fonts.swift

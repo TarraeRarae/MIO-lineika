@@ -105,54 +105,74 @@ private extension MainViewModel {
     func setupCellModels() {
         let methodsTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
             title: L10n.Methods.title,
-            roundCornersStyle: .top
+            roundCornersStyle: .top,
+            insets: UIEdgeInsets(top: 20, left: 25, bottom: 10, right: 25)
         )
     
         methodsCellViewModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.graphic),
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12,
                 delegate: self
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.straightSimplex),
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12,
                 delegate: self
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.artificialVariables),
-                isEnabled: false
+                isEnabled: false,
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.modifiedSimplex),
-                isEnabled: false
+                isEnabled: false,
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.binarySimplex),
-                isEnabled: false
+                isEnabled: false,
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12
             )
         ]
 
         let optimizationTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
-            title: L10n.Optimizations.title
+            title: L10n.Optimizations.title,
+            insets: UIEdgeInsets(top: 0, left: 25, bottom: 10, right: 25)
         )
 
         optimizationsCellViewModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.max),
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12,
                 delegate: self
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.min),
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12,
                 delegate: self
             )
         ]
 
         settingsCellViewModels = [
-            TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
+            TableCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
                 configurableSetting: .variables(value: selectedSettings.variables),
+                insets: UIEdgeInsets(top: 8, left: 25, bottom: 8, right: 62.5),
+                horizontalOffset: 19,
                 delegate: self
             ),
-            TableCellViewModelConstructor.shared.makeTextFieldCellViewModel(
+            TableCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
                 configurableSetting: .constraints(value: selectedSettings.constraints),
+                insets: UIEdgeInsets(top: 8, left: 25, bottom: 8, right: 62.5),
+                horizontalOffset: 19,
                 delegate: self
             )
         ]
@@ -160,18 +180,27 @@ private extension MainViewModel {
         let buttonCellViewModel = TableCellViewModelConstructor.shared.makeButtonCellViewModel(
             buttonType: .onward,
             isEnabled: false,
-            roundCornersStyle: .bottom
+            roundCornersStyle: .bottom,
+            insets: UIEdgeInsets(top: 14, left: 26, bottom: 20, right: 26)
         ) {
             self.route(.toMethodConfiguration)
         }
 
         mainButtonCellViewModel = buttonCellViewModel
 
-        let dividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel()
-    
-        cellViewModels = [methodsTitleCell] + methodsCellViewModels + [dividerCellModel]
+        let firstDividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel(
+            topOffset: 14,
+            bottomOffset: 16
+        )
 
-        cellViewModels += settingsCellViewModels + [dividerCellModel]
+        let secondDividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel(
+            topOffset: 12,
+            bottomOffset: 20
+        )
+    
+        cellViewModels = [methodsTitleCell] + methodsCellViewModels + [firstDividerCellModel]
+
+        cellViewModels += settingsCellViewModels + [secondDividerCellModel]
 
         cellViewModels += [optimizationTitleCell] + optimizationsCellViewModels
 

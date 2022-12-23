@@ -15,10 +15,6 @@ final class TitleTableCell: TableViewCell {
     private enum Constants {
         static let cornerRadius: CGFloat = 30
         static let defaultCornerRadius: CGFloat = 0
-        
-        enum TitleLabel {
-            static let insets = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
-        }
     }
 
     // MARK: - Private properties
@@ -79,6 +75,8 @@ final class TitleTableCell: TableViewCell {
         case .none:
             break
         }
+
+        setupLayouts(with: configuration.insets)
     }
 }
 
@@ -88,7 +86,6 @@ private extension TitleTableCell {
 
     func commonInit() {
         setupSubviews()
-        setupLayouts()
         applyTheme()
     }
 
@@ -96,12 +93,12 @@ private extension TitleTableCell {
         contentView.addSubview(titleLabel)
     }
 
-    func setupLayouts() {
+    func setupLayouts(with insets: UIEdgeInsets) {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.TitleLabel.insets.top)
-            $0.leading.equalToSuperview().offset(Constants.TitleLabel.insets.left)
-            $0.bottom.equalToSuperview().inset(Constants.TitleLabel.insets.bottom)
-            $0.trailing.equalToSuperview().inset(Constants.TitleLabel.insets.right)
+            $0.top.equalToSuperview().offset(insets.top)
+            $0.leading.equalToSuperview().offset(insets.left)
+            $0.bottom.equalToSuperview().inset(insets.bottom)
+            $0.trailing.equalToSuperview().inset(insets.right)
         }
     }
 
@@ -109,6 +106,7 @@ private extension TitleTableCell {
         contentView.backgroundColor = .clear
         backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
         titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
+        titleLabel.font = FontFamily.Nunito.semiBold.font(size: 20)
     }
 }
 
@@ -130,5 +128,18 @@ extension TitleTableCell {
 
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
+
+        /// Отступы для заголовка
+        let insets: UIEdgeInsets
+
+        init(
+            title: String,
+            roundCornersStyle: RoundCornersStyle,
+            insets: UIEdgeInsets
+        ) {
+            self.title = title
+            self.roundCornersStyle = roundCornersStyle
+            self.insets = insets
+        }
     }
 }

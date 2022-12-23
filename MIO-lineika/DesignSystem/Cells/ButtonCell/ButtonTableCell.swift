@@ -13,7 +13,6 @@ final class ButtonTableCell: TableViewCell {
     // MARK: - Constants
 
     private enum Constants {
-        static let insets = UIEdgeInsets(top: 14, left: 24, bottom: 20, right: 24)
         static let height: CGFloat = 50
         static let cornerRadius: CGFloat = 30
     }
@@ -52,6 +51,8 @@ final class ButtonTableCell: TableViewCell {
         case .none:
             break
         }
+
+        setupLayouts(with: configuration.insets)
     }
 
     // MARK: - Lifecycle
@@ -73,7 +74,6 @@ private extension ButtonTableCell {
 
     func commonInit() {
         setupSubviews()
-        setupLayouts()
         applyTheme()
     }
 
@@ -81,12 +81,12 @@ private extension ButtonTableCell {
         contentView.addSubview(button)
     }
 
-    func setupLayouts() {
+    func setupLayouts(with insets: UIEdgeInsets) {
         button.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(Constants.insets.top)
-            $0.leading.equalToSuperview().offset(Constants.insets.left)
-            $0.right.equalToSuperview().inset(Constants.insets.right)
-            $0.bottom.equalToSuperview().inset(Constants.insets.bottom)
+            $0.top.equalToSuperview().offset(insets.top)
+            $0.leading.equalToSuperview().offset(insets.left)
+            $0.right.equalToSuperview().inset(insets.right)
+            $0.bottom.equalToSuperview().inset(insets.bottom)
             $0.height.equalTo(Constants.height)
         }
     }
@@ -116,12 +116,17 @@ extension ButtonTableCell {
         /// Стиль скругления углов
         let roundCornersStyle: RoundCornersStyle
 
+        /// Отступы
+        let insets: UIEdgeInsets
+
         init(
             buttonConfiguration: MainButton.Configuration,
-            roundCornersStyle: RoundCornersStyle
+            roundCornersStyle: RoundCornersStyle,
+            insets: UIEdgeInsets
         ) {
             self.buttonConfiguration = buttonConfiguration
             self.roundCornersStyle = roundCornersStyle
+            self.insets = insets
         }
     }
 }
