@@ -23,6 +23,8 @@ class LighTheme: Theme {
                 return UIColor(hex: "#727272FF")
             case .shadow:
                 return UIColor(hex: "#1B1738FF")
+            case .tabbar:
+                return UIColor(hex: "#FFFFFFFF")
             }
 
         case .text(let textColor):
@@ -34,12 +36,19 @@ class LighTheme: Theme {
             case .error:
                 return UIColor(hex: "#ED4337FF")
             }
+
         case .mainButton(let buttonColor):
             switch buttonColor {
             case .enabled:
                 return UIColor(hex: "#FD79A8FF")
             case .disabled:
                 return UIColor(hex: "#C5C0C6FF")
+            }
+            
+        case .tintColor(let tintColor):
+            switch tintColor {
+            case .tabbarItem:
+                return UIColor(hex: "#E84393FF")
             }
         }
     }

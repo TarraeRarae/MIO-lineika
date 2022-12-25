@@ -29,6 +29,14 @@ internal enum Asset {
     internal static let radiobuttonDisabled = ImageAsset(name: "radiobuttonDisabled")
     internal static let radiobuttonEnabled = ImageAsset(name: "radiobuttonEnabled")
   }
+  internal enum Tabbar {
+    internal static let calculationItemDisabled = ImageAsset(name: "calculationItemDisabled")
+    internal static let calculationItemEnabled = ImageAsset(name: "calculationItemEnabled")
+    internal static let photoItemDisabled = ImageAsset(name: "photoItemDisabled")
+    internal static let photoItemEnabled = ImageAsset(name: "photoItemEnabled")
+    internal static let theoryItemDisabled = ImageAsset(name: "theoryItemDisabled")
+    internal static let theoryItemEnabled = ImageAsset(name: "theoryItemEnabled")
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

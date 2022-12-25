@@ -15,6 +15,7 @@ enum SemanticColor {
         case divider
         case textFieldBorder
         case shadow
+        case tabbar
     }
 
     enum TextColor {
@@ -28,7 +29,12 @@ enum SemanticColor {
         case disabled
     }
 
+    enum TintColor {
+        case tabbarItem
+    }
+
     case background(BackgroundColor)
     case text(TextColor)
     case mainButton(MainButtonColor)
+    case tintColor(TintColor)
 }

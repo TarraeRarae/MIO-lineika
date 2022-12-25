@@ -25,6 +25,7 @@
 		8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75A295274D500EA18C6 /* MainButton.swift */; };
 		8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */; };
 		8A4FD6872957BD1A009A6FCE /* MainViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */; };
+		8A4FD68D29589823009A6FCE /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD68C29589823009A6FCE /* TabbarController.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
 		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
 		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
@@ -39,6 +40,8 @@
 		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
 		8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */; };
 		8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */; };
+		8AF5AA292958CF4E00B75D4B /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA282958CF4E00B75D4B /* MockController.swift */; };
+		8AF5AA302958D65500B75D4B /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */; };
 		8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86929536F04007246E2 /* UIView+Reusable.swift */; };
 		8AF8C86C29536F62007246E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86B29536F62007246E2 /* Reusable.swift */; };
 		8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86E29536FA3007246E2 /* UITableViewCell+Extension.swift */; };
@@ -83,6 +86,7 @@
 		8A49B75A295274D500EA18C6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCellViewModel.swift; sourceTree = "<group>"; };
 		8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerModel.swift; sourceTree = "<group>"; };
+		8A4FD68C29589823009A6FCE /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
 		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 		8AD07B4B294BB9570065E7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8AF5AA282958CF4E00B75D4B /* MockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockController.swift; sourceTree = "<group>"; };
+		8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		8AF8C86929536F04007246E2 /* UIView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reusable.swift"; sourceTree = "<group>"; };
 		8AF8C86B29536F62007246E2 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		8AF8C86E29536FA3007246E2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -234,13 +240,22 @@
 			path = RadiobuttonCell;
 			sourceTree = "<group>";
 		};
+		8A4FD68B29589817009A6FCE /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				8A4FD68C29589823009A6FCE /* TabbarController.swift */,
+				8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
 				8AF8C8882953B05D007246E2 /* Headers */,
 				8AF8C8872953B04D007246E2 /* Manager */,
 				8AF8C8862953B044007246E2 /* Theme */,
-				8AF8C86D29536F78007246E2 /* Resources */,
+				8AF8C86D29536F78007246E2 /* Color */,
 				8A49B759295274C800EA18C6 /* ReusableItems */,
 				8A1623E7294D17FC0068744D /* Cells */,
 				8AB42B1D294BCE1B00C04DF9 /* Extensions */,
@@ -307,6 +322,8 @@
 		8AD07B51294BBD090065E7D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8AF5AA272958CF4400B75D4B /* MockControllers */,
+				8A4FD68B29589817009A6FCE /* Tabbar */,
 				8AD07B52294BBD0F0065E7D8 /* MainScreen */,
 			);
 			path = Modules;
@@ -339,12 +356,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		8AF8C86D29536F78007246E2 /* Resources */ = {
+		8AF5AA272958CF4400B75D4B /* MockControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AF5AA282958CF4E00B75D4B /* MockController.swift */,
+			);
+			path = MockControllers;
+			sourceTree = "<group>";
+		};
+		8AF8C86D29536F78007246E2 /* Color */ = {
 			isa = PBXGroup;
 			children = (
 				8AB42B20294BCEE500C04DF9 /* SemanticColor.swift */,
 			);
-			path = Resources;
+			path = Color;
 			sourceTree = "<group>";
 		};
 		8AF8C870295380A8007246E2 /* TitleCell */ = {
@@ -604,6 +629,7 @@
 				8AF8C872295380C3007246E2 /* TitleTableCellViewModel.swift in Sources */,
 				8A4FD6872957BD1A009A6FCE /* MainViewControllerModel.swift in Sources */,
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
+				8AF5AA302958D65500B75D4B /* CustomTabbar.swift in Sources */,
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8A0D8BE929573E8D0048FA63 /* MainSectionItem.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
@@ -626,10 +652,12 @@
 				8AF8C8902953B7E3007246E2 /* Fonts.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */,
+				8AF5AA292958CF4E00B75D4B /* MockController.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
 				8AF8C88E2953B2F0007246E2 /* CollectionHeaderConstructor.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
+				8A4FD68D29589823009A6FCE /* TabbarController.swift in Sources */,
 				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
 				8AF8C87A295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift in Sources */,
 				8AF8C88129538BA7007246E2 /* BottomLineTextField.swift in Sources */,
