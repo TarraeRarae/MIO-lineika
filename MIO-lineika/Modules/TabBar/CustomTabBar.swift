@@ -1,5 +1,5 @@
 //
-//  CustomTabbar.swift
+//  CustomTabBar.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 25.12.2022.
@@ -7,25 +7,46 @@
 
 import UIKit
 
-class CustomTabbar: UITabBar {
+class CustomTabBar: UITabBar {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let horizontalOffset: CGFloat = 20
+        static let cornerRadius: CGFloat = 30
+    }
+
+    // MARK: - Private properties
 
     private var shapeLayer: CALayer?
+
+    // MARK: - Lifecycle
 
     override func draw(_ rect: CGRect) {
         addShape()
         addShadow()
     }
+}
+
+// MARK: - Private methods
+
+private extension CustomTabBar {
 
     func createPath() -> CGPath {
         let path = UIBezierPath(
-            roundedRect: CGRect(x: 0, y: -20, width: frame.width, height: frame.height + 20),
-            cornerRadius: 30
+            roundedRect: CGRect(
+                x: 0,
+                y: -Constants.horizontalOffset,
+                width: frame.width,
+                height: frame.height + Constants.horizontalOffset
+            ),
+            cornerRadius: Constants.cornerRadius
         )
 
         return path.cgPath
     }
 
-    private func addShape() {
+    func addShape() {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
         shapeLayer.strokeColor = DesignManager.shared.theme[.background(.tabbar)].cgColor
@@ -41,20 +62,11 @@ class CustomTabbar: UITabBar {
         self.shapeLayer = shapeLayer
     }
 
-    private func addShadow() {
+    func addShadow() {
         layer.shadowColor = DesignManager.shared.theme[.background(.shadow)].cgColor
         layer.shadowOffset = CGSize(width: 0, height: 10)
         layer.shadowRadius = 100
         layer.shadowOpacity = 0.12
-    }
-}
-
-extension UITabBar {
-
-    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 74
-        return sizeThatFits
     }
 }
 

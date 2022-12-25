@@ -14,6 +14,7 @@ final class MainViewController: BaseController {
 
     private enum Constants {
         static let horizontalOffset: CGFloat = 40
+        static let bottomInset: CGFloat = 19
     }
 
     // MARK: - Private properties
@@ -87,7 +88,7 @@ private extension MainViewController {
         collectionView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.bottomInset)
             $0.trailing.equalToSuperview()
         }
     }
@@ -198,7 +199,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
             return .zero
         }
 
-        let width = collectionView.bounds.size.width - 40
+        let width = collectionView.bounds.size.width - Constants.horizontalOffset
         let size = section.getSectionSize(width: width)
 
         return size
@@ -212,7 +213,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         guard let cellSnapshot = dataSource?.itemIdentifier(for: indexPath)
         else { return .zero }
         
-        let cellWidth = collectionView.bounds.size.width - 40
+        let cellWidth = collectionView.bounds.size.width - Constants.horizontalOffset
         let size = cellSnapshot.getCellSize(cellWidth: cellWidth)
 
         return size

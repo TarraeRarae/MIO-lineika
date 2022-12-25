@@ -24,7 +24,7 @@ final class TitleCollectionHeader: UICollectionReusableView {
         }
 
         enum SubtitleLabel {
-            static let insets = UIEdgeInsets(top: 10, left: 20, bottom: 26, right: 20)
+            static let insets = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 25)
             static let lineHeight: CGFloat = 19
         }
     }

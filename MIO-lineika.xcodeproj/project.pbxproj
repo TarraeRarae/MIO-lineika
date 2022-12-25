@@ -25,8 +25,9 @@
 		8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75A295274D500EA18C6 /* MainButton.swift */; };
 		8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */; };
 		8A4FD6872957BD1A009A6FCE /* MainViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */; };
-		8A4FD68D29589823009A6FCE /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD68C29589823009A6FCE /* TabbarController.swift */; };
+		8A4FD68D29589823009A6FCE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD68C29589823009A6FCE /* TabBarController.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
+		8AAA32422958FA4600AEAE4C /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA32412958FA4600AEAE4C /* UITabBar+Extension.swift */; };
 		8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B17294BCCA600C04DF9 /* Coordinator.swift */; };
 		8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B19294BCD2500C04DF9 /* Theme.swift */; };
 		8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */; };
@@ -41,7 +42,7 @@
 		8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */; };
 		8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */; };
 		8AF5AA292958CF4E00B75D4B /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA282958CF4E00B75D4B /* MockController.swift */; };
-		8AF5AA302958D65500B75D4B /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */; };
+		8AF5AA302958D65500B75D4B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA2F2958D65500B75D4B /* CustomTabBar.swift */; };
 		8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86929536F04007246E2 /* UIView+Reusable.swift */; };
 		8AF8C86C29536F62007246E2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86B29536F62007246E2 /* Reusable.swift */; };
 		8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86E29536FA3007246E2 /* UITableViewCell+Extension.swift */; };
@@ -86,8 +87,9 @@
 		8A49B75A295274D500EA18C6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCellViewModel.swift; sourceTree = "<group>"; };
 		8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerModel.swift; sourceTree = "<group>"; };
-		8A4FD68C29589823009A6FCE /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		8A4FD68C29589823009A6FCE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
+		8AAA32412958FA4600AEAE4C /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
 		8AB42B17294BCCA600C04DF9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8AB42B19294BCD2500C04DF9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8AB42B1B294BCD9500C04DF9 /* DesignManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignManager.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		8AD07B55294BBD2C0065E7D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8AD07B58294BBD540065E7D8 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8AF5AA282958CF4E00B75D4B /* MockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockController.swift; sourceTree = "<group>"; };
-		8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
+		8AF5AA2F2958D65500B75D4B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		8AF8C86929536F04007246E2 /* UIView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reusable.swift"; sourceTree = "<group>"; };
 		8AF8C86B29536F62007246E2 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		8AF8C86E29536FA3007246E2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -240,13 +242,13 @@
 			path = RadiobuttonCell;
 			sourceTree = "<group>";
 		};
-		8A4FD68B29589817009A6FCE /* Tabbar */ = {
+		8A4FD68B29589817009A6FCE /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				8A4FD68C29589823009A6FCE /* TabbarController.swift */,
-				8AF5AA2F2958D65500B75D4B /* CustomTabbar.swift */,
+				8A4FD68C29589823009A6FCE /* TabBarController.swift */,
+				8AF5AA2F2958D65500B75D4B /* CustomTabBar.swift */,
 			);
-			path = Tabbar;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
@@ -276,6 +278,7 @@
 				8A1623ED294D1E690068744D /* TableCellViewModel.swift */,
 				8A162400294DFF720068744D /* UITableView+Extension.swift */,
 				8AF8C86929536F04007246E2 /* UIView+Reusable.swift */,
+				8AAA32412958FA4600AEAE4C /* UITabBar+Extension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -323,7 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				8AF5AA272958CF4400B75D4B /* MockControllers */,
-				8A4FD68B29589817009A6FCE /* Tabbar */,
+				8A4FD68B29589817009A6FCE /* TabBar */,
 				8AD07B52294BBD0F0065E7D8 /* MainScreen */,
 			);
 			path = Modules;
@@ -629,7 +632,7 @@
 				8AF8C872295380C3007246E2 /* TitleTableCellViewModel.swift in Sources */,
 				8A4FD6872957BD1A009A6FCE /* MainViewControllerModel.swift in Sources */,
 				8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */,
-				8AF5AA302958D65500B75D4B /* CustomTabbar.swift in Sources */,
+				8AF5AA302958D65500B75D4B /* CustomTabBar.swift in Sources */,
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8A0D8BE929573E8D0048FA63 /* MainSectionItem.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
@@ -657,8 +660,9 @@
 				8AF8C88E2953B2F0007246E2 /* CollectionHeaderConstructor.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
-				8A4FD68D29589823009A6FCE /* TabbarController.swift in Sources */,
+				8A4FD68D29589823009A6FCE /* TabBarController.swift in Sources */,
 				8AB42B1A294BCD2500C04DF9 /* Theme.swift in Sources */,
+				8AAA32422958FA4600AEAE4C /* UITabBar+Extension.swift in Sources */,
 				8AF8C87A295382BE007246E2 /* VariablesAndConstraintsTableCellViewModel.swift in Sources */,
 				8AF8C88129538BA7007246E2 /* BottomLineTextField.swift in Sources */,
 				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
