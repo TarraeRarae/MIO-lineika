@@ -1,0 +1,24 @@
+input_dir: MIO-lineika/Sources/Resources/
+output_dir: MIO-lineika/Sources/Generated/
+
+strings:
+    inputs:
+        - Localize/en.lproj/Localize.strings
+    outputs:
+        - templateName: structured-swift5
+          output: Strings.swift
+
+xcassets:
+    inputs:
+        - Assets.xcassets
+    outputs:
+        - templateName: swift5
+          output: XCAssets+Generated.swift
+          params:
+            forceProvidesNamespaces: true
+
+fonts:
+  inputs: Fonts
+  outputs:
+    templateName: swift5
+    output: Fonts.swift

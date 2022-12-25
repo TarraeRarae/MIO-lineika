@@ -1,0 +1,68 @@
+/* 
+  Localize.strings
+  MIO-lineika
+
+  Created by Alexey Zubkov on 16.12.2022.
+  
+*/
+
+// MARK: - App
+
+App.title = "МИО-Линейка";
+
+
+// MARK: - Methods
+
+Methods.title = "Метод решения";
+
+Methods.graphicMethod.title = "Графический метод";
+
+Methods.straightSimplex.title = "Прямой симплекс метод";
+
+Methods.artificialVariables.title = "Метод искусственных переменных";
+
+Methods.modifiedSimplex.title = "Модифицированный симплекс-метод";
+
+Methods.binarySimplex.title = "Двойственный симплекс-метод";
+
+
+// MARK: - Optimizations
+
+Optimizations.title = "Вид оптимизации";
+
+
+// MARK: - Variable and constraints settings
+
+VariableConstaints.variables.title = "Количество переменных";
+
+VariableConstaints.constraints.title = "Количество ограничений";
+
+
+// MARK: - MainButton
+
+MainButton.onward.title = "Далее";
+
+MainButton.conclusion.title = "Решение";
+
+
+// MARK: - Error
+
+Error.title = "Ошибка";
+
+Error.constraints.maxThree = "Максимально допустимое число ограничений равно 3";
+
+Error.variables.maxThree = "Максимально допустимое число переменных равно 3";
+
+Error.textField.onlyNumbers = "Вы можете ввести только одну цифру 2 или 3";
+
+
+// MARK: - Alert
+
+Alert.action.ok = "ОК";
+
+
+// MARK: - MainScreen
+
+MainScreen.Header.title = "Решение задач линейного программирования";
+
+MainScreen.Header.subtitle = "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.";
