@@ -7,20 +7,20 @@
 
 import UIKit
 
-final class TableHeaderConstructor {
+final class CollectionHeaderConstructor {
 
     // MARK: - Static properties
 
-    static let shared = TableHeaderConstructor()
+    static let shared = CollectionHeaderConstructor()
 
     // MARK: - Internal properties
 
     func makeTitleTableHeader(
         title: String,
         subtitle: String
-    ) -> TitleTableHeader {
-        let configuration = TitleTableHeader.Configuration(title: title, subtitle: subtitle)
-        let header = TitleTableHeader()
+    ) -> TitleCollectionHeader {
+        let configuration = TitleCollectionHeader.Configuration(title: title, subtitle: subtitle)
+        let header = TitleCollectionHeader()
         header.configure(configuration)
 
         return header

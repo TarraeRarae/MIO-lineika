@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class RadiobuttonTableCell: TableViewCell {
+final class RadiobuttonTableCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -73,11 +73,8 @@ final class RadiobuttonTableCell: TableViewCell {
 
     // MARK: - Initializers
 
-    override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?
-    ) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -101,6 +98,23 @@ final class RadiobuttonTableCell: TableViewCell {
         ]
         layer.cornerRadius = Constants.defaultCornerRadius
     }
+
+    override func preferredLayoutAttributesFitting(
+        _ layoutAttributes: UICollectionViewLayoutAttributes
+    ) -> UICollectionViewLayoutAttributes {
+            let targetSize = CGSize(
+                width: layoutAttributes.frame.width,
+                height: 0
+            )
+
+            layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(
+                targetSize,
+                withHorizontalFittingPriority: .required,
+                verticalFittingPriority: .fittingSizeLevel
+            )
+
+            return layoutAttributes
+        }
 
     // MARK: - Configurable Item
 
@@ -192,7 +206,7 @@ private extension RadiobuttonTableCell {
 
     func applyTheme() {
         contentView.backgroundColor = .clear
-        backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
+        backgroundColor = DesignManager.shared.theme[.background(.cell)]
         titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
         titleLabel.font = FontFamily.Nunito.regular.font(size: 14)
     }

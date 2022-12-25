@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell, ConfigurableItem {
+class CollectionViewCell: UICollectionViewCell, ConfigurableItem {
     
     func configure(_ params: Any) {}
 }

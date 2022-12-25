@@ -9,6 +9,12 @@ import Foundation
 
 final class DividerTableCellViewModel {
 
+    // MARK: - Internal properties
+
+    var uniqueId: UUID {
+        return model.uniqueId
+    }
+
     // MARK: - Private properties
 
     private let model: DividerTableCell.Configuration
@@ -20,9 +26,9 @@ final class DividerTableCellViewModel {
     }
 }
 
-// MARK: - TableCellViewModelProtocol
+// MARK: - CollectionCellViewModelProtocol
 
-extension DividerTableCellViewModel: TableCellViewModelProtocol {
+extension DividerTableCellViewModel: CollectionCellViewModelProtocol {
 
     func configure(_ cell: DividerTableCell) {
         cell.configure(model)

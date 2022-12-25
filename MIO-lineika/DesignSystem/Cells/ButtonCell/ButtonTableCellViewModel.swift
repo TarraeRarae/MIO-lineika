@@ -9,6 +9,12 @@ import Foundation
 
 final class ButtonTableCellViewModel {
 
+    // MARK: - Internal properties
+
+    var uniqueId: UUID {
+        return model.uniqueId
+    }
+
     // MARK: - Private properties
 
     private var cell: ButtonTableCell?
@@ -22,9 +28,9 @@ final class ButtonTableCellViewModel {
     }
 }
 
-// MARK: - TableCellViewModelProtocol
+// MARK: - CollectionCellViewModelProtocol
 
-extension ButtonTableCellViewModel: TableCellViewModelProtocol {
+extension ButtonTableCellViewModel: CollectionCellViewModelProtocol {
 
     func configure(_ cell: ButtonTableCell) {
         cell.configure(model)

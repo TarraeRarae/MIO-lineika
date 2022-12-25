@@ -15,9 +15,6 @@ final class DesignManager {
 
     // MARK: - Private properties
 
-    /// Конструктор ячеек таблицы
-//    private let tableCellConstructor = TableCellConstructor()
-
     /// Конфигурация для светлой темы
     private let lightTheme = LighTheme()
 
@@ -26,8 +23,4 @@ final class DesignManager {
     var theme: Theme {
         return lightTheme
     }
-
-//    var cellConstructor: TableCellConstructor {
-//        return tableCellConstructor
-//    }
 }

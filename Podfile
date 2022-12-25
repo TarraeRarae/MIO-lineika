@@ -6,7 +6,6 @@ target 'MIO-lineika' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Swinject'
   pod 'SwiftGen'
   pod 'IQKeyboardManagerSwift'
 

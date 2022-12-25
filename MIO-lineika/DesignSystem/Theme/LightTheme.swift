@@ -15,12 +15,14 @@ class LighTheme: Theme {
             switch backgroundColor {
             case .main:
                 return UIColor(hex: "#F6F6F6FF")
-            case .tableCell:
+            case .cell:
                 return UIColor(hex: "#FFFFFFFF")
             case .divider:
                 return UIColor(hex: "#FD79A866")
             case .textFieldBorder:
                 return UIColor(hex: "#727272FF")
+            case .shadow:
+                return UIColor(hex: "#1B1738FF")
             }
 
         case .text(let textColor):

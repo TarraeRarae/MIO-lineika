@@ -13,6 +13,10 @@ final class VariablesAndConstraintsTableCellViewModel {
 
     weak var delegate: VariablesAndConstraintsTableCellViewModelDelegate?
 
+    var uniqueId: UUID {
+        return model.uniqueId
+    }
+
     // MARK: - Private properties
 
     private let model: VariablesConstraintsTableCell.Configuration
@@ -38,9 +42,9 @@ private extension VariablesAndConstraintsTableCellViewModel {
     }
 }
 
-// MARK: - TableCellViewModelProtocol
+// MARK: - CollectionCellViewModelProtocol
 
-extension VariablesAndConstraintsTableCellViewModel: TableCellViewModelProtocol {
+extension VariablesAndConstraintsTableCellViewModel: CollectionCellViewModelProtocol {
 
     func configure(_ cell: VariablesConstraintsTableCell) {
         cell.configure(model)

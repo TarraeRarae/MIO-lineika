@@ -13,19 +13,37 @@ final class MainViewController: BaseController {
     // MARK: - Constants
 
     private enum Constants {
-        static let tableViewInsets = UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16)
+        static let horizontalOffset: CGFloat = 40
     }
 
     // MARK: - Private properties
 
     private let viewModel: MainViewModelProtocol
-    private let tableView: UITableView
+
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
+        layout.minimumLineSpacing = .zero
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
+
+        return collectionView
+    }()
+
+    private var dataSource: UICollectionViewDiffableDataSource<
+        MainSection,
+        MainSectionItem
+    >?
 
     // MARK: - Initializers
 
     init(viewModel: MainViewModelProtocol) {
         self.viewModel = viewModel
-        self.tableView = UITableView(frame: .zero, style: .grouped)
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
         commonInit()
@@ -40,6 +58,7 @@ final class MainViewController: BaseController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         applyTheme()
     }
 
@@ -55,27 +74,85 @@ private extension MainViewController {
     func commonInit() {
         setupSubviews()
         setupLayouts()
-        setupTableView()
+        setupDataSource()
+        setupCollectionView()
         setupGestures()
     }
 
     func setupSubviews() {
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
     }
 
     func setupLayouts() {
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(Constants.tableViewInsets.top)
-            $0.leading.equalToSuperview().offset(Constants.tableViewInsets.left)
+        collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(Constants.tableViewInsets.right)
+            $0.trailing.equalToSuperview()
         }
     }
 
-    func setupTableView() {
-        tableView.showsVerticalScrollIndicator = false
+    func setupDataSource() {
+        collectionView.delegate = self
 
-        tableView.registerCells(
+        dataSource = UICollectionViewDiffableDataSource<
+            MainSection,
+            MainSectionItem
+        >(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+            var model: AnyCollectionViewCellModelProtocol
+    
+            switch itemIdentifier {
+            case .title(let viewModel):
+                model = viewModel
+            case .radiobutton(let viewModel):
+                model = viewModel
+            case .divider(let viewModel):
+                model = viewModel
+            case .variablesConstraints(let viewModel):
+                model = viewModel
+            case .button(let viewModel):
+                model = viewModel
+            }
+
+            let cell = collectionView.dequeueReusableCell(withModel: model, for: indexPath)
+
+            model.configureAny(cell)
+    
+            return cell
+        }
+
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, elementKind, indexPath in
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: elementKind,
+                withReuseIdentifier: TitleCollectionHeader.reuseIdentifier,
+                for: indexPath
+            ) as? TitleCollectionHeader,
+                  let section = self?.dataSource?.sectionIdentifier(for: indexPath.section)
+            else { return UICollectionReusableView() }
+    
+            let headerModel = section.headerModel
+            header.configure(headerModel)
+
+            return header
+        }
+
+    }
+
+    func setupCollectionView() {
+        collectionView.showsVerticalScrollIndicator = false
+
+        collectionView.layer.shadowColor = DesignManager.shared.theme[.background(.shadow)].cgColor
+        collectionView.layer.shadowOffset = CGSize(width: 500, height: 10)
+        collectionView.layer.shadowRadius = 10
+        collectionView.layer.shadowOpacity = 0.12
+
+        collectionView.register(
+            TitleCollectionHeader.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: TitleCollectionHeader.reuseIdentifier
+        )
+    
+        collectionView.registerCells(
             RadiobuttonTableCellViewModel.self,
             TitleTableCellViewModel.self,
             DividerTableCellViewModel.self,
@@ -83,10 +160,8 @@ private extension MainViewController {
             ButtonTableCellViewModel.self
         )
 
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
-        tableView.dataSource = self
-        tableView.delegate = self
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = dataSource
     }
 
     func setupGestures() {
@@ -101,35 +176,47 @@ private extension MainViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UICollectionViewDelegate
 
-extension MainViewController: UITableViewDataSource {
+extension MainViewController: UICollectionViewDelegate {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows(in: section)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cellModel = viewModel.cellViewModelFor(indexPath: indexPath)
-        else {
-            fatalError("Unexpected error for \(indexPath) in MainViewController (cell doesn't exist")
-        }
-
-        let cell = tableView.dequeueReusableCell(withModel: cellModel, for: indexPath)
-        cell.selectionStyle = .none
-
-        cellModel.configureAny(cell)
-
-        return cell
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegateFlowLayout
 
-extension MainViewController: UITableViewDelegate {
+extension MainViewController: UICollectionViewDelegateFlowLayout {
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return viewModel.headerFor(section: section)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
+        guard let section = dataSource?.sectionIdentifier(for: section) else {
+            return .zero
+        }
+
+        let width = collectionView.bounds.size.width - 40
+        let size = section.getSectionSize(width: width)
+
+        return size
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        guard let cellSnapshot = dataSource?.itemIdentifier(for: indexPath)
+        else { return .zero }
+        
+        let cellWidth = collectionView.bounds.size.width - 40
+        let size = cellSnapshot.getCellSize(cellWidth: cellWidth)
+
+        return size
+        
     }
 }
 
@@ -137,8 +224,24 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: MainViewModelDelegate {
 
+    func setSections(model: MainViewControllerModel) {
+        var snapshot = NSDiffableDataSourceSnapshot<
+            MainSection,
+            MainSectionItem
+        >()
+    
+        for section in model.sections {
+            snapshot.appendSections([section.key])
+            snapshot.appendItems(section.value, toSection: section.key)
+        }
+
+        DispatchQueue.main.async {
+            self.dataSource?.applySnapshotUsingReloadData(snapshot)
+        }
+    }
+
     func reloadData() {
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 
     func showAlert(title: String, description: String?) {

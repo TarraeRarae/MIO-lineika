@@ -23,23 +23,23 @@ extension AnyReusableCellViewModelProtocol {
     }
 }
 
-protocol AnyTableViewCellModelProtocol: AnyReusableCellViewModelProtocol {
-    func configureAny(_ cell: UITableViewCell)
+protocol AnyCollectionViewCellModelProtocol: AnyReusableCellViewModelProtocol {
+    func configureAny(_ cell: UICollectionViewCell)
 }
 
-protocol TableCellViewModelProtocol: AnyTableViewCellModelProtocol {
-    associatedtype CellType: UITableViewCell
+protocol CollectionCellViewModelProtocol: AnyCollectionViewCellModelProtocol {
+    associatedtype CellType: UICollectionViewCell
 
     func configure(_ cell: CellType)
 }
 
-extension TableCellViewModelProtocol {
+extension CollectionCellViewModelProtocol {
 
     static var viewClass: UIView.Type {
         return CellType.self
     }
 
-    func configureAny(_ cell: UITableViewCell) {
+    func configureAny(_ cell: UICollectionViewCell) {
         guard let cell = cell as? CellType else {
             assertionFailure("Incorrect cell type")
             return

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TitleTableCell: TableViewCell {
+final class TitleTableCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -29,11 +29,8 @@ final class TitleTableCell: TableViewCell {
 
     // MARK: - Initializers
 
-    override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?
-    ) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -104,7 +101,7 @@ private extension TitleTableCell {
 
     func applyTheme() {
         contentView.backgroundColor = .clear
-        backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
+        backgroundColor = DesignManager.shared.theme[.background(.cell)]
         titleLabel.textColor = DesignManager.shared.theme[.text(.primary)]
         titleLabel.font = FontFamily.Nunito.semiBold.font(size: 20)
     }
@@ -122,6 +119,9 @@ extension TitleTableCell {
             case full
             case none
         }
+    
+        /// Уникальный идентификатор модели ячейки
+        let uniqueId = UUID()
 
         /// Отображаемый текст
         let title: String

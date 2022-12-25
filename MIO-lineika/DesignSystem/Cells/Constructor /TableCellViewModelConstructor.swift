@@ -22,7 +22,7 @@ final class TableCellViewModelConstructor {
         insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
         horizontalOffset: CGFloat = 0,
         delegate: RadiobuttonCellViewModelDelegate? = nil
-    ) -> AnyTableViewCellModelProtocol {
+    ) -> AnyCollectionViewCellModelProtocol {
         let configuration = RadiobuttonTableCell.Configuration(
             configurableSetting: configurableSetting,
             isEnabled: isEnabled,

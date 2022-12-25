@@ -31,7 +31,7 @@ final class RadiobuttonTableCellViewModel {
 
 // MARK: - CellViewModelProtocol
 
-extension RadiobuttonTableCellViewModel: TableCellViewModelProtocol {
+extension RadiobuttonTableCellViewModel: CollectionCellViewModelProtocol {
 
     func configure(_ cell: RadiobuttonTableCell) {
         cell.viewModel = self

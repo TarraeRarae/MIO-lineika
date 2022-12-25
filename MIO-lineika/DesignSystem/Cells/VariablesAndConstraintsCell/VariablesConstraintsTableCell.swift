@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class VariablesConstraintsTableCell: TableViewCell {
+final class VariablesConstraintsTableCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -39,8 +39,8 @@ final class VariablesConstraintsTableCell: TableViewCell {
 
     // MARK: - Initializers
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -137,7 +137,7 @@ private extension VariablesConstraintsTableCell {
 
     func applyTheme() {
         contentView.backgroundColor = .clear
-        backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
+        backgroundColor = DesignManager.shared.theme[.background(.cell)]
         textField.textColor = DesignManager.shared.theme[.text(.secondary)]
         titleLabel.font = FontFamily.Nunito.medium.font(size: 16)
         textField.font = FontFamily.Nunito.regular.font(size: 14)
@@ -196,6 +196,9 @@ extension VariablesConstraintsTableCell {
             case full
             case none
         }
+
+        /// Уникальный идентификатор модели ячейки
+        let uniqueId = UUID()
 
         /// Конфигурируемая настройка
         let configurableSetting: VariableConstraintsSettingsType

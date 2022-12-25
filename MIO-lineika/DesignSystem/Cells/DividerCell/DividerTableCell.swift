@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DividerTableCell: TableViewCell {
+final class DividerTableCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -28,8 +28,8 @@ final class DividerTableCell: TableViewCell {
 
     // MARK: - Initializers
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -93,6 +93,8 @@ private extension DividerTableCell {
     }
 
     func applyTheme() {
+        contentView.backgroundColor = .clear
+        backgroundColor = DesignManager.shared.theme[.background(.cell)]
         dividerView.backgroundColor = DesignManager.shared.theme[.background(.divider)]
     }
 }
@@ -106,6 +108,9 @@ extension DividerTableCell {
         enum DividerStyle {
             case fullWidth
         }
+
+        /// Уникальный идентификатор модели ячейки
+        let uniqueId = UUID()
 
         /// Стиль линии-разделителя
         let dividerStyle: DividerStyle

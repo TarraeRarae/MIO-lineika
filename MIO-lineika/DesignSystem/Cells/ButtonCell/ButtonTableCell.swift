@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class ButtonTableCell: TableViewCell {
+final class ButtonTableCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -23,8 +23,8 @@ final class ButtonTableCell: TableViewCell {
     
     // MARK: - Initializers
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -53,12 +53,6 @@ final class ButtonTableCell: TableViewCell {
         }
 
         setupLayouts(with: configuration.insets)
-    }
-
-    // MARK: - Lifecycle
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
 
     // MARK: - Internal properties
@@ -93,7 +87,7 @@ private extension ButtonTableCell {
 
     func applyTheme() {
         contentView.backgroundColor = .clear
-        backgroundColor = DesignManager.shared.theme[.background(.tableCell)]
+        backgroundColor = DesignManager.shared.theme[.background(.cell)]
     }
 }
 
@@ -109,6 +103,9 @@ extension ButtonTableCell {
             case full
             case none
         }
+
+        /// Уникальный идентификатор модели ячейки
+        let uniqueId = UUID()
 
         /// Модель конфигурации для кнопки
         let buttonConfiguration: MainButton.Configuration

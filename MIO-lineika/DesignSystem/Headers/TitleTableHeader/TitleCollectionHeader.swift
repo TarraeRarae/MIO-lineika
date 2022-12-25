@@ -8,7 +8,11 @@
 import UIKit
 import SnapKit
 
-final class TitleTableHeader: UITableViewHeaderFooterView {
+final class TitleCollectionHeader: UICollectionReusableView {
+
+    override var reuseIdentifier: String? {
+        return String(describing: TitleCollectionHeader.self)
+    }
 
     // MARK: - Constants
 
@@ -16,10 +20,11 @@ final class TitleTableHeader: UITableViewHeaderFooterView {
     
         enum TitleLabel {
             static let lineHeight: CGFloat = 26
+            static let insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
 
         enum SubtitleLabel {
-            static let insets = UIEdgeInsets(top: 20, left: 0, bottom: 26, right: 0)
+            static let insets = UIEdgeInsets(top: 10, left: 20, bottom: 26, right: 20)
             static let lineHeight: CGFloat = 19
         }
     }
@@ -40,8 +45,8 @@ final class TitleTableHeader: UITableViewHeaderFooterView {
 
     // MARK: - Initializers
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
 
@@ -53,7 +58,7 @@ final class TitleTableHeader: UITableViewHeaderFooterView {
 
 // MARK: - Configurable Item
 
-extension TitleTableHeader: ConfigurableItem {
+extension TitleCollectionHeader: ConfigurableItem {
 
     func configure(_ params: Any) {
         guard let configuration = params as? Configuration
@@ -83,7 +88,7 @@ extension TitleTableHeader: ConfigurableItem {
 
 // MARK: - Private properties
 
-private extension TitleTableHeader {
+private extension TitleCollectionHeader {
 
     func commonInit() {
         setupSubviews()
@@ -99,14 +104,14 @@ private extension TitleTableHeader {
     func setupLayouts() {
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(Constants.TitleLabel.insets.left)
+            $0.trailing.equalToSuperview().inset(Constants.TitleLabel.insets.right)
         }
 
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.SubtitleLabel.insets.top)
-            $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview().offset(Constants.SubtitleLabel.insets.left)
+            $0.trailing.equalToSuperview().inset(Constants.SubtitleLabel.insets.right)
             $0.bottom.equalToSuperview().inset(Constants.SubtitleLabel.insets.bottom)
         }
     }
@@ -122,9 +127,12 @@ private extension TitleTableHeader {
 
 // MARK: - Configuration
 
-extension TitleTableHeader {
+extension TitleCollectionHeader {
 
-    struct Configuration {
+    struct Configuration: Hashable {
+
+        /// Уникальный идентификатор модели
+        let uniqueId = UUID()
 
         /// Заголовок
         let title: String

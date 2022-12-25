@@ -11,9 +11,10 @@ enum SemanticColor {
 
     enum BackgroundColor {
         case main
-        case tableCell
+        case cell
         case divider
         case textFieldBorder
+        case shadow
     }
 
     enum TextColor {

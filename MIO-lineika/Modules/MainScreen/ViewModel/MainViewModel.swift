@@ -18,22 +18,29 @@ protocol MainViewModelProtocol: AnyObject {
     var route: (MainViewModelRoute) -> Void { get set }
 
     func numberOfRows(in section: Int) -> Int
-    func cellViewModelFor(indexPath: IndexPath) -> AnyTableViewCellModelProtocol?
+    func cellViewModelFor(indexPath: IndexPath) -> AnyCollectionViewCellModelProtocol?
     func headerFor(section: Int) -> UIView?
 }
 
 protocol MainViewModelDelegate: AnyObject {
+    func setSections(model: MainViewControllerModel)
     func reloadData()
     func showAlert(title: String, description: String?)
 }
+
+// MARK: - MainViewModel
 
 final class MainViewModel: MainViewModelProtocol {
 
     // MARK: - Internal properties
 
-    weak var delegate: MainViewModelDelegate?
-
     var route: (MainViewModelRoute) -> Void = { _ in }
+
+    weak var delegate: MainViewModelDelegate? {
+        didSet {
+            commonInit()
+        }
+    }
 
     // MARK: - Private properties
 
@@ -57,23 +64,17 @@ final class MainViewModel: MainViewModelProtocol {
         }
     }
 
-    private var cellViewModels = [AnyTableViewCellModelProtocol]()
+    private var cellViewModels = [AnyCollectionViewCellModelProtocol]()
 
-    private var methodsCellViewModels = [AnyTableViewCellModelProtocol]()
+    private var methodsCellViewModels = [AnyCollectionViewCellModelProtocol]()
 
-    private var settingsCellViewModels = [AnyTableViewCellModelProtocol]()
+    private var settingsCellViewModels = [AnyCollectionViewCellModelProtocol]()
 
-    private var optimizationsCellViewModels = [AnyTableViewCellModelProtocol]()
+    private var optimizationsCellViewModels = [AnyCollectionViewCellModelProtocol]()
 
-    private var mainButtonCellViewModel: AnyTableViewCellModelProtocol?
+    private var mainButtonCellViewModel: AnyCollectionViewCellModelProtocol?
 
     private var headers = [UIView]()
-
-    // MARK: - Initializers
-
-    init() {
-        commonInit()
-    }
 
     // MARK: - Internal methods
 
@@ -82,7 +83,7 @@ final class MainViewModel: MainViewModelProtocol {
         return cellViewModels.count
     }
 
-    func cellViewModelFor(indexPath: IndexPath) -> AnyTableViewCellModelProtocol? {
+    func cellViewModelFor(indexPath: IndexPath) -> AnyCollectionViewCellModelProtocol? {
         if indexPath.section != 0 { return nil }
         return indexPath.row <= cellViewModels.count ? cellViewModels[indexPath.row] : nil
     }
@@ -182,8 +183,8 @@ private extension MainViewModel {
             isEnabled: false,
             roundCornersStyle: .bottom,
             insets: UIEdgeInsets(top: 14, left: 26, bottom: 20, right: 26)
-        ) {
-            self.route(.toMethodConfiguration)
+        ) { [weak self] in
+            self?.route(.toMethodConfiguration)
         }
 
         mainButtonCellViewModel = buttonCellViewModel
@@ -206,11 +207,53 @@ private extension MainViewModel {
 
         cellViewModels += [buttonCellViewModel]
 
-        delegate?.reloadData()
+        setupMainViewControllerModel()
+    }
+
+    func setupMainViewControllerModel() {
+        var sectionItems = [MainSectionItem]()
+
+        for viewModel in cellViewModels {
+            if let radiobuttonModel = viewModel as? RadiobuttonTableCellViewModel {
+                let sectionItem = MainSectionItem.radiobutton(radiobuttonModel)
+                sectionItems.append(sectionItem)
+                continue
+            }
+
+            if let titleModel = viewModel as? TitleTableCellViewModel {
+                let sectionItem = MainSectionItem.title(titleModel)
+                sectionItems.append(sectionItem)
+                continue
+            }
+
+            if let buttonModel = viewModel as? ButtonTableCellViewModel {
+                let sectionItem = MainSectionItem.button(buttonModel)
+                sectionItems.append(sectionItem)
+                continue
+            }
+
+            if let dividerModel = viewModel as? DividerTableCellViewModel {
+                let sectionItem = MainSectionItem.divider(dividerModel)
+                sectionItems.append(sectionItem)
+                continue
+            }
+
+            if let variablesConstraintModel = viewModel as? VariablesAndConstraintsTableCellViewModel {
+                let sectionItem = MainSectionItem.variablesConstraints(
+                    variablesConstraintModel
+                )
+                sectionItems.append(sectionItem)
+                continue
+            }
+        }
+
+        let model = MainViewControllerModel(sections: [.main: sectionItems])
+
+        delegate?.setSections(model: model)
     }
 
     func setupHeaders() {
-        let titleTableHeader = TableHeaderConstructor.shared.makeTitleTableHeader(
+        let titleTableHeader = CollectionHeaderConstructor.shared.makeTitleTableHeader(
             title: L10n.MainScreen.Header.title,
             subtitle: L10n.MainScreen.Header.subtitle
         )
