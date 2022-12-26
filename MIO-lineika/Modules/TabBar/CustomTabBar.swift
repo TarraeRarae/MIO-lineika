@@ -38,7 +38,7 @@ private extension CustomTabBar {
                 x: 0,
                 y: -Constants.horizontalOffset,
                 width: frame.width,
-                height: frame.height + Constants.horizontalOffset
+                height: frame.height + Constants.horizontalOffset + 15
             ),
             cornerRadius: Constants.cornerRadius
         )
