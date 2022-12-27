@@ -22,6 +22,7 @@
 		8A162403294E02D20068744D /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162402294E02D20068744D /* LightTheme.swift */; };
 		8A162406294E03F00068744D /* DividerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162405294E03F00068744D /* DividerTableCell.swift */; };
 		8A162409294E18460068744D /* VariablesConstraintsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A162408294E18460068744D /* VariablesConstraintsTableCell.swift */; };
+		8A26FDBF295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26FDBE295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift */; };
 		8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75A295274D500EA18C6 /* MainButton.swift */; };
 		8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */; };
 		8A4FD6872957BD1A009A6FCE /* MainViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */; };
@@ -36,6 +37,11 @@
 		8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B22294BD1C300C04DF9 /* BaseController.swift */; };
 		8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */; };
 		8AB42B2D294BD98900C04DF9 /* RadiobuttonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB42B2C294BD98900C04DF9 /* RadiobuttonTableCell.swift */; };
+		8AC763CA2959C37500B97A23 /* MethodConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC763C92959C37500B97A23 /* MethodConfigurationViewController.swift */; };
+		8AC763CC2959C4A000B97A23 /* MethodConfigurationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC763CB2959C4A000B97A23 /* MethodConfigurationViewModel.swift */; };
+		8AC763CF2959C66B00B97A23 /* MethodConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC763CE2959C66B00B97A23 /* MethodConfigurationModel.swift */; };
+		8AC763D12959C82600B97A23 /* MethodConfigurationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC763D02959C82600B97A23 /* MethodConfigurationSection.swift */; };
+		8AC763D32959C84A00B97A23 /* MethodConfigurationSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC763D22959C84A00B97A23 /* MethodConfigurationSectionItem.swift */; };
 		8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */; };
 		8AD07B42294BB9560065E7D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD07B41294BB9560065E7D8 /* MainViewController.swift */; };
 		8AD07B47294BB9570065E7D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD07B46294BB9570065E7D8 /* Assets.xcassets */; };
@@ -84,6 +90,7 @@
 		8A162402294E02D20068744D /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		8A162405294E03F00068744D /* DividerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTableCell.swift; sourceTree = "<group>"; };
 		8A162408294E18460068744D /* VariablesConstraintsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesConstraintsTableCell.swift; sourceTree = "<group>"; };
+		8A26FDBE295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationControllerModel.swift; sourceTree = "<group>"; };
 		8A49B75A295274D500EA18C6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		8A49B75D2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCellViewModel.swift; sourceTree = "<group>"; };
 		8A4FD6862957BD1A009A6FCE /* MainViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerModel.swift; sourceTree = "<group>"; };
@@ -98,6 +105,11 @@
 		8AB42B22294BD1C300C04DF9 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		8AB42B26294BD5D500C04DF9 /* ConfigurableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableItem.swift; sourceTree = "<group>"; };
 		8AB42B2C294BD98900C04DF9 /* RadiobuttonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiobuttonTableCell.swift; sourceTree = "<group>"; };
+		8AC763C92959C37500B97A23 /* MethodConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationViewController.swift; sourceTree = "<group>"; };
+		8AC763CB2959C4A000B97A23 /* MethodConfigurationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationViewModel.swift; sourceTree = "<group>"; };
+		8AC763CE2959C66B00B97A23 /* MethodConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationModel.swift; sourceTree = "<group>"; };
+		8AC763D02959C82600B97A23 /* MethodConfigurationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationSection.swift; sourceTree = "<group>"; };
+		8AC763D22959C84A00B97A23 /* MethodConfigurationSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationSectionItem.swift; sourceTree = "<group>"; };
 		8AD07B3A294BB9560065E7D8 /* MIO-lineika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIO-lineika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD07B3D294BB9560065E7D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD07B41294BB9560065E7D8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +303,43 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8AC763C62959C31900B97A23 /* MethodConfigurationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8AC763CD2959C65F00B97A23 /* Models */,
+				8AC763C82959C32900B97A23 /* ViewModel */,
+				8AC763C72959C32500B97A23 /* View */,
+			);
+			path = MethodConfigurationScreen;
+			sourceTree = "<group>";
+		};
+		8AC763C72959C32500B97A23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8AC763C92959C37500B97A23 /* MethodConfigurationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8AC763C82959C32900B97A23 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8AC763CB2959C4A000B97A23 /* MethodConfigurationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8AC763CD2959C65F00B97A23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8AC763CE2959C66B00B97A23 /* MethodConfigurationModel.swift */,
+				8AC763D02959C82600B97A23 /* MethodConfigurationSection.swift */,
+				8AC763D22959C84A00B97A23 /* MethodConfigurationSectionItem.swift */,
+				8A26FDBE295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8AD07B31294BB9560065E7D8 = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +374,7 @@
 		8AD07B51294BBD090065E7D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8AC763C62959C31900B97A23 /* MethodConfigurationScreen */,
 				8AF5AA272958CF4400B75D4B /* MockControllers */,
 				8A4FD68B29589817009A6FCE /* TabBar */,
 				8AD07B52294BBD0F0065E7D8 /* MainScreen */,
@@ -636,6 +686,8 @@
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8A0D8BE929573E8D0048FA63 /* MainSectionItem.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
+				8AC763CF2959C66B00B97A23 /* MethodConfigurationModel.swift in Sources */,
+				8AC763D12959C82600B97A23 /* MethodConfigurationSection.swift in Sources */,
 				8A0D8BE729573E7F0048FA63 /* MainSection.swift in Sources */,
 				8A162409294E18460068744D /* VariablesConstraintsTableCell.swift in Sources */,
 				8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */,
@@ -645,6 +697,7 @@
 				8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */,
 				8AF8C8852953AB59007246E2 /* ButtonCellProtocols.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
+				8A26FDBF295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift in Sources */,
 				8AF8C877295381D6007246E2 /* RadiobuttonCellProtocols.swift in Sources */,
 				8A1623F8294DE2490068744D /* Settings.swift in Sources */,
 				8A1623FF294DF9080068744D /* TableCellViewModelConstructor.swift in Sources */,
@@ -654,10 +707,12 @@
 				8AF8C87529538181007246E2 /* DividerTableCellViewModel.swift in Sources */,
 				8AF8C8902953B7E3007246E2 /* Fonts.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
+				8AC763CC2959C4A000B97A23 /* MethodConfigurationViewModel.swift in Sources */,
 				8A49B75E2952817E00EA18C6 /* RadiobuttonTableCellViewModel.swift in Sources */,
 				8AF5AA292958CF4E00B75D4B /* MockController.swift in Sources */,
 				8AB42B18294BCCA600C04DF9 /* Coordinator.swift in Sources */,
 				8AF8C88E2953B2F0007246E2 /* CollectionHeaderConstructor.swift in Sources */,
+				8AC763D32959C84A00B97A23 /* MethodConfigurationSectionItem.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
 				8A4FD68D29589823009A6FCE /* TabBarController.swift in Sources */,
@@ -671,6 +726,7 @@
 				8A1623F6294D2A1B0068744D /* CollectionViewCell.swift in Sources */,
 				8A1623FC294DF49C0068744D /* TitleTableCell.swift in Sources */,
 				8AD07B56294BBD2C0065E7D8 /* MainViewModel.swift in Sources */,
+				8AC763CA2959C37500B97A23 /* MethodConfigurationViewController.swift in Sources */,
 				8AF8C86C29536F62007246E2 /* Reusable.swift in Sources */,
 				8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */,
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,

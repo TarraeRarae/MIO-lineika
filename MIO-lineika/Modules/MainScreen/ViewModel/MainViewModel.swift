@@ -16,15 +16,10 @@ enum MainViewModelRoute {
 protocol MainViewModelProtocol: AnyObject {
     var delegate: MainViewModelDelegate? { get set }
     var route: (MainViewModelRoute) -> Void { get set }
-
-    func numberOfRows(in section: Int) -> Int
-    func cellViewModelFor(indexPath: IndexPath) -> AnyCollectionViewCellModelProtocol?
-    func headerFor(section: Int) -> UIView?
 }
 
 protocol MainViewModelDelegate: AnyObject {
     func setSections(model: MainViewControllerModel)
-    func reloadData()
     func showAlert(title: String, description: String?)
 }
 
@@ -112,16 +107,16 @@ private extension MainViewModel {
     
         methodsCellViewModels = [
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
-                configurableSetting: .method(.graphic),
+                configurableSetting: .method(.straightSimplex),
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12,
                 delegate: self
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
-                configurableSetting: .method(.straightSimplex),
+                configurableSetting: .method(.graphic),
+                isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
-                horizontalOffset: 12,
-                delegate: self
+                horizontalOffset: 12
             ),
             TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.artificialVariables),

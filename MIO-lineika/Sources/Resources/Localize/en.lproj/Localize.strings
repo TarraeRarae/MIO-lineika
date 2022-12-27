@@ -66,3 +66,16 @@ Alert.action.ok = "ОК";
 MainScreen.Header.title = "Решение задач линейного программирования";
 
 MainScreen.Header.subtitle = "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.";
+
+
+// MARK: - Mock
+
+MockScreen.title = "Раздел в разработке";
+
+
+// MARK: - MethodConfigurationScreen
+
+MethodConfigurationScreen.navigationBar.title = "Прямой симплекс метод";
+
+MethodConfigurationScreen.Header.subtitle = "Введите целые числа или обыкновенные дроби.
+Например, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9";

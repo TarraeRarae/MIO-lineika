@@ -1,14 +1,13 @@
 //
-//  ViewController.swift
+//  MethodConfigurationViewController.swift
 //  MIO-lineika
 //
-//  Created by Alexey Zubkov on 15.12.2022.
+//  Created by Alexey Zubkov on 26.12.2022.
 //
 
 import UIKit
-import SnapKit
 
-final class MainViewController: BaseController {
+final class MethodConfigurationViewController: BaseController {
 
     // MARK: - Constants
 
@@ -19,7 +18,7 @@ final class MainViewController: BaseController {
 
     // MARK: - Private properties
 
-    private let viewModel: MainViewModelProtocol
+    private let viewModel: MethodConfigurationViewModelProtocol
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,16 +36,15 @@ final class MainViewController: BaseController {
     }()
 
     private var dataSource: UICollectionViewDiffableDataSource<
-        MainSection,
-        MainSectionItem
+        MethodConfigurationSection,
+        MethodConfigurationSectionItem
     >?
 
     // MARK: - Initializers
 
-    init(viewModel: MainViewModelProtocol) {
+    init(viewModel: MethodConfigurationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.delegate = self
         commonInit()
     }
 
@@ -59,7 +57,7 @@ final class MainViewController: BaseController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         applyTheme()
     }
 
@@ -70,14 +68,13 @@ final class MainViewController: BaseController {
 
 // MARK: - Private methods
 
-private extension MainViewController {
+private extension MethodConfigurationViewController {
 
     func commonInit() {
         setupSubviews()
         setupLayouts()
         setupDataSource()
         setupCollectionView()
-        setupGestures()
     }
 
     func setupSubviews() {
@@ -95,19 +92,13 @@ private extension MainViewController {
 
     func setupDataSource() {
         dataSource = UICollectionViewDiffableDataSource<
-            MainSection,
-            MainSectionItem
+            MethodConfigurationSection,
+            MethodConfigurationSectionItem
         >(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             var model: AnyCollectionViewCellModelProtocol
     
             switch itemIdentifier {
-            case .title(let viewModel):
-                model = viewModel
-            case .radiobutton(let viewModel):
-                model = viewModel
             case .divider(let viewModel):
-                model = viewModel
-            case .variablesConstraints(let viewModel):
                 model = viewModel
             case .button(let viewModel):
                 model = viewModel
@@ -134,7 +125,6 @@ private extension MainViewController {
 
             return header
         }
-
     }
 
     func setupCollectionView() {
@@ -152,10 +142,7 @@ private extension MainViewController {
         )
     
         collectionView.registerCells(
-            RadiobuttonTableCellViewModel.self,
-            TitleTableCellViewModel.self,
             DividerTableCellViewModel.self,
-            VariablesAndConstraintsTableCellViewModel.self,
             ButtonTableCellViewModel.self
         )
 
@@ -163,22 +150,32 @@ private extension MainViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
     }
+}
 
-    func setupGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(tapGesture)
-    }
+// MARK: - MethodConfigurationViewModelDelegate
 
-    @objc
-    func viewDidTap() {
-        view.endEditing(true)
+extension MethodConfigurationViewController: MethodConfigurationViewModelDelegate {
+    
+    func setSections(model: MethodConfigurationControllerModel) {
+        var snapshot = NSDiffableDataSourceSnapshot<
+            MethodConfigurationSection,
+            MethodConfigurationSectionItem
+        >()
+
+        for section in model.sections {
+            snapshot.appendSections([section.key])
+            snapshot.appendItems(section.value, toSection: section.key)
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource?.applySnapshotUsingReloadData(snapshot)
+        }
     }
 }
 
 // MARK: - UICollectionViewDelegate
 
-extension MainViewController: UICollectionViewDelegate {
+extension MethodConfigurationViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
@@ -187,7 +184,7 @@ extension MainViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension MethodConfigurationViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(
         _ collectionView: UICollectionView,
@@ -217,39 +214,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
         return size
         
-    }
-}
-
-// MARK: - MainViewModelDelegate
-
-extension MainViewController: MainViewModelDelegate {
-
-    func setSections(model: MainViewControllerModel) {
-        var snapshot = NSDiffableDataSourceSnapshot<
-            MainSection,
-            MainSectionItem
-        >()
-    
-        for section in model.sections {
-            snapshot.appendSections([section.key])
-            snapshot.appendItems(section.value, toSection: section.key)
-        }
-
-        DispatchQueue.main.async {
-            self.dataSource?.applySnapshotUsingReloadData(snapshot)
-        }
-    }
-
-    func showAlert(title: String, description: String?) {
-        let alert = UIAlertController(
-            title: title,
-            message: description,
-            preferredStyle: .alert
-        )
-
-        let okAction = UIAlertAction(title: L10n.Alert.Action.ok, style: .default)
-        alert.addAction(okAction)
-
-        present(alert, animated: true)
     }
 }

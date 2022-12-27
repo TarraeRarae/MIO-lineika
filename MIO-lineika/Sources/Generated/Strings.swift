@@ -54,6 +54,17 @@ internal enum L10n {
       internal static let title = L10n.tr("Localize", "MainScreen.Header.title", fallback: "Решение задач линейного программирования")
     }
   }
+  internal enum MethodConfigurationScreen {
+    internal enum Header {
+      /// Введите целые числа или обыкновенные дроби.
+      /// Например, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9
+      internal static let subtitle = L10n.tr("Localize", "MethodConfigurationScreen.Header.subtitle", fallback: "Введите целые числа или обыкновенные дроби.\nНапример, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9")
+    }
+    internal enum NavigationBar {
+      /// Прямой симплекс метод
+      internal static let title = L10n.tr("Localize", "MethodConfigurationScreen.navigationBar.title", fallback: "Прямой симплекс метод")
+    }
+  }
   internal enum Methods {
     /// Метод решения
     internal static let title = L10n.tr("Localize", "Methods.title", fallback: "Метод решения")
@@ -77,6 +88,10 @@ internal enum L10n {
       /// Прямой симплекс метод
       internal static let title = L10n.tr("Localize", "Methods.straightSimplex.title", fallback: "Прямой симплекс метод")
     }
+  }
+  internal enum MockScreen {
+    /// Раздел в разработке
+    internal static let title = L10n.tr("Localize", "MockScreen.title", fallback: "Раздел в разработке")
   }
   internal enum Optimizations {
     /// Вид оптимизации
