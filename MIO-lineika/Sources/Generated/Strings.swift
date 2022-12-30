@@ -30,8 +30,8 @@ internal enum L10n {
     internal enum TextField {
       /// Вы можете ввести только одну цифру от 1 до 9
       internal static let maxNine = L10n.tr("Localize", "Error.textField.maxNine", fallback: "Вы можете ввести только одну цифру от 1 до 9")
-      /// Вы можете ввести число только в диапазоне от 0 до 999
-      internal static let onlyNumbers = L10n.tr("Localize", "Error.textField.onlyNumbers", fallback: "Вы можете ввести число только в диапазоне от 0 до 999")
+      /// Вы можете ввести число только в диапазоне от 0 до 99
+      internal static let onlyNumbers = L10n.tr("Localize", "Error.textField.onlyNumbers", fallback: "Вы можете ввести число только в диапазоне от 0 до 99")
       /// Вы можете ввести только одну цифру 2 или 3
       internal static let onlyTwoAndThree = L10n.tr("Localize", "Error.textField.onlyTwoAndThree", fallback: "Вы можете ввести только одну цифру 2 или 3")
     }

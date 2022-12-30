@@ -28,7 +28,13 @@ final class ConstraintsSystemCollectionCell: CollectionViewCell {
         }
     }
 
+    // MARK: - Internal properties
+
+    var viewModel: ConstraintsSystemCollectionCellViewModelOuput?
+
     // MARK: - Private properties
+
+    private var textFieldMatrix = [[UITextField]]()
 
     private let scopeImageView: UIImageView = {
         let imageView = UIImageView()
@@ -170,6 +176,8 @@ private extension ConstraintsSystemCollectionCell {
             $0.width.equalTo(27)
         }
 
+        resultTextField.delegate = self
+
         stackView.addArrangedSubview(resultTextField)
 
         stackView.sizeToFit()
@@ -193,8 +201,49 @@ private extension ConstraintsSystemCollectionCell {
         let textField = BottomLineTextFieldWithLabel()
 
         textField.configure(configuration)
+        textField.textField.delegate = self
 
         return textField
+    }
+}
+
+extension ConstraintsSystemCollectionCell: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.text = ""
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if let result = viewModel?.valueDidChange(text: text),
+           !result.0 {
+            textField.textColor = DesignManager.shared.theme[.text(.error)]
+            viewModel?.showAlert(title: L10n.Error.title, description: result.1)
+            return
+        }
+
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
+    }
+
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let maxLength = 2
+        let currentString = (textField.text ?? "") as NSString
+        let newString = currentString.replacingCharacters(in: range, with: string)
+
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
+
+        return newString.count <= maxLength
     }
 }
 

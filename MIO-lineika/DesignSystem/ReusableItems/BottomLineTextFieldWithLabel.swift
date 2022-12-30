@@ -23,15 +23,25 @@ final class BottomLineTextFieldWithLabel: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: UITextFieldDelegate? {
+    weak var delegate: UITextFieldDelegate? = nil {
         didSet {
-            textField.delegate = delegate
+            bottomLineTextField.delegate = delegate
+        }
+    }
+
+    var textField: UITextField {
+        return bottomLineTextField
+    }
+
+    var attributedPlaceholder: NSAttributedString? = nil {
+        didSet {
+            textField.attributedPlaceholder = attributedPlaceholder
         }
     }
 
     // MARK: - Private properties
 
-    private let textField = BottomLineTextField()
+    private let bottomLineTextField = BottomLineTextField()
 
     private let textLabel: UILabel = {
         let label = UILabel()
@@ -61,7 +71,7 @@ extension BottomLineTextFieldWithLabel: ConfigurableItem {
         guard let configuration = params as? Configuration else { return }
 
         textLabel.text = configuration.text
-        textField.configure(configuration.textFieldConfiguration)
+        bottomLineTextField.configure(configuration.textFieldConfiguration)
     }
 }
 
@@ -76,12 +86,12 @@ private extension BottomLineTextFieldWithLabel {
     }
 
     func setupSubviews() {
-        addSubview(textField)
+        addSubview(bottomLineTextField)
         addSubview(textLabel)
     }
 
     func setupLayouts() {
-        textField.snp.makeConstraints {
+        bottomLineTextField.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -91,7 +101,7 @@ private extension BottomLineTextFieldWithLabel {
 
         textLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalTo(textField.snp.trailing).offset(Constants.horizontalInset)
+            $0.leading.equalTo(bottomLineTextField.snp.trailing).offset(Constants.horizontalInset)
             $0.bottom.equalToSuperview()
             $0.trailing.equalToSuperview()
         }

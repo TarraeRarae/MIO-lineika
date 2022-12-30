@@ -171,6 +171,13 @@ private extension FunctionInputCollectionCell {
 
         let textField = BottomLineTextFieldWithLabel()
         textField.configure(configuration)
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "0",
+            attributes: [
+                .foregroundColor: DesignManager.shared.theme[.text(.secondary)]
+            ]
+        )
+
         textField.delegate = self
 
         return textField
@@ -199,7 +206,7 @@ extension FunctionInputCollectionCell: UITextFieldDelegate {
             return
         }
 
-        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
     }
 
     func textField(
@@ -207,9 +214,11 @@ extension FunctionInputCollectionCell: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let maxLength = 3
+        let maxLength = 2
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
+
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
 
         return newString.count <= maxLength
     }

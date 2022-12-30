@@ -55,7 +55,7 @@ Error.variables.maxThree = "Максимально допустимое числ
 
 Error.textField.onlyTwoAndThree = "Вы можете ввести только одну цифру 2 или 3";
 
-Error.textField.onlyNumbers = "Вы можете ввести число только в диапазоне от 0 до 999";
+Error.textField.onlyNumbers = "Вы можете ввести число только в диапазоне от 0 до 99";
 
 Error.textField.maxNine = "Вы можете ввести только одну цифру от 1 до 9";
 

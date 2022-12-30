@@ -11,7 +11,7 @@ final class ConstraintsSystemCollectionCellViewModel {
 
     // MARK: - Internal properties
 
-//    weak var delegate: FunctionInputCollectionCellViewModelDelegate?
+    weak var delegate: ConstraintsSystemCollectionCellViewModelDelegate?
 
     var uniqueId: UUID {
         return model.uniqueId
@@ -36,34 +36,33 @@ extension ConstraintsSystemCollectionCellViewModel: CollectionCellViewModelProto
 
     func configure(_ cell: ConstraintsSystemCollectionCell) {
         cell.configure(model)
-//        cell.viewModel = self
+        cell.viewModel = self
         self.cell = cell
     }
 }
 
 // MARK: - Private methods
-//
-//private extension FunctionInputCollectionCellViewModel {
-//
-//    func validate(text: String) -> (Bool, String?) {
-//        guard text.first != "0",
-//            let _ = Int(text) else {
-//            return (false, L10n.Error.TextField.onlyNumbers)
-//        }
-//        return (true, nil)
-//    }
-//}
-//
-//// MARK: - FunctionInputCollectionCellViewModelOutput
-//
-//extension FunctionInputCollectionCellViewModel: FunctionInputCollectionCellViewModelOutput {
-//
-//    func valueDidChange(text: String) -> (Bool, String?) {
-//        return validate(text: text)
-//    }
-//
-//    func showAlert(title: String, description: String?) {
-//        delegate?.showAlert(title: title, description: description)
-//    }
-//}
 
+private extension ConstraintsSystemCollectionCellViewModel {
+
+    func validate(text: String) -> (Bool, String?) {
+        guard text.first != "0",
+            let _ = Int(text) else {
+            return (false, L10n.Error.TextField.onlyNumbers)
+        }
+        return (true, nil)
+    }
+}
+
+// MARK: - ConstraintsSystemCollectionCellViewModelOuput
+
+extension ConstraintsSystemCollectionCellViewModel: ConstraintsSystemCollectionCellViewModelOuput {
+
+    func valueDidChange(text: String) -> (Bool, String?) {
+        return validate(text: text)
+    }
+
+    func showAlert(title: String, description: String?) {
+        delegate?.showAlert(title: title, description: description)
+    }
+}

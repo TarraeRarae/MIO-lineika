@@ -108,7 +108,8 @@ private extension MethodConfigurationViewModel {
         let constraintsSystemViewModel = CollectionCellViewModelConstructor.shared.makeConstraintsSystemCollectionCellViewModel(
             titleText: L10n.MethodConfigurationScreen.ConstraintsSystemCell.title,
             variables: model.variables,
-            constraints: model.constraints
+            constraints: model.constraints,
+            delegate: self
         )
 
         cellViewModels = [
@@ -171,4 +172,9 @@ extension MethodConfigurationViewModel: FunctionInputCollectionCellViewModelDele
     func showAlert(title: String, description: String?) {
         delegate?.showAlert(title: title, description: description)
     }
+}
+
+extension MethodConfigurationViewModel: ConstraintsSystemCollectionCellViewModelDelegate {
+
+    func constraintsSystemValueDidChange(text: String) {}
 }

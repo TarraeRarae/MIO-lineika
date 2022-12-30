@@ -140,7 +140,8 @@ final class CollectionCellViewModelConstructor {
     func makeConstraintsSystemCollectionCellViewModel(
         titleText: String,
         variables: Int,
-        constraints: Int
+        constraints: Int,
+        delegate: ConstraintsSystemCollectionCellViewModelDelegate? = nil
     ) -> ConstraintsSystemCollectionCellViewModel {
         let configuration = ConstraintsSystemCollectionCell.Configuration(
             titleText: titleText,
@@ -148,6 +149,9 @@ final class CollectionCellViewModelConstructor {
             constraints: constraints
         )
 
-        return ConstraintsSystemCollectionCellViewModel(model: configuration)
+        let viewModel = ConstraintsSystemCollectionCellViewModel(model: configuration)
+        viewModel.delegate = delegate
+
+        return viewModel
     }
 }

@@ -35,6 +35,7 @@
 		8A5DA3CE295E523900CC88C0 /* FunctionInputCollectionCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DA3CD295E523900CC88C0 /* FunctionInputCollectionCellProtocols.swift */; };
 		8A5DA3D1295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DA3D0295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift */; };
 		8A5DA3D4295E681000CC88C0 /* ConstraintsSystemCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DA3D3295E681000CC88C0 /* ConstraintsSystemCollectionCellViewModel.swift */; };
+		8A5DA3D6295EB15E00CC88C0 /* ConstraintsSystemCollectionCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DA3D5295EB15E00CC88C0 /* ConstraintsSystemCollectionCellProtocols.swift */; };
 		8A5E5395295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5E5394295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift */; };
 		8A5E5397295BA97800EE58E4 /* SubtitleCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5E5396295BA97800EE58E4 /* SubtitleCollectionHeader.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */; };
@@ -114,6 +115,7 @@
 		8A5DA3D0295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsSystemCollectionCell.swift; sourceTree = "<group>"; };
 		8A5DA3D2295E612300CC88C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A5DA3D3295E681000CC88C0 /* ConstraintsSystemCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsSystemCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		8A5DA3D5295EB15E00CC88C0 /* ConstraintsSystemCollectionCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsSystemCollectionCellProtocols.swift; sourceTree = "<group>"; };
 		8A5E5394295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationCoordinator.swift; sourceTree = "<group>"; };
 		8A5E5396295BA97800EE58E4 /* SubtitleCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleCollectionHeader.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				8A5DA3D0295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift */,
 				8A5DA3D3295E681000CC88C0 /* ConstraintsSystemCollectionCellViewModel.swift */,
+				8A5DA3D5295EB15E00CC88C0 /* ConstraintsSystemCollectionCellProtocols.swift */,
 			);
 			path = ConstraintsSystemCell;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				8A162401294DFF720068744D /* UITableView+Extension.swift in Sources */,
 				8A5DA3CC295E44F900CC88C0 /* BottomLineTextFieldWithLabel.swift in Sources */,
 				8AB42B23294BD1C300C04DF9 /* BaseController.swift in Sources */,
+				8A5DA3D6295EB15E00CC88C0 /* ConstraintsSystemCollectionCellProtocols.swift in Sources */,
 				8AF8C88A2953B074007246E2 /* TitleCollectionHeader.swift in Sources */,
 				8AD07B59294BBD540065E7D8 /* MainCoordinator.swift in Sources */,
 				8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */,
