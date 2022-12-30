@@ -60,11 +60,6 @@ final class MainViewController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        applyTheme()
-    }
-
-    override func applyTheme() {
-        view.backgroundColor = DesignManager.shared.theme[.background(.main)]
     }
 }
 
@@ -159,6 +154,7 @@ private extension MainViewController {
             ButtonTableCellViewModel.self
         )
 
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.backgroundColor = .clear
         collectionView.dataSource = dataSource
         collectionView.delegate = self

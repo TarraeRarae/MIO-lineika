@@ -33,10 +33,19 @@ final class VariablesAndConstraintsTableCellViewModel {
 private extension VariablesAndConstraintsTableCellViewModel {
 
     func validate(text: String) -> (Bool, String?) {
-        guard let value = Int(text),
-              (2...3).contains(value)
+        guard let value = Int(text)
         else {
-            return (false, L10n.Error.TextField.onlyNumbers)
+            return (false, L10n.Error.TextField.onlyTwoAndThree)
+        }
+        switch model.configurableSetting {
+        case .constraints:
+            if value < 1 {
+                return (false, L10n.Error.TextField.maxNine)
+            }
+        case .variables:
+            if !(2...3).contains(value) {
+                return (false, L10n.Error.TextField.onlyTwoAndThree)
+            }
         }
         return (true, nil)
     }
@@ -63,7 +72,7 @@ extension VariablesAndConstraintsTableCellViewModel: VariablesAndConstraintsTabl
     func valueDidChange(text: String) -> (Bool, String?) {
         guard let value = Int(text) else {
             delegate?.valueDidChange(for: model.configurableSetting, with: 0)
-            return (false, L10n.Error.TextField.onlyNumbers)
+            return (false, L10n.Error.TextField.onlyTwoAndThree)
         }
         let result = validate(text: text)
         if result.0 {

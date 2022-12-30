@@ -74,9 +74,9 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
 
         switch configuration.configurableSetting {
         case .variables(let value):
-            textFieldText = String(value)
+            textFieldText = value != 0 ? String(value) : ""
         case .constraints(let value):
-            textFieldText = String(value)
+            textFieldText = value != 0 ? String(value) : ""
         }
 
         let textFieldModel = BottomLineTextField.Configuration(text: textFieldText)
@@ -112,6 +112,12 @@ private extension VariablesConstraintsTableCell {
 
     func setupSubviews() {
         textField.delegate = self
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "0",
+            attributes: [
+                .foregroundColor: DesignManager.shared.theme[.text(.secondary)]
+            ]
+        )
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
     }
@@ -138,7 +144,7 @@ private extension VariablesConstraintsTableCell {
     func applyTheme() {
         contentView.backgroundColor = .clear
         backgroundColor = DesignManager.shared.theme[.background(.cell)]
-        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
         titleLabel.font = FontFamily.Nunito.medium.font(size: 16)
         textField.font = FontFamily.Nunito.regular.font(size: 14)
     }
@@ -168,7 +174,7 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
             return
         }
 
-        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
     }
 
     func textField(
@@ -179,6 +185,8 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
         let maxLength = 1
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
+
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
 
         return newString.count <= maxLength
     }

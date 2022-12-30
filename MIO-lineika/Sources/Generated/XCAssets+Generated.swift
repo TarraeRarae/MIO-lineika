@@ -25,9 +25,18 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal enum Arrows {
+    internal static let arrowRight = ImageAsset(name: "arrowRight")
+  }
+  internal enum Navigation {
+    internal static let backButton = ImageAsset(name: "backButton")
+  }
   internal enum Radiobutton {
     internal static let radiobuttonDisabled = ImageAsset(name: "radiobuttonDisabled")
     internal static let radiobuttonEnabled = ImageAsset(name: "radiobuttonEnabled")
+  }
+  internal enum Scopes {
+    internal static let figuralScope = ImageAsset(name: "figuralScope")
   }
   internal enum Tabbar {
     internal static let calculationItemDisabled = ImageAsset(name: "calculationItemDisabled")

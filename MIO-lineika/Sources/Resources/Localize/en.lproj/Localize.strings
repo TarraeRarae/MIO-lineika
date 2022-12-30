@@ -53,8 +53,11 @@ Error.constraints.maxThree = "Максимально допустимое чис
 
 Error.variables.maxThree = "Максимально допустимое число переменных равно 3";
 
-Error.textField.onlyNumbers = "Вы можете ввести только одну цифру 2 или 3";
+Error.textField.onlyTwoAndThree = "Вы можете ввести только одну цифру 2 или 3";
 
+Error.textField.onlyNumbers = "Вы можете ввести число только в диапазоне от 0 до 999";
+
+Error.textField.maxNine = "Вы можете ввести только одну цифру от 1 до 9";
 
 // MARK: - Alert
 
@@ -63,9 +66,9 @@ Alert.action.ok = "ОК";
 
 // MARK: - MainScreen
 
-MainScreen.Header.title = "Решение задач линейного программирования";
+MainScreen.header.title = "Решение задач линейного программирования";
 
-MainScreen.Header.subtitle = "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.";
+MainScreen.header.subtitle = "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.";
 
 
 // MARK: - Mock
@@ -77,5 +80,11 @@ MockScreen.title = "Раздел в разработке";
 
 MethodConfigurationScreen.navigationBar.title = "Прямой симплекс метод";
 
-MethodConfigurationScreen.Header.subtitle = "Введите целые числа или обыкновенные дроби.
+MethodConfigurationScreen.header.subtitle = "Введите целые числа или обыкновенные дроби.
 Например, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9";
+
+MethodConfigurationScreen.textCell.title = "Ограничения по переменным";
+
+MethodConfigurationScreen.functionCell.title = "Целевая функция";
+
+MethodConfigurationScreen.constraintsSystemCell.title = "Система линейных ограничений";

@@ -35,6 +35,13 @@ final class MethodConfigurationViewController: BaseController {
         return collectionView
     }()
 
+    private let testLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Some text"
+        label.textColor = .black
+        return label
+    }()
+
     private var dataSource: UICollectionViewDiffableDataSource<
         MethodConfigurationSection,
         MethodConfigurationSectionItem
@@ -45,6 +52,7 @@ final class MethodConfigurationViewController: BaseController {
     init(viewModel: MethodConfigurationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
         commonInit()
     }
 
@@ -53,16 +61,10 @@ final class MethodConfigurationViewController: BaseController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Lifecycle
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        applyTheme()
-    }
-
-    override func applyTheme() {
-        view.backgroundColor = DesignManager.shared.theme[.background(.main)]
+        title = viewModel.getTitle()
     }
 }
 
@@ -102,6 +104,12 @@ private extension MethodConfigurationViewController {
                 model = viewModel
             case .button(let viewModel):
                 model = viewModel
+            case .configurableText(let viewModel):
+                model = viewModel
+            case .funcitonInput(let viewModel):
+                model = viewModel
+            case .constraintsSystem(let viewModel):
+                model = viewModel
             }
 
             let cell = collectionView.dequeueReusableCell(withModel: model, for: indexPath)
@@ -114,9 +122,9 @@ private extension MethodConfigurationViewController {
         dataSource?.supplementaryViewProvider = { [weak self] collectionView, elementKind, indexPath in
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: elementKind,
-                withReuseIdentifier: TitleCollectionHeader.reuseIdentifier,
+                withReuseIdentifier: SubtitleCollectionHeader.reuseIdentifier,
                 for: indexPath
-            ) as? TitleCollectionHeader,
+            ) as? SubtitleCollectionHeader,
                   let section = self?.dataSource?.sectionIdentifier(for: indexPath.section)
             else { return UICollectionReusableView() }
     
@@ -136,16 +144,20 @@ private extension MethodConfigurationViewController {
         collectionView.layer.shadowOpacity = 0.12
 
         collectionView.register(
-            TitleCollectionHeader.self,
+            SubtitleCollectionHeader.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: TitleCollectionHeader.reuseIdentifier
+            withReuseIdentifier: SubtitleCollectionHeader.reuseIdentifier
         )
     
         collectionView.registerCells(
             DividerTableCellViewModel.self,
-            ButtonTableCellViewModel.self
+            ButtonTableCellViewModel.self,
+            ConfigurableCollectionTextCellViewModel.self,
+            FunctionInputCollectionCellViewModel.self,
+            ConstraintsSystemCollectionCellViewModel.self
         )
 
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.backgroundColor = .clear
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -179,6 +191,19 @@ extension MethodConfigurationViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+
+    func showAlert(title: String, description: String?) {
+        let alert = UIAlertController(
+            title: title,
+            message: description,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: L10n.Alert.Action.ok, style: .default)
+        alert.addAction(okAction)
+
+        present(alert, animated: true)
     }
 }
 

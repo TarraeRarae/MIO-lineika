@@ -28,8 +28,12 @@ internal enum L10n {
       internal static let maxThree = L10n.tr("Localize", "Error.constraints.maxThree", fallback: "Максимально допустимое число ограничений равно 3")
     }
     internal enum TextField {
+      /// Вы можете ввести только одну цифру от 1 до 9
+      internal static let maxNine = L10n.tr("Localize", "Error.textField.maxNine", fallback: "Вы можете ввести только одну цифру от 1 до 9")
+      /// Вы можете ввести число только в диапазоне от 0 до 999
+      internal static let onlyNumbers = L10n.tr("Localize", "Error.textField.onlyNumbers", fallback: "Вы можете ввести число только в диапазоне от 0 до 999")
       /// Вы можете ввести только одну цифру 2 или 3
-      internal static let onlyNumbers = L10n.tr("Localize", "Error.textField.onlyNumbers", fallback: "Вы можете ввести только одну цифру 2 или 3")
+      internal static let onlyTwoAndThree = L10n.tr("Localize", "Error.textField.onlyTwoAndThree", fallback: "Вы можете ввести только одну цифру 2 или 3")
     }
     internal enum Variables {
       /// Максимально допустимое число переменных равно 3
@@ -49,20 +53,32 @@ internal enum L10n {
   internal enum MainScreen {
     internal enum Header {
       /// Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.
-      internal static let subtitle = L10n.tr("Localize", "MainScreen.Header.subtitle", fallback: "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.")
+      internal static let subtitle = L10n.tr("Localize", "MainScreen.header.subtitle", fallback: "Выберите метод, количество переменных и ограничений, вид оптимизации, а затем заполните коэффициенты при переменных.")
       /// Решение задач линейного программирования
-      internal static let title = L10n.tr("Localize", "MainScreen.Header.title", fallback: "Решение задач линейного программирования")
+      internal static let title = L10n.tr("Localize", "MainScreen.header.title", fallback: "Решение задач линейного программирования")
     }
   }
   internal enum MethodConfigurationScreen {
+    internal enum ConstraintsSystemCell {
+      /// Система линейных ограничений
+      internal static let title = L10n.tr("Localize", "MethodConfigurationScreen.constraintsSystemCell.title", fallback: "Система линейных ограничений")
+    }
+    internal enum FunctionCell {
+      /// Целевая функция
+      internal static let title = L10n.tr("Localize", "MethodConfigurationScreen.functionCell.title", fallback: "Целевая функция")
+    }
     internal enum Header {
       /// Введите целые числа или обыкновенные дроби.
       /// Например, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9
-      internal static let subtitle = L10n.tr("Localize", "MethodConfigurationScreen.Header.subtitle", fallback: "Введите целые числа или обыкновенные дроби.\nНапример, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9")
+      internal static let subtitle = L10n.tr("Localize", "MethodConfigurationScreen.header.subtitle", fallback: "Введите целые числа или обыкновенные дроби.\nНапример, для выражения 2x1-x2≤12, необходимо ввести: 2;-1;12. Для выражения x1≥9: 1;0;≥9")
     }
     internal enum NavigationBar {
       /// Прямой симплекс метод
       internal static let title = L10n.tr("Localize", "MethodConfigurationScreen.navigationBar.title", fallback: "Прямой симплекс метод")
+    }
+    internal enum TextCell {
+      /// Ограничения по переменным
+      internal static let title = L10n.tr("Localize", "MethodConfigurationScreen.textCell.title", fallback: "Ограничения по переменным")
     }
   }
   internal enum Methods {

@@ -17,6 +17,12 @@ enum MethodConfigurationSectionItem: Hashable {
             return viewModel.uniqueId.uuidString
         case .divider(let viewModel):
             return viewModel.uniqueId.uuidString
+        case .configurableText(let viewModel):
+            return viewModel.uniqueId.uuidString
+        case .funcitonInput(let viewModel):
+            return viewModel.uniqueId.uuidString
+        case .constraintsSystem(let viewModel):
+            return viewModel.uniqueId.uuidString
         }
     }
     
@@ -24,6 +30,9 @@ enum MethodConfigurationSectionItem: Hashable {
 
     case button(ButtonTableCellViewModel)
     case divider(DividerTableCellViewModel)
+    case configurableText(ConfigurableCollectionTextCellViewModel)
+    case funcitonInput(FunctionInputCollectionCellViewModel)
+    case constraintsSystem(ConstraintsSystemCollectionCellViewModel)
 
     // MARK: - Internal methods
 
@@ -37,6 +46,18 @@ enum MethodConfigurationSectionItem: Hashable {
             cell = innerCell
         case .divider(let viewModel):
             let innerCell = DividerTableCell()
+            viewModel.configure(innerCell)
+            cell = innerCell
+        case .configurableText(let viewModel):
+            let innerCell = ConfigurableCollectionTextCell()
+            viewModel.configure(innerCell)
+            cell = innerCell
+        case .funcitonInput(let viewModel):
+            let innerCell = FunctionInputCollectionCell()
+            viewModel.configure(innerCell)
+            cell = innerCell
+        case .constraintsSystem(let viewModel):
+            let innerCell = ConstraintsSystemCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         }

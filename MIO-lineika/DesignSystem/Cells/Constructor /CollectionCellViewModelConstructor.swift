@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class TableCellViewModelConstructor {
+final class CollectionCellViewModelConstructor {
 
     // MARK: - Static properties
 
-    static let shared = TableCellViewModelConstructor()
+    static let shared = CollectionCellViewModelConstructor()
 
     // MARK: - Internal properties
 
@@ -103,5 +103,51 @@ final class TableCellViewModelConstructor {
         )
 
         return ButtonTableCellViewModel(model: configuration)
+    }
+
+    func makeConfigurableTextCellViewModel(
+        title: String,
+        labelsTexts: [String]
+    ) -> ConfigurableCollectionTextCellViewModel {
+        let configuration = ConfigurableCollectionTextCell.Configuration(
+            title: title,
+            texts: labelsTexts
+        )
+
+        return ConfigurableCollectionTextCellViewModel(model: configuration)
+    }
+
+    func makeFunctionInputCellViewModel(
+        title: String,
+        variables: Int,
+        optimization: OptimizationType,
+        roundCornersStyle: FunctionInputCollectionCell.Configuration.RoundCornersStyle = .none,
+        delegate: FunctionInputCollectionCellViewModelDelegate? = nil
+    ) -> FunctionInputCollectionCellViewModel {
+        let configuration = FunctionInputCollectionCell.Configuration(
+            title: title,
+            variables: variables,
+            optimization: optimization,
+            roundCornersStyle: roundCornersStyle
+        )
+
+        let viewModel = FunctionInputCollectionCellViewModel(model: configuration)
+        viewModel.delegate = delegate
+
+        return viewModel
+    }
+
+    func makeConstraintsSystemCollectionCellViewModel(
+        titleText: String,
+        variables: Int,
+        constraints: Int
+    ) -> ConstraintsSystemCollectionCellViewModel {
+        let configuration = ConstraintsSystemCollectionCell.Configuration(
+            titleText: titleText,
+            variables: variables,
+            constraints: constraints
+        )
+
+        return ConstraintsSystemCollectionCellViewModel(model: configuration)
     }
 }

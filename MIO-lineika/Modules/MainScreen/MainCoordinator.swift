@@ -12,11 +12,13 @@ final class MainCoordinator {
     // MARK: - Private properties
 
     private let navigationController: UINavigationController
+    private let methodConfigurationCoordinator: MethodConfigurationCoordinator
 
     // MARK: - Initializers
 
     init() {
         navigationController = UINavigationController()
+        methodConfigurationCoordinator = MethodConfigurationCoordinator()
     }
 
     // MARK: - Internal methods 
@@ -39,13 +41,16 @@ private extension MainCoordinator {
     func bindMainViewModel(_ viewModel: MainViewModelProtocol) {
         viewModel.route = { [weak self] route in
             switch route {
-            case .toMethodConfiguration:
-                self?.toMethodConfiguration()
+            case .toMethodConfiguration(let model):
+                self?.toMethodConfiguration(model)
             }
         }
     }
 
-    func toMethodConfiguration() {
-        print("❌❌❌❌")
+    func toMethodConfiguration(_ model: MethodConfigurationModel) {
+        methodConfigurationCoordinator.start(
+            navigationController: navigationController,
+            model: model
+        )
     }
 }

@@ -15,12 +15,11 @@ enum MethodConfigurationSection {
 
     // MARK: - Internal properties
 
-    var headerModel: TitleCollectionHeader.Configuration {
+    var headerModel: SubtitleCollectionHeader.Configuration {
         switch self {
         case .main:
-            return TitleCollectionHeader.Configuration(
-                title: L10n.MainScreen.Header.title,
-                subtitle: L10n.MainScreen.Header.subtitle
+            return SubtitleCollectionHeader.Configuration(
+                subtitle: L10n.MethodConfigurationScreen.Header.subtitle
             )
         }
     }
@@ -28,7 +27,7 @@ enum MethodConfigurationSection {
     // MARK: - Internal methods
 
     func getSectionSize(width: CGFloat) -> CGSize {
-        let sectionHeader = TitleCollectionHeader()
+        let sectionHeader = SubtitleCollectionHeader()
         sectionHeader.configure(headerModel)
         sectionHeader.layoutIfNeeded()
         
