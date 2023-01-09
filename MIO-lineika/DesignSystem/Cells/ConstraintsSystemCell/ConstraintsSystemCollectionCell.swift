@@ -13,13 +13,14 @@ final class ConstraintsSystemCollectionCell: CollectionViewCell {
     // MARK: - Constants
 
     private enum Constants {
+        static let maxTextLength: Int = 2
 
         enum TitleLabel {
             static let insets = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         }
 
         enum StackView {
-            static let insets = UIEdgeInsets(top: 15, left: 4, bottom: 5, right: 25)
+            static let insets = UIEdgeInsets(top: 17, left: 10, bottom: 17, right: 25)
         }
 
         enum ImageView {
@@ -36,10 +37,10 @@ final class ConstraintsSystemCollectionCell: CollectionViewCell {
 
     private var textFieldMatrix = [[UITextField]]()
 
-    private let scopeImageView: UIImageView = {
+    private let bracketImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.image = Asset.Scopes.figuralScope.image
+        imageView.image = Asset.Brackets.figuralBracket.image
         return imageView
     }()
 
@@ -96,7 +97,7 @@ private extension ConstraintsSystemCollectionCell {
 
     func setupSubviews() {
         contentView.addSubview(titleLabel)
-        contentView.addSubview(scopeImageView)
+        contentView.addSubview(bracketImageView)
         contentView.addSubview(verticalStackView)
     }
 
@@ -107,9 +108,9 @@ private extension ConstraintsSystemCollectionCell {
             $0.right.equalToSuperview().inset(Constants.TitleLabel.insets.right)
         }
 
-        scopeImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        bracketImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
 
-        scopeImageView.snp.makeConstraints {
+        bracketImageView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.ImageView.insets.top)
             $0.leading.equalToSuperview().offset(Constants.ImageView.insets.left)
             $0.bottom.equalToSuperview()
@@ -120,7 +121,7 @@ private extension ConstraintsSystemCollectionCell {
 
         verticalStackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(Constants.StackView.insets.top)
-            $0.leading.equalTo(scopeImageView.snp.trailing).offset(Constants.StackView.insets.left)
+            $0.leading.equalTo(bracketImageView.snp.trailing).offset(Constants.StackView.insets.left)
             $0.bottom.equalToSuperview().inset(Constants.StackView.insets.bottom)
             $0.trailing.lessThanOrEqualToSuperview().inset(Constants.StackView.insets.right)
         }
@@ -237,13 +238,19 @@ extension ConstraintsSystemCollectionCell: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let maxLength = 2
+        let maxLength = Constants.maxTextLength
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
 
         textField.textColor = DesignManager.shared.theme[.text(.primary)]
 
-        return newString.count <= maxLength
+        let result = newString.count <= maxLength
+
+        if result {
+            viewModel?.valueDidChange(text: newString)
+        }
+
+        return result
     }
 }
 

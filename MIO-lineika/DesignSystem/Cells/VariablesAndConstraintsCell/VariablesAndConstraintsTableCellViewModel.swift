@@ -69,6 +69,7 @@ extension VariablesAndConstraintsTableCellViewModel: VariablesAndConstraintsTabl
         delegate?.showAlert(title: title, description: description)
     }
 
+    @discardableResult
     func valueDidChange(text: String) -> (Bool, String?) {
         guard let value = Int(text) else {
             delegate?.valueDidChange(for: model.configurableSetting, with: 0)

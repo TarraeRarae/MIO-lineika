@@ -14,6 +14,7 @@ final class FunctionInputCollectionCell: CollectionViewCell {
 
     private enum Constants {
         static let cornerRadius: CGFloat = 30
+        static let maxTextLength: Int = 2
 
         enum TitleLabel {
             static let insets = UIEdgeInsets(top: 20, left: 25, bottom: 0, right: 25)
@@ -78,15 +79,17 @@ final class FunctionInputCollectionCell: CollectionViewCell {
                 labelText = "x\(index)"
             }
 
-            let textField = makeTextFieldWithLabel(
+            let textFieldView = makeTextFieldViewWithLabel(
                 text: labelText,
                 textFieldModel: BottomLineTextField.Configuration(text: "0")
             )
+    
+            textFieldView.textField.tag = index - 1
 
-            stackView.addArrangedSubview(textField)
+            stackView.addArrangedSubview(textFieldView)
         }
 
-        let optimizationLabel = makeLabel(with: "→ \(configuration.optimization.rawValue)")
+        let optimizationLabel = makeLabel(with: "\(L10n.Arrow.right) \(configuration.optimization.rawValue)")
         stackView.addArrangedSubview(optimizationLabel)
 
         stackView.sizeToFit()
@@ -160,7 +163,7 @@ private extension FunctionInputCollectionCell {
         return label
     }
 
-    func makeTextFieldWithLabel(
+    func makeTextFieldViewWithLabel(
         text: String,
         textFieldModel: BottomLineTextField.Configuration
     ) -> BottomLineTextFieldWithLabel {
@@ -169,18 +172,18 @@ private extension FunctionInputCollectionCell {
             textFieldConfiguration: textFieldModel
         )
 
-        let textField = BottomLineTextFieldWithLabel()
-        textField.configure(configuration)
-        textField.attributedPlaceholder = NSAttributedString(
+        let textFieldView = BottomLineTextFieldWithLabel()
+        textFieldView.configure(configuration)
+        textFieldView.attributedPlaceholder = NSAttributedString(
             string: "0",
             attributes: [
                 .foregroundColor: DesignManager.shared.theme[.text(.secondary)]
             ]
         )
 
-        textField.delegate = self
+        textFieldView.delegate = self
 
-        return textField
+        return textFieldView
     }
 }
 
@@ -199,7 +202,7 @@ extension FunctionInputCollectionCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
-        if let result = viewModel?.valueDidChange(text: text),
+        if let result = viewModel?.valueDidChange(text: text, for: textField.tag),
            !result.0 {
             textField.textColor = DesignManager.shared.theme[.text(.error)]
             viewModel?.showAlert(title: L10n.Error.title, description: result.1)
@@ -214,13 +217,19 @@ extension FunctionInputCollectionCell: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let maxLength = 2
+        let maxLength = Constants.maxTextLength
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
 
         textField.textColor = DesignManager.shared.theme[.text(.primary)]
 
-        return newString.count <= maxLength
+        let result = newString.count <= maxLength
+
+        if result {
+            viewModel?.valueDidChange(text: newString, for: textField.tag)
+        }
+
+        return result
     }
 }
 

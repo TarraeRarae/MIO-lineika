@@ -20,6 +20,10 @@ internal enum L10n {
     /// МИО-Линейка
     internal static let title = L10n.tr("Localize", "App.title", fallback: "МИО-Линейка")
   }
+  internal enum Arrow {
+    /// →
+    internal static let `right` = L10n.tr("Localize", "Arrow.right", fallback: "→")
+  }
   internal enum Error {
     /// Ошибка
     internal static let title = L10n.tr("Localize", "Error.title", fallback: "Ошибка")

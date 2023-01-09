@@ -1,13 +1,13 @@
 //
-//  MethodConfigurationViewController.swift
+//  ConclusionViewController.swift
 //  MIO-lineika
 //
-//  Created by Alexey Zubkov on 26.12.2022.
+//  Created by Alexey Zubkov on 09.01.2023.
 //
 
 import UIKit
 
-final class MethodConfigurationViewController: BaseController {
+final class ConclusionViewController: UIViewController {
 
     // MARK: - Constants
 
@@ -18,7 +18,12 @@ final class MethodConfigurationViewController: BaseController {
 
     // MARK: - Private properties
 
-    private let viewModel: MethodConfigurationViewModelProtocol
+    private let viewModel: ConclusionViewModelProtocol
+
+    private var dataSource: UICollectionViewDiffableDataSource<
+        ConclusionSection,
+        ConclusionSectionItem
+    >?
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,14 +40,9 @@ final class MethodConfigurationViewController: BaseController {
         return collectionView
     }()
 
-    private var dataSource: UICollectionViewDiffableDataSource<
-        MethodConfigurationSection,
-        MethodConfigurationSectionItem
-    >?
-
     // MARK: - Initializers
 
-    init(viewModel: MethodConfigurationViewModelProtocol) {
+    init(viewModel: ConclusionViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
@@ -53,22 +53,16 @@ final class MethodConfigurationViewController: BaseController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        title = viewModel.getTitle()
-    }
 }
 
 // MARK: - Private methods
 
-private extension MethodConfigurationViewController {
+private extension ConclusionViewController {
 
     func commonInit() {
         setupSubviews()
         setupLayouts()
-        setupDataSource()
+        setupDataSources()
         setupCollectionView()
     }
 
@@ -85,23 +79,15 @@ private extension MethodConfigurationViewController {
         }
     }
 
-    func setupDataSource() {
+    func setupDataSources() {
         dataSource = UICollectionViewDiffableDataSource<
-            MethodConfigurationSection,
-            MethodConfigurationSectionItem
+            ConclusionSection,
+            ConclusionSectionItem
         >(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             var model: AnyCollectionViewCellModelProtocol
     
             switch itemIdentifier {
-            case .divider(let viewModel):
-                model = viewModel
             case .button(let viewModel):
-                model = viewModel
-            case .configurableText(let viewModel):
-                model = viewModel
-            case .funcitonInput(let viewModel):
-                model = viewModel
-            case .constraintsSystem(let viewModel):
                 model = viewModel
             }
 
@@ -110,21 +96,6 @@ private extension MethodConfigurationViewController {
             model.configureAny(cell)
     
             return cell
-        }
-
-        dataSource?.supplementaryViewProvider = { [weak self] collectionView, elementKind, indexPath in
-            guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: elementKind,
-                withReuseIdentifier: SubtitleCollectionHeader.reuseIdentifier,
-                for: indexPath
-            ) as? SubtitleCollectionHeader,
-                  let section = self?.dataSource?.sectionIdentifier(for: indexPath.section)
-            else { return UICollectionReusableView() }
-    
-            let headerModel = section.headerModel
-            header.configure(headerModel)
-
-            return header
         }
     }
 
@@ -136,20 +107,6 @@ private extension MethodConfigurationViewController {
         collectionView.layer.shadowRadius = 10
         collectionView.layer.shadowOpacity = 0.12
 
-        collectionView.register(
-            SubtitleCollectionHeader.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: SubtitleCollectionHeader.reuseIdentifier
-        )
-    
-        collectionView.registerCells(
-            DividerTableCellViewModel.self,
-            ButtonTableCellViewModel.self,
-            ConfigurableCollectionTextCellViewModel.self,
-            FunctionInputCollectionCellViewModel.self,
-            ConstraintsSystemCollectionCellViewModel.self
-        )
-
         collectionView.keyboardDismissMode = .onDrag
         collectionView.backgroundColor = .clear
         collectionView.dataSource = dataSource
@@ -157,14 +114,15 @@ private extension MethodConfigurationViewController {
     }
 }
 
-// MARK: - MethodConfigurationViewModelDelegate
 
-extension MethodConfigurationViewController: MethodConfigurationViewModelDelegate {
-    
-    func setSections(model: MethodConfigurationControllerModel) {
+// MARK: - ConclusionViewModelDelegate
+
+extension ConclusionViewController: ConclusionViewModelDelegate {
+
+    func setSections(model: ConclusionControllerModel) {
         var snapshot = NSDiffableDataSourceSnapshot<
-            MethodConfigurationSection,
-            MethodConfigurationSectionItem
+            ConclusionSection,
+            ConclusionSectionItem
         >()
 
         for section in model.sections {
@@ -193,7 +151,7 @@ extension MethodConfigurationViewController: MethodConfigurationViewModelDelegat
 
 // MARK: - UICollectionViewDelegate
 
-extension MethodConfigurationViewController: UICollectionViewDelegate {
+extension ConclusionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
@@ -202,22 +160,7 @@ extension MethodConfigurationViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension MethodConfigurationViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        referenceSizeForHeaderInSection section: Int
-    ) -> CGSize {
-        guard let section = dataSource?.sectionIdentifier(for: section) else {
-            return .zero
-        }
-
-        let width = collectionView.bounds.size.width - Constants.horizontalOffset
-        let size = section.getSectionSize(width: width)
-
-        return size
-    }
+extension ConclusionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(
         _ collectionView: UICollectionView,
@@ -226,11 +169,10 @@ extension MethodConfigurationViewController: UICollectionViewDelegateFlowLayout 
     ) -> CGSize {
         guard let cellSnapshot = dataSource?.itemIdentifier(for: indexPath)
         else { return .zero }
-        
+
         let cellWidth = collectionView.bounds.size.width - Constants.horizontalOffset
         let size = cellSnapshot.getCellSize(cellWidth: cellWidth)
 
         return size
-        
     }
 }

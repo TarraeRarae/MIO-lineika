@@ -13,6 +13,7 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
     // MARK: - Constants
 
     private enum Constants {
+        static let maxTextLength: Int = 1
         static let cornerRadius: CGFloat = 30
         static let defaultCornerRadius: CGFloat = 0
 
@@ -182,13 +183,19 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let maxLength = 1
+        let maxLength = Constants.maxTextLength
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
-
+        
         textField.textColor = DesignManager.shared.theme[.text(.primary)]
+        
+        let result = newString.count <= maxLength
+        
+        if result {
+            viewModel?.valueDidChange(text: newString)
+        }
 
-        return newString.count <= maxLength
+        return result
     }
 }
 

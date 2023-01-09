@@ -88,3 +88,8 @@ MethodConfigurationScreen.textCell.title = "Ограничения по пере
 MethodConfigurationScreen.functionCell.title = "Целевая функция";
 
 MethodConfigurationScreen.constraintsSystemCell.title = "Система линейных ограничений";
+
+
+// MARK: - Special symbols
+
+Arrow.right = "→";

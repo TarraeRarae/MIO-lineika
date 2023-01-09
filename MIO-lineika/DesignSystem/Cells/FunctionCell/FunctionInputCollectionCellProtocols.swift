@@ -6,10 +6,13 @@
 //
 
 protocol FunctionInputCollectionCellViewModelOutput: AnyObject {
-    func valueDidChange(text: String) -> (Bool, String?)
+    @discardableResult
+    func valueDidChange(text: String, for tag: Int) -> (Bool, String?)
     func showAlert(title: String, description: String?)
 }
 
 protocol FunctionInputCollectionCellViewModelDelegate: AnyObject {
     func showAlert(title: String, description: String?)
+    func functionValueDidChange(value: Int, for index: Int)
+    func clearFunctionValue(for index: Int)
 }

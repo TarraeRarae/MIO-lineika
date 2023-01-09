@@ -45,6 +45,24 @@ final class MethodConfigurationViewModel: MethodConfigurationViewModelProtocol {
 
     private var cellViewModels = [AnyCollectionViewCellModelProtocol]()
 
+    private var mainButtonViewModel: AnyCollectionViewCellModelProtocol?
+
+    private var resultModel: (
+        function: [Int: Int],
+        constraints: [Int: [Int: Int]]
+    ) = (
+        function: [:],
+        constraints: [:]
+    ) {
+        didSet {
+            if resultModel.function.count != model.variables {
+                setIsButtonEnabled(state: false)
+                return
+            }
+            setIsButtonEnabled(state: true)
+        }
+    }
+
     // MARK: - Initializers
 
     init(model: MethodConfigurationModel) {
@@ -85,6 +103,8 @@ private extension MethodConfigurationViewModel {
         ) {
             print("❌❌❌")
         }
+
+        mainButtonViewModel = buttonViewModel
 
         var labelsTexts = [String]()
 
@@ -163,6 +183,13 @@ private extension MethodConfigurationViewModel {
 
         delegate?.setSections(model: model)
     }
+
+    func setIsButtonEnabled(state: Bool) {
+        guard let buttonViewModel = mainButtonViewModel as? ButtonTableCellViewModel else {
+            return
+        }
+        buttonViewModel.setIsButtonEnabled(state: state)
+    }
 }
 
 // MARK: - FunctionInputCollectionCellViewModelDelegate
@@ -171,6 +198,14 @@ extension MethodConfigurationViewModel: FunctionInputCollectionCellViewModelDele
 
     func showAlert(title: String, description: String?) {
         delegate?.showAlert(title: title, description: description)
+    }
+
+    func functionValueDidChange(value: Int, for index: Int) {
+        resultModel.function[index] = value
+    }
+
+    func clearFunctionValue(for index: Int) {
+        resultModel.function[index] = nil
     }
 }
 

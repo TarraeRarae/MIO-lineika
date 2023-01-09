@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ConstraintsSystemCollectionCellViewModelOuput: AnyObject {
+    @discardableResult
     func valueDidChange(text: String) -> (Bool, String?)
     func showAlert(title: String, description: String?)
 }

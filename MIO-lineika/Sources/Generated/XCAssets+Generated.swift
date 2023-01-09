@@ -28,15 +28,15 @@ internal enum Asset {
   internal enum Arrows {
     internal static let arrowRight = ImageAsset(name: "arrowRight")
   }
+  internal enum Brackets {
+    internal static let figuralBracket = ImageAsset(name: "figuralBracket")
+  }
   internal enum Navigation {
     internal static let backButton = ImageAsset(name: "backButton")
   }
   internal enum Radiobutton {
     internal static let radiobuttonDisabled = ImageAsset(name: "radiobuttonDisabled")
     internal static let radiobuttonEnabled = ImageAsset(name: "radiobuttonEnabled")
-  }
-  internal enum Scopes {
-    internal static let figuralScope = ImageAsset(name: "figuralScope")
   }
   internal enum Tabbar {
     internal static let calculationItemDisabled = ImageAsset(name: "calculationItemDisabled")

@@ -46,8 +46,13 @@ extension ConstraintsSystemCollectionCellViewModel: CollectionCellViewModelProto
 private extension ConstraintsSystemCollectionCellViewModel {
 
     func validate(text: String) -> (Bool, String?) {
-        guard text.first != "0",
-            let _ = Int(text) else {
+        guard let value = Int(text) else {
+            return (false, L10n.Error.TextField.onlyNumbers)
+        }
+        if value == 0 {
+            return (true, nil)
+        }
+        if text.first == "0" {
             return (false, L10n.Error.TextField.onlyNumbers)
         }
         return (true, nil)
@@ -58,6 +63,7 @@ private extension ConstraintsSystemCollectionCellViewModel {
 
 extension ConstraintsSystemCollectionCellViewModel: ConstraintsSystemCollectionCellViewModelOuput {
 
+    @discardableResult
     func valueDidChange(text: String) -> (Bool, String?) {
         return validate(text: text)
     }

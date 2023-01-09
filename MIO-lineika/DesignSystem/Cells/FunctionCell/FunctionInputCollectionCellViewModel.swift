@@ -46,8 +46,13 @@ extension FunctionInputCollectionCellViewModel: CollectionCellViewModelProtocol 
 private extension FunctionInputCollectionCellViewModel {
 
     func validate(text: String) -> (Bool, String?) {
-        guard text.first != "0",
-            let _ = Int(text) else {
+        guard let value = Int(text) else {
+            return (false, L10n.Error.TextField.onlyNumbers)
+        }
+        if value == 0 {
+            return (true, nil)
+        }
+        if text.first == "0" {
             return (false, L10n.Error.TextField.onlyNumbers)
         }
         return (true, nil)
@@ -58,8 +63,20 @@ private extension FunctionInputCollectionCellViewModel {
 
 extension FunctionInputCollectionCellViewModel: FunctionInputCollectionCellViewModelOutput {
 
-    func valueDidChange(text: String) -> (Bool, String?) {
-        return validate(text: text)
+    @discardableResult
+    func valueDidChange(text: String, for tag: Int) -> (Bool, String?) {
+        guard let value = Int(text) else {
+            delegate?.clearFunctionValue(for: tag)
+            return (false, L10n.Error.TextField.onlyNumbers)
+        }
+        let result = validate(text: text)
+        if result.0 {
+            delegate?.functionValueDidChange(value: value, for: tag)
+            return result
+        }
+
+        delegate?.clearFunctionValue(for: tag)
+        return result
     }
 
     func showAlert(title: String, description: String?) {
