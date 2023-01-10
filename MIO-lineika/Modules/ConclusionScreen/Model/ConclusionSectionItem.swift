@@ -13,14 +13,14 @@ enum ConclusionSectionItem: Hashable {
 
     var identifier: String {
         switch self {
-        case .button(let viewModel):
+        case .textWithTitle(let viewModel):
             return viewModel.uniqueId.uuidString
         }
     }
     
     // MARK: - Cases
 
-    case button(ButtonTableCellViewModel)
+    case textWithTitle(TextWithTitleCollectionCellViewModel)
 
     // MARK: - Internal methods
 
@@ -28,8 +28,8 @@ enum ConclusionSectionItem: Hashable {
         let cell: UICollectionViewCell
 
         switch self {
-        case .button(let viewModel):
-            let innerCell = ButtonTableCell()
+        case .textWithTitle(let viewModel):
+            let innerCell = TextWithTitleCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         }

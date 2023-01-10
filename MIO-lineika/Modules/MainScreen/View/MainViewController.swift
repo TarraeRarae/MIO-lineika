@@ -147,11 +147,11 @@ private extension MainViewController {
         )
     
         collectionView.registerCells(
-            RadiobuttonTableCellViewModel.self,
-            TitleTableCellViewModel.self,
-            DividerTableCellViewModel.self,
-            VariablesAndConstraintsTableCellViewModel.self,
-            ButtonTableCellViewModel.self
+            RadiobuttonCollectionCellViewModel.self,
+            TitleCollectionCellViewModel.self,
+            DividerCollectionCellViewModel.self,
+            VariablesAndConstraintsCollectionCellViewModel.self,
+            ButtonCollectionCellViewModel.self
         )
 
         collectionView.keyboardDismissMode = .onDrag

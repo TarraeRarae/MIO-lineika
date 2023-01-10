@@ -143,8 +143,8 @@ private extension MethodConfigurationViewController {
         )
     
         collectionView.registerCells(
-            DividerTableCellViewModel.self,
-            ButtonTableCellViewModel.self,
+            DividerCollectionCellViewModel.self,
+            ButtonCollectionCellViewModel.self,
             ConfigurableCollectionTextCellViewModel.self,
             FunctionInputCollectionCellViewModel.self,
             ConstraintsSystemCollectionCellViewModel.self

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ConclusionViewController: UIViewController {
+final class ConclusionViewController: BaseController {
 
     // MARK: - Constants
 
@@ -53,6 +53,14 @@ final class ConclusionViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Lifecycle
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        title = "Решение"
+    }
 }
 
 // MARK: - Private methods
@@ -87,7 +95,7 @@ private extension ConclusionViewController {
             var model: AnyCollectionViewCellModelProtocol
     
             switch itemIdentifier {
-            case .button(let viewModel):
+            case .textWithTitle(let viewModel):
                 model = viewModel
             }
 
@@ -106,6 +114,8 @@ private extension ConclusionViewController {
         collectionView.layer.shadowOffset = CGSize(width: 500, height: 10)
         collectionView.layer.shadowRadius = 10
         collectionView.layer.shadowOpacity = 0.12
+
+        collectionView.registerCells(TextWithTitleCollectionCellViewModel.self)
 
         collectionView.keyboardDismissMode = .onDrag
         collectionView.backgroundColor = .clear
@@ -133,19 +143,6 @@ extension ConclusionViewController: ConclusionViewModelDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.dataSource?.applySnapshotUsingReloadData(snapshot)
         }
-    }
-
-    func showAlert(title: String, description: String?) {
-        let alert = UIAlertController(
-            title: title,
-            message: description,
-            preferredStyle: .alert
-        )
-
-        let okAction = UIAlertAction(title: L10n.Alert.Action.ok, style: .default)
-        alert.addAction(okAction)
-
-        present(alert, animated: true)
     }
 }
 

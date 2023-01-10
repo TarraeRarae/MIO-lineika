@@ -1,5 +1,5 @@
 //
-//  RadiobuttonTableCell.swift
+//  RadiobuttonCollectionCell.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 16.12.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class RadiobuttonTableCell: CollectionViewCell {
+final class RadiobuttonCollectionCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -163,7 +163,7 @@ final class RadiobuttonTableCell: CollectionViewCell {
 
 // MARK: - Private methods
 
-private extension RadiobuttonTableCell {
+private extension RadiobuttonCollectionCell {
 
     func commonInit() {
         setupSubviews()
@@ -222,7 +222,7 @@ private extension RadiobuttonTableCell {
 
 // MARK: - Configuration
 
-extension RadiobuttonTableCell {
+extension RadiobuttonCollectionCell {
 
     struct Configuration {
 

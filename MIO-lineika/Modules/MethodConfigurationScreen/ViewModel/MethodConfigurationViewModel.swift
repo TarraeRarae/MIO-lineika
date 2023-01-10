@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 enum MethodConfigurationRoute {
-    case none
+    case toConclusion(model: ConclusionModel)
 }
 
 protocol MethodConfigurationViewModelDelegate: AnyObject {
@@ -107,8 +107,8 @@ private extension MethodConfigurationViewModel {
             isEnabled: false,
             roundCornersStyle: .bottom,
             insets: UIEdgeInsets(top: 18, left: 25, bottom: 20, right: 25)
-        ) {
-            print("❌❌❌")
+        ) { [weak self] in
+            self?.toConclusion()
         }
 
         mainButtonViewModel = buttonViewModel
@@ -155,13 +155,13 @@ private extension MethodConfigurationViewModel {
         var sectionItems = [MethodConfigurationSectionItem]()
 
         for viewModel in cellViewModels {
-            if let dividerViewModel = viewModel as? DividerTableCellViewModel {
+            if let dividerViewModel = viewModel as? DividerCollectionCellViewModel {
                 let sectionItem = MethodConfigurationSectionItem.divider(dividerViewModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let buttonViewModel = viewModel as? ButtonTableCellViewModel {
+            if let buttonViewModel = viewModel as? ButtonCollectionCellViewModel {
                 let sectionItem = MethodConfigurationSectionItem.button(buttonViewModel)
                 sectionItems.append(sectionItem)
                 continue
@@ -192,10 +192,37 @@ private extension MethodConfigurationViewModel {
     }
 
     func setIsButtonEnabled(state: Bool) {
-        guard let buttonViewModel = mainButtonViewModel as? ButtonTableCellViewModel else {
+        guard let buttonViewModel = mainButtonViewModel as? ButtonCollectionCellViewModel else {
             return
         }
         buttonViewModel.setIsButtonEnabled(state: state)
+    }
+
+    func toConclusion() {
+        var function = [Int]()
+        var constraints = [[Int]]()
+
+        for item in resultModel.function {
+            function.append(item.value)
+        }
+
+        for constraint in resultModel.constraints {
+            var row = [Int]()
+
+            for item in constraint.value {
+                row.append(item.value)
+            }
+
+            constraints.append(row)
+        }
+    
+        let model = ConclusionModel(
+            function: function,
+            constraints: constraints,
+            optimization: model.optimization
+        )
+
+        route(.toConclusion(model: model))
     }
 }
 

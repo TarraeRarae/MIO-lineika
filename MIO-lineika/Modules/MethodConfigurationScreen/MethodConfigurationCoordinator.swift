@@ -11,7 +11,15 @@ final class MethodConfigurationCoordinator {
 
     // MARK: - Private properties
 
+    private let conclusionCoordinator: ConclusionCoordinator
+
     private var navigationController: UINavigationController?
+
+    // MARK: - Initializers
+
+    init() {
+        conclusionCoordinator = ConclusionCoordinator()
+    }
 
     // MARK: - Internal methods
     
@@ -34,13 +42,16 @@ private extension MethodConfigurationCoordinator {
     func bindViewModel(_ viewModel: MethodConfigurationViewModel) {
         viewModel.route = { [weak self] route in
             switch route {
-            case .none:
-                self?.toConclusion()
+            case .toConclusion(let model):
+                self?.toConclusion(model: model)
             }
         }
     }
 
-    func toConclusion() {
-        print("❌❌❌")
+    func toConclusion(model: ConclusionModel) {
+        conclusionCoordinator.start(
+            navigationController: navigationController,
+            model: model
+        )
     }
 }

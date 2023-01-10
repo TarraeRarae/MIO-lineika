@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ButtonTableCellViewModelInput: AnyObject {
+protocol ButtonCollectionCellViewModelInput: AnyObject {
     func setIsButtonEnabled(state: Bool)
 }

@@ -1,5 +1,5 @@
 //
-//  DividerTableCell.swift
+//  DividerCollectionCell.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 17.12.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DividerTableCell: CollectionViewCell {
+final class DividerCollectionCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -64,7 +64,7 @@ final class DividerTableCell: CollectionViewCell {
 
 // MARK: - Private methods
 
-private extension DividerTableCell {
+private extension DividerCollectionCell {
 
     func commonInit() {
         setupSubviews()
@@ -101,7 +101,7 @@ private extension DividerTableCell {
 
 // MARK: - Configuration
 
-extension DividerTableCell {
+extension DividerCollectionCell {
 
     struct Configuration {
 

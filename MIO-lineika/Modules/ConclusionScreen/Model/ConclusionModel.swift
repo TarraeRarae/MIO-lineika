@@ -7,4 +7,8 @@
 
 import Foundation
 
-struct ConclusionModel {}
+struct ConclusionModel {
+    let function: [Int]
+    let constraints: [[Int]]
+    let optimization: OptimizationType
+}

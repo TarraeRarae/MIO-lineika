@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ButtonTableCellViewModel {
+final class ButtonCollectionCellViewModel {
 
     // MARK: - Internal properties
 
@@ -17,22 +17,22 @@ final class ButtonTableCellViewModel {
 
     // MARK: - Private properties
 
-    private var cell: ButtonTableCell?
+    private var cell: ButtonCollectionCell?
 
-    private let model: ButtonTableCell.Configuration
+    private let model: ButtonCollectionCell.Configuration
 
     // MARK: - Initializers
 
-    init(model: ButtonTableCell.Configuration) {
+    init(model: ButtonCollectionCell.Configuration) {
         self.model = model
     }
 }
 
 // MARK: - CollectionCellViewModelProtocol
 
-extension ButtonTableCellViewModel: CollectionCellViewModelProtocol {
+extension ButtonCollectionCellViewModel: CollectionCellViewModelProtocol {
 
-    func configure(_ cell: ButtonTableCell) {
+    func configure(_ cell: ButtonCollectionCell) {
         cell.configure(model)
         self.cell = cell
     }
@@ -40,7 +40,7 @@ extension ButtonTableCellViewModel: CollectionCellViewModelProtocol {
 
 // MARK: - ButtonTableCellViewModelInput
 
-extension ButtonTableCellViewModel: ButtonTableCellViewModelInput {
+extension ButtonCollectionCellViewModel: ButtonCollectionCellViewModelInput {
 
     func setIsButtonEnabled(state: Bool) {
         cell?.setIsButtonEnabled(state: state)

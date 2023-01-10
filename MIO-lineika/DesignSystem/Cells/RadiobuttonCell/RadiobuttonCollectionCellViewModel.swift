@@ -1,5 +1,5 @@
 //
-//  RadiobuttonCellViewModel.swift
+//  RadiobuttonCollectionCellViewModel.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 21.12.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RadiobuttonTableCellViewModel {
+final class RadiobuttonCollectionCellViewModel {
 
     // MARK: - Internal properties
 
@@ -19,21 +19,21 @@ final class RadiobuttonTableCellViewModel {
 
     // MARK: - Private properties
 
-    private var model: RadiobuttonTableCell.Configuration
-    private var cell: RadiobuttonTableCell?
+    private var model: RadiobuttonCollectionCell.Configuration
+    private var cell: RadiobuttonCollectionCell?
 
     // MARK: - Initializers
 
-    init(model: RadiobuttonTableCell.Configuration) {
+    init(model: RadiobuttonCollectionCell.Configuration) {
         self.model = model
     }
 }
 
 // MARK: - CellViewModelProtocol
 
-extension RadiobuttonTableCellViewModel: CollectionCellViewModelProtocol {
+extension RadiobuttonCollectionCellViewModel: CollectionCellViewModelProtocol {
 
-    func configure(_ cell: RadiobuttonTableCell) {
+    func configure(_ cell: RadiobuttonCollectionCell) {
         cell.viewModel = self
         cell.configure(model)
 
@@ -44,7 +44,7 @@ extension RadiobuttonTableCellViewModel: CollectionCellViewModelProtocol {
 
 // MARK: - RadiobuttonCellViewModelProtocol
 
-extension RadiobuttonTableCellViewModel: RadiobuttonCellViewModelInput {
+extension RadiobuttonCollectionCellViewModel: RadiobuttonCellViewModelInput {
 
     func deselectCell() {
         model.isRadiobuttonSelected = false
@@ -52,7 +52,7 @@ extension RadiobuttonTableCellViewModel: RadiobuttonCellViewModelInput {
     }
 }
 
-extension RadiobuttonTableCellViewModel: RadiobuttonCellViewModelOutput {
+extension RadiobuttonCollectionCellViewModel: RadiobuttonCellViewModelOutput {
 
     func radiobuttonDidSelect() {
         model.isRadiobuttonSelected = true

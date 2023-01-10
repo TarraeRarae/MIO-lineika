@@ -20,6 +20,6 @@ protocol RadiobuttonCellViewModelOutput: AnyObject {
 protocol RadiobuttonCellViewModelDelegate: AnyObject {
     func didSelectedRadiobutton(
         with uniquedId: UUID,
-        for settingType: RadiobuttonTableCell.Configuration.ConfigurableSetting
+        for settingType: RadiobuttonCollectionCell.Configuration.ConfigurableSetting
     )
 }

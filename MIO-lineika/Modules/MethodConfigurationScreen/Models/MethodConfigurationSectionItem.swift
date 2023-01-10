@@ -28,8 +28,8 @@ enum MethodConfigurationSectionItem: Hashable {
     
     // MARK: - Cases
 
-    case button(ButtonTableCellViewModel)
-    case divider(DividerTableCellViewModel)
+    case button(ButtonCollectionCellViewModel)
+    case divider(DividerCollectionCellViewModel)
     case configurableText(ConfigurableCollectionTextCellViewModel)
     case funcitonInput(FunctionInputCollectionCellViewModel)
     case constraintsSystem(ConstraintsSystemCollectionCellViewModel)
@@ -41,11 +41,11 @@ enum MethodConfigurationSectionItem: Hashable {
 
         switch self {
         case .button(let viewModel):
-            let innerCell = ButtonTableCell()
+            let innerCell = ButtonCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .divider(let viewModel):
-            let innerCell = DividerTableCell()
+            let innerCell = DividerCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .configurableText(let viewModel):

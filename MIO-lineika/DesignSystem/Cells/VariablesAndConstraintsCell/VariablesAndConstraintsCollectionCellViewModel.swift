@@ -1,5 +1,5 @@
 //
-//  TextFieldTableCellViewModel.swift
+//  VariablesAndConstraintsCollectionCellViewModel.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 21.12.2022.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class VariablesAndConstraintsTableCellViewModel {
+final class VariablesAndConstraintsCollectionCellViewModel {
 
     // MARK: - Internal properties
 
-    weak var delegate: VariablesAndConstraintsTableCellViewModelDelegate?
+    weak var delegate: VariablesAndConstraintsCollectionCellViewModelDelegate?
 
     var uniqueId: UUID {
         return model.uniqueId
@@ -19,18 +19,18 @@ final class VariablesAndConstraintsTableCellViewModel {
 
     // MARK: - Private properties
 
-    private let model: VariablesConstraintsTableCell.Configuration
+    private let model: VariablesConstraintsCollectionCell.Configuration
 
     // MARK: - Initializers
 
-    init(model: VariablesConstraintsTableCell.Configuration) {
+    init(model: VariablesConstraintsCollectionCell.Configuration) {
         self.model = model
     }
 }
 
 // MARK: - Private methods
 
-private extension VariablesAndConstraintsTableCellViewModel {
+private extension VariablesAndConstraintsCollectionCellViewModel {
 
     func validate(text: String) -> (Bool, String?) {
         guard let value = Int(text)
@@ -53,9 +53,9 @@ private extension VariablesAndConstraintsTableCellViewModel {
 
 // MARK: - CollectionCellViewModelProtocol
 
-extension VariablesAndConstraintsTableCellViewModel: CollectionCellViewModelProtocol {
+extension VariablesAndConstraintsCollectionCellViewModel: CollectionCellViewModelProtocol {
 
-    func configure(_ cell: VariablesConstraintsTableCell) {
+    func configure(_ cell: VariablesConstraintsCollectionCell) {
         cell.configure(model)
         cell.viewModel = self
     }
@@ -63,7 +63,7 @@ extension VariablesAndConstraintsTableCellViewModel: CollectionCellViewModelProt
 
 // MARK: - TextFieldTableCellViewModelOutput
 
-extension VariablesAndConstraintsTableCellViewModel: VariablesAndConstraintsTableCellViewModelOutput {
+extension VariablesAndConstraintsCollectionCellViewModel: VariablesAndConstraintsCollectionCellViewModelOutput {
 
     func showAlert(title: String, description: String?) {
         delegate?.showAlert(title: title, description: description)

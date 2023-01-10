@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class VariablesConstraintsTableCell: CollectionViewCell {
+final class VariablesConstraintsCollectionCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -25,7 +25,7 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
 
     // MARK: - Internal properties
 
-    var viewModel: VariablesAndConstraintsTableCellViewModelOutput?
+    var viewModel: VariablesAndConstraintsCollectionCellViewModelOutput?
     
     // MARK: - Private properties
 
@@ -104,7 +104,7 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
 
 // MARK: - Private methods
 
-private extension VariablesConstraintsTableCell {
+private extension VariablesConstraintsCollectionCell {
 
     func commonInit() {
         setupSubviews()
@@ -153,7 +153,7 @@ private extension VariablesConstraintsTableCell {
 
 // MARK: - UITextFieldDelegate
 
-extension VariablesConstraintsTableCell: UITextFieldDelegate {
+extension VariablesConstraintsCollectionCell: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -201,7 +201,7 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
 
 // MARK: - Configuration
 
-extension VariablesConstraintsTableCell {
+extension VariablesConstraintsCollectionCell {
 
     struct Configuration {
 

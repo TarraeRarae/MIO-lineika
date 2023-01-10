@@ -16,14 +16,14 @@ final class CollectionCellViewModelConstructor {
     // MARK: - Internal properties
 
     func makeRadiobuttonCellViewModel(
-        configurableSetting: RadiobuttonTableCell.Configuration.ConfigurableSetting,
+        configurableSetting: RadiobuttonCollectionCell.Configuration.ConfigurableSetting,
         isEnabled: Bool = true,
-        roundCornersStyle: RadiobuttonTableCell.Configuration.RoundCornersStyle = .none,
+        roundCornersStyle: RadiobuttonCollectionCell.Configuration.RoundCornersStyle = .none,
         insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
         horizontalOffset: CGFloat = 0,
         delegate: RadiobuttonCellViewModelDelegate? = nil
     ) -> AnyCollectionViewCellModelProtocol {
-        let configuration = RadiobuttonTableCell.Configuration(
+        let configuration = RadiobuttonCollectionCell.Configuration(
             configurableSetting: configurableSetting,
             isEnabled: isEnabled,
             roundCornersStyle: roundCornersStyle,
@@ -31,7 +31,7 @@ final class CollectionCellViewModelConstructor {
             horizontalOffset: horizontalOffset
         )
         
-        let viewModel = RadiobuttonTableCellViewModel(model: configuration)
+        let viewModel = RadiobuttonCollectionCellViewModel(model: configuration)
         viewModel.delegate = delegate
 
         return viewModel
@@ -39,47 +39,47 @@ final class CollectionCellViewModelConstructor {
 
     func makeTitleCellViewModel(
         title: String,
-        roundCornersStyle: TitleTableCell.Configuration.RoundCornersStyle = .none,
+        roundCornersStyle: TitleCollectionCell.Configuration.RoundCornersStyle = .none,
         insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    ) -> TitleTableCellViewModel {
-        let configuration = TitleTableCell.Configuration(
+    ) -> TitleCollectionCellViewModel {
+        let configuration = TitleCollectionCell.Configuration(
             title: title,
             roundCornersStyle: roundCornersStyle,
             insets: insets
         )
 
-        return TitleTableCellViewModel(model: configuration)
+        return TitleCollectionCellViewModel(model: configuration)
     }
 
     func makeDividerCellViewModel(
-        dividerStyle: DividerTableCell.Configuration.DividerStyle = .fullWidth,
+        dividerStyle: DividerCollectionCell.Configuration.DividerStyle = .fullWidth,
         topOffset: CGFloat = 0,
         bottomOffset: CGFloat = 0
-    ) -> DividerTableCellViewModel {
-        let configuration = DividerTableCell.Configuration(
+    ) -> DividerCollectionCellViewModel {
+        let configuration = DividerCollectionCell.Configuration(
             dividerStyle: dividerStyle,
             topOffset: topOffset,
             bottomOffset: bottomOffset
         )
 
-        return DividerTableCellViewModel(model: configuration)
+        return DividerCollectionCellViewModel(model: configuration)
     }
 
     func makeVariableConstraintsViewModel(
         configurableSetting: VariableConstraintsSettingsType,
         insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-        roundCornersStyle: VariablesConstraintsTableCell.Configuration.RoundCornersStyle = .none,
+        roundCornersStyle: VariablesConstraintsCollectionCell.Configuration.RoundCornersStyle = .none,
         horizontalOffset: CGFloat = 0,
-        delegate: VariablesAndConstraintsTableCellViewModelDelegate? = nil
-    ) -> VariablesAndConstraintsTableCellViewModel {
-        let configuration = VariablesConstraintsTableCell.Configuration(
+        delegate: VariablesAndConstraintsCollectionCellViewModelDelegate? = nil
+    ) -> VariablesAndConstraintsCollectionCellViewModel {
+        let configuration = VariablesConstraintsCollectionCell.Configuration(
             configurableSetting: configurableSetting,
             roundCornersStyle: roundCornersStyle,
             insets: insets,
             horizontalOffset: horizontalOffset
         )
 
-        let viewModel = VariablesAndConstraintsTableCellViewModel(model: configuration)
+        let viewModel = VariablesAndConstraintsCollectionCellViewModel(model: configuration)
         viewModel.delegate = delegate
 
         return viewModel
@@ -88,11 +88,11 @@ final class CollectionCellViewModelConstructor {
     func makeButtonCellViewModel(
         buttonType: MainButton.Configuration.ButtonType,
         isEnabled: Bool,
-        roundCornersStyle: ButtonTableCell.Configuration.RoundCornersStyle = .none,
+        roundCornersStyle: ButtonCollectionCell.Configuration.RoundCornersStyle = .none,
         insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
         action: (() -> Void)? = nil
-    ) -> ButtonTableCellViewModel {
-        let configuration = ButtonTableCell.Configuration(
+    ) -> ButtonCollectionCellViewModel {
+        let configuration = ButtonCollectionCell.Configuration(
             buttonConfiguration: MainButton.Configuration(
                 buttonType: buttonType,
                 isEnabled: isEnabled,
@@ -102,7 +102,7 @@ final class CollectionCellViewModelConstructor {
             insets: insets
         )
 
-        return ButtonTableCellViewModel(model: configuration)
+        return ButtonCollectionCellViewModel(model: configuration)
     }
 
     func makeConfigurableTextCellViewModel(
@@ -151,6 +151,24 @@ final class CollectionCellViewModelConstructor {
 
         let viewModel = ConstraintsSystemCollectionCellViewModel(model: configuration)
         viewModel.delegate = delegate
+
+        return viewModel
+    }
+
+    func makeTextWithTitleCollectionCellViewModel(
+        title: String,
+        subtitle: String,
+        roundCornersStyle: TextWithTitleCollectionCell.Configuration.RoundCornersStyle = .none,
+        insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    ) -> TextWithTitleCollectionCellViewModel {
+        let configuration = TextWithTitleCollectionCell.Configuration(
+            title: title,
+            subtitle: subtitle,
+            roundCornersStyle: roundCornersStyle,
+            insets: insets
+        )
+
+        let viewModel = TextWithTitleCollectionCellViewModel(model: configuration)
 
         return viewModel
     }

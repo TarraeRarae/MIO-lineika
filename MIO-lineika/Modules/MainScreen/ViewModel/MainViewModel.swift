@@ -190,31 +190,31 @@ private extension MainViewModel {
         var sectionItems = [MainSectionItem]()
 
         for viewModel in cellViewModels {
-            if let radiobuttonModel = viewModel as? RadiobuttonTableCellViewModel {
+            if let radiobuttonModel = viewModel as? RadiobuttonCollectionCellViewModel {
                 let sectionItem = MainSectionItem.radiobutton(radiobuttonModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let titleModel = viewModel as? TitleTableCellViewModel {
+            if let titleModel = viewModel as? TitleCollectionCellViewModel {
                 let sectionItem = MainSectionItem.title(titleModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let buttonModel = viewModel as? ButtonTableCellViewModel {
+            if let buttonModel = viewModel as? ButtonCollectionCellViewModel {
                 let sectionItem = MainSectionItem.button(buttonModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let dividerModel = viewModel as? DividerTableCellViewModel {
+            if let dividerModel = viewModel as? DividerCollectionCellViewModel {
                 let sectionItem = MainSectionItem.divider(dividerModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let variablesConstraintModel = viewModel as? VariablesAndConstraintsTableCellViewModel {
+            if let variablesConstraintModel = viewModel as? VariablesAndConstraintsCollectionCellViewModel {
                 let sectionItem = MainSectionItem.variablesConstraints(
                     variablesConstraintModel
                 )
@@ -240,7 +240,7 @@ private extension MainViewModel {
     }
 
     func setMainButtonIsEnabled(state: Bool) {
-        guard let buttonViewModel = mainButtonCellViewModel as? ButtonTableCellViewModelInput
+        guard let buttonViewModel = mainButtonCellViewModel as? ButtonCollectionCellViewModelInput
             else { return }
         buttonViewModel.setIsButtonEnabled(state: state)
     }
@@ -300,7 +300,7 @@ extension MainViewModel: RadiobuttonCellViewModelDelegate {
 
     func didSelectedRadiobutton(
         with uniquedId: UUID,
-        for settingType: RadiobuttonTableCell.Configuration.ConfigurableSetting
+        for settingType: RadiobuttonCollectionCell.Configuration.ConfigurableSetting
     ) {
         switch settingType {
         case .method(let methodType):
@@ -313,7 +313,7 @@ extension MainViewModel: RadiobuttonCellViewModelDelegate {
 
 // MARK: - VariablesAndConstraintsTableCellViewModelDelegate
 
-extension MainViewModel: VariablesAndConstraintsTableCellViewModelDelegate {
+extension MainViewModel: VariablesAndConstraintsCollectionCellViewModelDelegate {
 
     func valueDidChange(for setting: VariableConstraintsSettingsType, with value: Int) {
         switch setting {
