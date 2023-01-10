@@ -258,7 +258,7 @@ private extension StraightSimplexService {
         } else {
             var result = "\n f(x) = \(result)\n"
             for index in 0..<numL {
-                result += "x\(Int(bv[index][0] + 1)) = \(Int(bv[index][1]))\n"
+                result += "x\(Int(bv[index][0] + 1)) = \(bv[index][1])\n"
             }
             return result
         }
