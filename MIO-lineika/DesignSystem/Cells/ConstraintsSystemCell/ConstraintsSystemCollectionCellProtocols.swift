@@ -9,11 +9,12 @@ import Foundation
 
 protocol ConstraintsSystemCollectionCellViewModelOuput: AnyObject {
     @discardableResult
-    func valueDidChange(text: String) -> (Bool, String?)
+    func valueDidChange(text: String, for tag: Int) -> (Bool, String?)
     func showAlert(title: String, description: String?)
 }
 
 protocol ConstraintsSystemCollectionCellViewModelDelegate: AnyObject {
-    func constraintsSystemValueDidChange(text: String)
+    func constraintsSystemValueDidChange(value: Int, for index: Int)
     func showAlert(title: String, description: String?)
+    func clearConstraintsValue(for index: Int)
 }

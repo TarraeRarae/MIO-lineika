@@ -64,8 +64,19 @@ private extension ConstraintsSystemCollectionCellViewModel {
 extension ConstraintsSystemCollectionCellViewModel: ConstraintsSystemCollectionCellViewModelOuput {
 
     @discardableResult
-    func valueDidChange(text: String) -> (Bool, String?) {
-        return validate(text: text)
+    func valueDidChange(text: String, for tag: Int) -> (Bool, String?) {
+        guard let value = Int(text) else {
+            delegate?.clearConstraintsValue(for: tag)
+            return (false, L10n.Error.TextField.onlyNumbers)
+        }
+        let result = validate(text: text)
+        if result.0 {
+            delegate?.constraintsSystemValueDidChange(value: value, for: tag)
+            return result
+        }
+
+        delegate?.clearConstraintsValue(for: tag)
+        return result
     }
 
     func showAlert(title: String, description: String?) {

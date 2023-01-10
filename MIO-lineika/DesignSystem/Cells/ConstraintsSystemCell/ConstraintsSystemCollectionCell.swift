@@ -78,8 +78,8 @@ final class ConstraintsSystemCollectionCell: CollectionViewCell {
 
         titleLabel.text = configuration.titleText
 
-        for _ in 0..<configuration.constraints {
-            let stackView = makeHorizontalStackView(variables: configuration.variables)
+        for index in 0..<configuration.constraints {
+            let stackView = makeHorizontalStackView(variables: configuration.variables, with: index)
             verticalStackView.addArrangedSubview(stackView)
         }
     }
@@ -140,7 +140,7 @@ private extension ConstraintsSystemCollectionCell {
 
 private extension ConstraintsSystemCollectionCell {
 
-    func makeHorizontalStackView(variables: Int) -> UIStackView {
+    func makeHorizontalStackView(variables: Int, with tag: Int) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
@@ -163,6 +163,9 @@ private extension ConstraintsSystemCollectionCell {
                     )
                 )
             )
+            textField.textField.tag = 10 * tag + index - 1
+            textField.delegate = self
+
             stackView.addArrangedSubview(textField)
         }
 
@@ -177,6 +180,7 @@ private extension ConstraintsSystemCollectionCell {
             $0.width.equalTo(27)
         }
 
+        resultTextField.tag = 10 * tag + variables
         resultTextField.delegate = self
 
         stackView.addArrangedSubview(resultTextField)
@@ -223,7 +227,7 @@ extension ConstraintsSystemCollectionCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
-        if let result = viewModel?.valueDidChange(text: text),
+        if let result = viewModel?.valueDidChange(text: text, for: textField.tag),
            !result.0 {
             textField.textColor = DesignManager.shared.theme[.text(.error)]
             viewModel?.showAlert(title: L10n.Error.title, description: result.1)
@@ -247,7 +251,7 @@ extension ConstraintsSystemCollectionCell: UITextFieldDelegate {
         let result = newString.count <= maxLength
 
         if result {
-            viewModel?.valueDidChange(text: newString)
+            viewModel?.valueDidChange(text: newString, for: textField.tag)
         }
 
         return result

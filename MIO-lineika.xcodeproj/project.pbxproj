@@ -66,6 +66,8 @@
 		8AD8F7BB296CAAC70041EDAE /* ConclusionSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8F7BA296CAAC70041EDAE /* ConclusionSectionItem.swift */; };
 		8AD8F7BD296CB1C80041EDAE /* ConclusionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8F7BC296CB1C80041EDAE /* ConclusionModel.swift */; };
 		8AD8F7BF296CB8150041EDAE /* ConclusionControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8F7BE296CB8150041EDAE /* ConclusionControllerModel.swift */; };
+		8AD8F7C2296CE52A0041EDAE /* StraightSimplexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8F7C1296CE52A0041EDAE /* StraightSimplexService.swift */; };
+		8AD8F7C5296CE9020041EDAE /* StraightSimplexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8F7C4296CE9020041EDAE /* StraightSimplexModel.swift */; };
 		8AF5AA292958CF4E00B75D4B /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA282958CF4E00B75D4B /* MockController.swift */; };
 		8AF5AA302958D65500B75D4B /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5AA2F2958D65500B75D4B /* CustomTabBar.swift */; };
 		8AF8C86A29536F04007246E2 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C86929536F04007246E2 /* UIView+Reusable.swift */; };
@@ -155,6 +157,8 @@
 		8AD8F7BA296CAAC70041EDAE /* ConclusionSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionSectionItem.swift; sourceTree = "<group>"; };
 		8AD8F7BC296CB1C80041EDAE /* ConclusionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionModel.swift; sourceTree = "<group>"; };
 		8AD8F7BE296CB8150041EDAE /* ConclusionControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConclusionControllerModel.swift; sourceTree = "<group>"; };
+		8AD8F7C1296CE52A0041EDAE /* StraightSimplexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightSimplexService.swift; sourceTree = "<group>"; };
+		8AD8F7C4296CE9020041EDAE /* StraightSimplexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightSimplexModel.swift; sourceTree = "<group>"; };
 		8AF5AA282958CF4E00B75D4B /* MockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockController.swift; sourceTree = "<group>"; };
 		8AF5AA2F2958D65500B75D4B /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		8AF8C86929536F04007246E2 /* UIView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Reusable.swift"; sourceTree = "<group>"; };
@@ -447,6 +451,7 @@
 		8AD07B51294BBD090065E7D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8AD8F7C0296CE50B0041EDAE /* Services */,
 				8AD8F7AD296CA95B0041EDAE /* ConclusionScreen */,
 				8AC763C62959C31900B97A23 /* MethodConfigurationScreen */,
 				8AF5AA272958CF4400B75D4B /* MockControllers */,
@@ -519,6 +524,23 @@
 				8AD8F7BE296CB8150041EDAE /* ConclusionControllerModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8AD8F7C0296CE50B0041EDAE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8F7C3296CE8EA0041EDAE /* StraightSimplex */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8AD8F7C3296CE8EA0041EDAE /* StraightSimplex */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8F7C1296CE52A0041EDAE /* StraightSimplexService.swift */,
+				8AD8F7C4296CE9020041EDAE /* StraightSimplexModel.swift */,
+			);
+			path = StraightSimplex;
 			sourceTree = "<group>";
 		};
 		8AF5AA272958CF4400B75D4B /* MockControllers */ = {
@@ -804,6 +826,7 @@
 				8A5DA3CE295E523900CC88C0 /* FunctionInputCollectionCellProtocols.swift in Sources */,
 				8AF8C86F29536FA3007246E2 /* UITableViewCell+Extension.swift in Sources */,
 				8A0D8BE929573E8D0048FA63 /* MainSectionItem.swift in Sources */,
+				8AD8F7C5296CE9020041EDAE /* StraightSimplexModel.swift in Sources */,
 				8AB42B21294BCEE500C04DF9 /* SemanticColor.swift in Sources */,
 				8AC763CF2959C66B00B97A23 /* MethodConfigurationModel.swift in Sources */,
 				8AC763D12959C82600B97A23 /* MethodConfigurationSection.swift in Sources */,
@@ -841,6 +864,7 @@
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A5DA3D1295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
+				8AD8F7C2296CE52A0041EDAE /* StraightSimplexService.swift in Sources */,
 				8AD8F7B7296CAA5A0041EDAE /* ConclusionViewModel.swift in Sources */,
 				8A5DA3C8295E373700CC88C0 /* ConfigurableCollectionTextCellViewModel.swift in Sources */,
 				8A4FD68D29589823009A6FCE /* TabBarController.swift in Sources */,

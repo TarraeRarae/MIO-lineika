@@ -55,9 +55,16 @@ final class MethodConfigurationViewModel: MethodConfigurationViewModelProtocol {
         constraints: [:]
     ) {
         didSet {
-            if resultModel.function.count != model.variables {
+            if resultModel.function.count != model.variables ||
+                resultModel.constraints.count != model.constraints {
                 setIsButtonEnabled(state: false)
                 return
+            }
+            for item in resultModel.constraints {
+                if item.value.count != model.variables + 1 {
+                    setIsButtonEnabled(state: false)
+                    return
+                }
             }
             setIsButtonEnabled(state: true)
         }
@@ -211,5 +218,20 @@ extension MethodConfigurationViewModel: FunctionInputCollectionCellViewModelDele
 
 extension MethodConfigurationViewModel: ConstraintsSystemCollectionCellViewModelDelegate {
 
-    func constraintsSystemValueDidChange(text: String) {}
+    func constraintsSystemValueDidChange(value: Int, for index: Int) {
+        let rowIndex = index / 10
+        let columnIndex = index % 10
+
+        if resultModel.constraints[rowIndex] == nil {
+            resultModel.constraints[rowIndex] = [:]
+        }
+        resultModel.constraints[rowIndex]?[columnIndex] = value
+    }
+    
+    func clearConstraintsValue(for index: Int) {
+        let rowIndex = index / 10
+        let columnIndex = index % 10
+
+        resultModel.constraints[rowIndex]?[columnIndex] = nil
+    }
 }
