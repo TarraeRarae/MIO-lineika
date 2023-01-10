@@ -13,6 +13,7 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
     // MARK: - Constants
 
     private enum Constants {
+        static let maxTextLength: Int = 1
         static let cornerRadius: CGFloat = 30
         static let defaultCornerRadius: CGFloat = 0
 
@@ -74,9 +75,9 @@ final class VariablesConstraintsTableCell: CollectionViewCell {
 
         switch configuration.configurableSetting {
         case .variables(let value):
-            textFieldText = String(value)
+            textFieldText = value != 0 ? String(value) : ""
         case .constraints(let value):
-            textFieldText = String(value)
+            textFieldText = value != 0 ? String(value) : ""
         }
 
         let textFieldModel = BottomLineTextField.Configuration(text: textFieldText)
@@ -112,6 +113,12 @@ private extension VariablesConstraintsTableCell {
 
     func setupSubviews() {
         textField.delegate = self
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "0",
+            attributes: [
+                .foregroundColor: DesignManager.shared.theme[.text(.secondary)]
+            ]
+        )
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
     }
@@ -138,7 +145,7 @@ private extension VariablesConstraintsTableCell {
     func applyTheme() {
         contentView.backgroundColor = .clear
         backgroundColor = DesignManager.shared.theme[.background(.cell)]
-        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
         titleLabel.font = FontFamily.Nunito.medium.font(size: 16)
         textField.font = FontFamily.Nunito.regular.font(size: 14)
     }
@@ -168,7 +175,7 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
             return
         }
 
-        textField.textColor = DesignManager.shared.theme[.text(.secondary)]
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
     }
 
     func textField(
@@ -176,11 +183,19 @@ extension VariablesConstraintsTableCell: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        let maxLength = 1
+        let maxLength = Constants.maxTextLength
         let currentString = (textField.text ?? "") as NSString
         let newString = currentString.replacingCharacters(in: range, with: string)
+        
+        textField.textColor = DesignManager.shared.theme[.text(.primary)]
+        
+        let result = newString.count <= maxLength
+        
+        if result {
+            viewModel?.valueDidChange(text: newString)
+        }
 
-        return newString.count <= maxLength
+        return result
     }
 }
 

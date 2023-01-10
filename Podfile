@@ -8,5 +8,6 @@ target 'MIO-lineika' do
   pod 'SnapKit'
   pod 'SwiftGen'
   pod 'IQKeyboardManagerSwift'
+  pod 'SVProgressHUD'
 
 end

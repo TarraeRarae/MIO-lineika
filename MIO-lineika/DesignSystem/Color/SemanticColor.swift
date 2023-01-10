@@ -31,6 +31,7 @@ enum SemanticColor {
 
     enum TintColor {
         case tabbarItem
+        case navigationItem
     }
 
     case background(BackgroundColor)

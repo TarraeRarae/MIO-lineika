@@ -114,16 +114,5 @@ extension ButtonTableCell {
         let roundCornersStyle: RoundCornersStyle
 
         /// Отступы
-        let insets: UIEdgeInsets
-
-        init(
-            buttonConfiguration: MainButton.Configuration,
-            roundCornersStyle: RoundCornersStyle,
-            insets: UIEdgeInsets
-        ) {
-            self.buttonConfiguration = buttonConfiguration
-            self.roundCornersStyle = roundCornersStyle
-            self.insets = insets
-        }
-    }
+        let insets: UIEdgeInsets    }
 }

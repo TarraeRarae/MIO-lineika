@@ -49,6 +49,8 @@ class LighTheme: Theme {
             switch tintColor {
             case .tabbarItem:
                 return UIColor(hex: "#E84393FF")
+            case .navigationItem:
+                return UIColor(hex: "#FD79A8FF")
             }
         }
     }
