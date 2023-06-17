@@ -27,6 +27,7 @@ internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Arrows {
     internal static let arrowRight = ImageAsset(name: "arrowRight")
+    internal static let chevronRight = ImageAsset(name: "chevronRight")
   }
   internal enum Brackets {
     internal static let figuralBracket = ImageAsset(name: "figuralBracket")
@@ -46,6 +47,7 @@ internal enum Asset {
     internal static let theoryItemDisabled = ImageAsset(name: "theoryItemDisabled")
     internal static let theoryItemEnabled = ImageAsset(name: "theoryItemEnabled")
   }
+  internal static let baseInformation = ImageAsset(name: "baseInformation")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
