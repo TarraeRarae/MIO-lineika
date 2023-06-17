@@ -10,10 +10,6 @@ import SnapKit
 
 final class TitleCollectionHeader: UICollectionReusableView {
 
-    override var reuseIdentifier: String? {
-        return String(describing: TitleCollectionHeader.self)
-    }
-
     // MARK: - Constants
 
     private enum Constants {
@@ -27,6 +23,12 @@ final class TitleCollectionHeader: UICollectionReusableView {
             static let insets = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 25)
             static let lineHeight: CGFloat = 19
         }
+    }
+
+    // MARK: - Internal properties
+
+    override var reuseIdentifier: String? {
+        return String(describing: TitleCollectionHeader.self)
     }
 
     // MARK: - Private properties

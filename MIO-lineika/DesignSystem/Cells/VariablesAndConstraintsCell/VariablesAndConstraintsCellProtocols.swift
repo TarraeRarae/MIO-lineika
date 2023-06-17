@@ -7,12 +7,13 @@
 
 import Foundation
 
-protocol VariablesAndConstraintsTableCellViewModelOutput: AnyObject {
+protocol VariablesAndConstraintsCollectionCellViewModelOutput: AnyObject {
+    @discardableResult
     func valueDidChange(text: String) -> (Bool, String?)
     func showAlert(title: String, description: String?)
 }
 
-protocol VariablesAndConstraintsTableCellViewModelDelegate: AnyObject {
+protocol VariablesAndConstraintsCollectionCellViewModelDelegate: AnyObject {
     func valueDidChange(for setting: VariableConstraintsSettingsType, with value: Int)
     func showAlert(title: String, description: String?)
 }

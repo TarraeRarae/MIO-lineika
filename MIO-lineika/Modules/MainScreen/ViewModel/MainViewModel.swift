@@ -10,21 +10,16 @@ import UIKit
 // MARK: - Protocols
 
 enum MainViewModelRoute {
-    case toMethodConfiguration
+    case toMethodConfiguration(model: MethodConfigurationModel)
 }
 
 protocol MainViewModelProtocol: AnyObject {
     var delegate: MainViewModelDelegate? { get set }
     var route: (MainViewModelRoute) -> Void { get set }
-
-    func numberOfRows(in section: Int) -> Int
-    func cellViewModelFor(indexPath: IndexPath) -> AnyCollectionViewCellModelProtocol?
-    func headerFor(section: Int) -> UIView?
 }
 
 protocol MainViewModelDelegate: AnyObject {
     func setSections(model: MainViewControllerModel)
-    func reloadData()
     func showAlert(title: String, description: String?)
 }
 
@@ -74,24 +69,6 @@ final class MainViewModel: MainViewModelProtocol {
 
     private var mainButtonCellViewModel: AnyCollectionViewCellModelProtocol?
 
-    private var headers = [UIView]()
-
-    // MARK: - Internal methods
-
-    func numberOfRows(in section: Int) -> Int {
-        if section != 0 { return 0 }
-        return cellViewModels.count
-    }
-
-    func cellViewModelFor(indexPath: IndexPath) -> AnyCollectionViewCellModelProtocol? {
-        if indexPath.section != 0 { return nil }
-        return indexPath.row <= cellViewModels.count ? cellViewModels[indexPath.row] : nil
-    }
-
-    func headerFor(section: Int) -> UIView? {
-        if section > headers.count { return nil }
-        return headers[section]
-    }
 }
 
 // MARK: - Private methods
@@ -100,42 +77,41 @@ private extension MainViewModel {
 
     func commonInit() {
         setupCellModels()
-        setupHeaders()
     }
 
     func setupCellModels() {
-        let methodsTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
+        let methodsTitleCell = CollectionCellViewModelConstructor.shared.makeTitleCellViewModel(
             title: L10n.Methods.title,
             roundCornersStyle: .top,
             insets: UIEdgeInsets(top: 20, left: 25, bottom: 10, right: 25)
         )
     
         methodsCellViewModels = [
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
-                configurableSetting: .method(.graphic),
-                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
-                horizontalOffset: 12,
-                delegate: self
-            ),
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.straightSimplex),
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12,
                 delegate: self
             ),
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+                configurableSetting: .method(.graphic),
+                isEnabled: false,
+                insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
+                horizontalOffset: 12
+            ),
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.artificialVariables),
                 isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12
             ),
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.modifiedSimplex),
                 isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12
             ),
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.binarySimplex),
                 isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
@@ -143,19 +119,19 @@ private extension MainViewModel {
             )
         ]
 
-        let optimizationTitleCell = TableCellViewModelConstructor.shared.makeTitleCellViewModel(
+        let optimizationTitleCell = CollectionCellViewModelConstructor.shared.makeTitleCellViewModel(
             title: L10n.Optimizations.title,
             insets: UIEdgeInsets(top: 0, left: 25, bottom: 10, right: 25)
         )
 
         optimizationsCellViewModels = [
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.max),
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12,
                 delegate: self
             ),
-            TableCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
+            CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .optimization(.min),
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
                 horizontalOffset: 12,
@@ -164,13 +140,13 @@ private extension MainViewModel {
         ]
 
         settingsCellViewModels = [
-            TableCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
+            CollectionCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
                 configurableSetting: .variables(value: selectedSettings.variables),
                 insets: UIEdgeInsets(top: 8, left: 25, bottom: 8, right: 62.5),
                 horizontalOffset: 19,
                 delegate: self
             ),
-            TableCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
+            CollectionCellViewModelConstructor.shared.makeVariableConstraintsViewModel(
                 configurableSetting: .constraints(value: selectedSettings.constraints),
                 insets: UIEdgeInsets(top: 8, left: 25, bottom: 8, right: 62.5),
                 horizontalOffset: 19,
@@ -178,23 +154,23 @@ private extension MainViewModel {
             )
         ]
 
-        let buttonCellViewModel = TableCellViewModelConstructor.shared.makeButtonCellViewModel(
+        let buttonCellViewModel = CollectionCellViewModelConstructor.shared.makeButtonCellViewModel(
             buttonType: .onward,
             isEnabled: false,
             roundCornersStyle: .bottom,
             insets: UIEdgeInsets(top: 14, left: 26, bottom: 20, right: 26)
         ) { [weak self] in
-            self?.route(.toMethodConfiguration)
+            self?.toMethodConfigurationScreen()
         }
 
         mainButtonCellViewModel = buttonCellViewModel
 
-        let firstDividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel(
+        let firstDividerCellModel = CollectionCellViewModelConstructor.shared.makeDividerCellViewModel(
             topOffset: 14,
             bottomOffset: 16
         )
 
-        let secondDividerCellModel = TableCellViewModelConstructor.shared.makeDividerCellViewModel(
+        let secondDividerCellModel = CollectionCellViewModelConstructor.shared.makeDividerCellViewModel(
             topOffset: 12,
             bottomOffset: 20
         )
@@ -214,31 +190,31 @@ private extension MainViewModel {
         var sectionItems = [MainSectionItem]()
 
         for viewModel in cellViewModels {
-            if let radiobuttonModel = viewModel as? RadiobuttonTableCellViewModel {
+            if let radiobuttonModel = viewModel as? RadiobuttonCollectionCellViewModel {
                 let sectionItem = MainSectionItem.radiobutton(radiobuttonModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let titleModel = viewModel as? TitleTableCellViewModel {
+            if let titleModel = viewModel as? TitleCollectionCellViewModel {
                 let sectionItem = MainSectionItem.title(titleModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let buttonModel = viewModel as? ButtonTableCellViewModel {
+            if let buttonModel = viewModel as? ButtonCollectionCellViewModel {
                 let sectionItem = MainSectionItem.button(buttonModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let dividerModel = viewModel as? DividerTableCellViewModel {
+            if let dividerModel = viewModel as? DividerCollectionCellViewModel {
                 let sectionItem = MainSectionItem.divider(dividerModel)
                 sectionItems.append(sectionItem)
                 continue
             }
 
-            if let variablesConstraintModel = viewModel as? VariablesAndConstraintsTableCellViewModel {
+            if let variablesConstraintModel = viewModel as? VariablesAndConstraintsCollectionCellViewModel {
                 let sectionItem = MainSectionItem.variablesConstraints(
                     variablesConstraintModel
                 )
@@ -252,18 +228,9 @@ private extension MainViewModel {
         delegate?.setSections(model: model)
     }
 
-    func setupHeaders() {
-        let titleTableHeader = CollectionHeaderConstructor.shared.makeTitleTableHeader(
-            title: L10n.MainScreen.Header.title,
-            subtitle: L10n.MainScreen.Header.subtitle
-        )
-
-        headers.append(titleTableHeader)
-    }
-
     func validateSelectedSettings() -> Bool {
         if (2...3).contains(selectedSettings.variables) &&
-           (2...3).contains(selectedSettings.constraints) &&
+           (1...9).contains(selectedSettings.constraints) &&
            selectedSettings.method != nil &&
            selectedSettings.optimization != nil {
             return true
@@ -273,9 +240,24 @@ private extension MainViewModel {
     }
 
     func setMainButtonIsEnabled(state: Bool) {
-        guard let buttonViewModel = mainButtonCellViewModel as? ButtonTableCellViewModelInput
+        guard let buttonViewModel = mainButtonCellViewModel as? ButtonCollectionCellViewModelInput
             else { return }
         buttonViewModel.setIsButtonEnabled(state: state)
+    }
+
+    func toMethodConfigurationScreen() {
+        guard let method = selectedSettings.method,
+              let optimization = selectedSettings.optimization
+        else { return }
+
+        let model = MethodConfigurationModel(
+            method: method,
+            variables: selectedSettings.variables,
+            constraints: selectedSettings.constraints,
+            optimization: optimization
+        )
+
+        route(.toMethodConfiguration(model: model))
     }
 }
 
@@ -318,7 +300,7 @@ extension MainViewModel: RadiobuttonCellViewModelDelegate {
 
     func didSelectedRadiobutton(
         with uniquedId: UUID,
-        for settingType: RadiobuttonTableCell.Configuration.ConfigurableSetting
+        for settingType: RadiobuttonCollectionCell.Configuration.ConfigurableSetting
     ) {
         switch settingType {
         case .method(let methodType):
@@ -331,7 +313,7 @@ extension MainViewModel: RadiobuttonCellViewModelDelegate {
 
 // MARK: - VariablesAndConstraintsTableCellViewModelDelegate
 
-extension MainViewModel: VariablesAndConstraintsTableCellViewModelDelegate {
+extension MainViewModel: VariablesAndConstraintsCollectionCellViewModelDelegate {
 
     func valueDidChange(for setting: VariableConstraintsSettingsType, with value: Int) {
         switch setting {

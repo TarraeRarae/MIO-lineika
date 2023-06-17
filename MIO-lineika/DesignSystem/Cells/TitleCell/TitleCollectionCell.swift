@@ -1,5 +1,5 @@
 //
-//  TitleTableCell.swift
+//  TitleCollectionCell.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 17.12.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TitleTableCell: CollectionViewCell {
+final class TitleCollectionCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -79,7 +79,7 @@ final class TitleTableCell: CollectionViewCell {
 
 // MARK: - Private methods
 
-private extension TitleTableCell {
+private extension TitleCollectionCell {
 
     func commonInit() {
         setupSubviews()
@@ -109,7 +109,7 @@ private extension TitleTableCell {
 
 // MARK: - Configuration
 
-extension TitleTableCell {
+extension TitleCollectionCell {
 
     struct Configuration {
 
@@ -131,15 +131,5 @@ extension TitleTableCell {
 
         /// Отступы для заголовка
         let insets: UIEdgeInsets
-
-        init(
-            title: String,
-            roundCornersStyle: RoundCornersStyle,
-            insets: UIEdgeInsets
-        ) {
-            self.title = title
-            self.roundCornersStyle = roundCornersStyle
-            self.insets = insets
-        }
     }
 }

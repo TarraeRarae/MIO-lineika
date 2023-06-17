@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "backButton.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "backButton 1.pdf",
+      "height-class" : "regular",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best",
+    "preserves-vector-representation" : true
+  }
+}

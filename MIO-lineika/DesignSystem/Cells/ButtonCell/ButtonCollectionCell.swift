@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class ButtonTableCell: CollectionViewCell {
+final class ButtonCollectionCell: CollectionViewCell {
 
     // MARK: - Constants
 
@@ -64,7 +64,7 @@ final class ButtonTableCell: CollectionViewCell {
 
 // MARK: - Private methods
 
-private extension ButtonTableCell {
+private extension ButtonCollectionCell {
 
     func commonInit() {
         setupSubviews()
@@ -93,7 +93,7 @@ private extension ButtonTableCell {
 
 // MARK: - Configuration
 
-extension ButtonTableCell {
+extension ButtonCollectionCell {
 
     struct Configuration {
 
@@ -114,16 +114,5 @@ extension ButtonTableCell {
         let roundCornersStyle: RoundCornersStyle
 
         /// Отступы
-        let insets: UIEdgeInsets
-
-        init(
-            buttonConfiguration: MainButton.Configuration,
-            roundCornersStyle: RoundCornersStyle,
-            insets: UIEdgeInsets
-        ) {
-            self.buttonConfiguration = buttonConfiguration
-            self.roundCornersStyle = roundCornersStyle
-            self.insets = insets
-        }
-    }
+        let insets: UIEdgeInsets    }
 }

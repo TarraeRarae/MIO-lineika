@@ -60,11 +60,6 @@ final class MainViewController: BaseController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        applyTheme()
-    }
-
-    override func applyTheme() {
-        view.backgroundColor = DesignManager.shared.theme[.background(.main)]
     }
 }
 
@@ -94,8 +89,6 @@ private extension MainViewController {
     }
 
     func setupDataSource() {
-        collectionView.delegate = self
-
         dataSource = UICollectionViewDiffableDataSource<
             MainSection,
             MainSectionItem
@@ -154,15 +147,17 @@ private extension MainViewController {
         )
     
         collectionView.registerCells(
-            RadiobuttonTableCellViewModel.self,
-            TitleTableCellViewModel.self,
-            DividerTableCellViewModel.self,
-            VariablesAndConstraintsTableCellViewModel.self,
-            ButtonTableCellViewModel.self
+            RadiobuttonCollectionCellViewModel.self,
+            TitleCollectionCellViewModel.self,
+            DividerCollectionCellViewModel.self,
+            VariablesAndConstraintsCollectionCellViewModel.self,
+            ButtonCollectionCellViewModel.self
         )
 
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.backgroundColor = .clear
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
     }
 
     func setupGestures() {
@@ -239,10 +234,6 @@ extension MainViewController: MainViewModelDelegate {
         DispatchQueue.main.async {
             self.dataSource?.applySnapshotUsingReloadData(snapshot)
         }
-    }
-
-    func reloadData() {
-        collectionView.reloadData()
     }
 
     func showAlert(title: String, description: String?) {

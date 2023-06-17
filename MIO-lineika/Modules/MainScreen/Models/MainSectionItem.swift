@@ -28,11 +28,11 @@ enum MainSectionItem: Hashable {
 
     // MARK: - Cases
 
-    case title(TitleTableCellViewModel)
-    case radiobutton(RadiobuttonTableCellViewModel)
-    case variablesConstraints(VariablesAndConstraintsTableCellViewModel)
-    case button(ButtonTableCellViewModel)
-    case divider(DividerTableCellViewModel)
+    case title(TitleCollectionCellViewModel)
+    case radiobutton(RadiobuttonCollectionCellViewModel)
+    case variablesConstraints(VariablesAndConstraintsCollectionCellViewModel)
+    case button(ButtonCollectionCellViewModel)
+    case divider(DividerCollectionCellViewModel)
 
     // MARK: - Static methods
 
@@ -51,23 +51,23 @@ enum MainSectionItem: Hashable {
 
         switch self {
         case .title(let viewModel):
-            let innerCell = TitleTableCell()
+            let innerCell = TitleCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .radiobutton(let viewModel):
-            let innerCell = RadiobuttonTableCell()
+            let innerCell = RadiobuttonCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .variablesConstraints(let viewModel):
-            let innerCell = VariablesConstraintsTableCell()
+            let innerCell = VariablesConstraintsCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .button(let viewModel):
-            let innerCell = ButtonTableCell()
+            let innerCell = ButtonCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         case .divider(let viewModel):
-            let innerCell = DividerTableCell()
+            let innerCell = DividerCollectionCell()
             viewModel.configure(innerCell)
             cell = innerCell
         }

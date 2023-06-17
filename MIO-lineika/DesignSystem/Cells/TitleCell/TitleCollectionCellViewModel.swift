@@ -1,5 +1,5 @@
 //
-//  DividerTableCellViewModel.swift
+//  TitleCollectionCellViewModel.swift
 //  MIO-lineika
 //
 //  Created by Alexey Zubkov on 21.12.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DividerTableCellViewModel {
+final class TitleCollectionCellViewModel {
 
     // MARK: - Internal properties
 
@@ -17,20 +17,20 @@ final class DividerTableCellViewModel {
 
     // MARK: - Private properties
 
-    private let model: DividerTableCell.Configuration
+    private let model: TitleCollectionCell.Configuration
 
     // MARK: - Initializers
 
-    init(model: DividerTableCell.Configuration) {
+    init(model: TitleCollectionCell.Configuration) {
         self.model = model
     }
 }
 
 // MARK: - CollectionCellViewModelProtocol
 
-extension DividerTableCellViewModel: CollectionCellViewModelProtocol {
-
-    func configure(_ cell: DividerTableCell) {
+extension TitleCollectionCellViewModel: CollectionCellViewModelProtocol {
+    
+    func configure(_ cell: TitleCollectionCell) {
         cell.configure(model)
     }
 }

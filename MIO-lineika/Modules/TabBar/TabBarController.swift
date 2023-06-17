@@ -17,6 +17,7 @@ final class TabBarController: UITabBarController {
 
     // MARK: - Private properties
 
+    private let calculationCoordinator: MainCoordinator
     private let calculationController: UINavigationController
     private let mockController1: UIViewController
     private let mockController2: UIViewController
@@ -24,7 +25,8 @@ final class TabBarController: UITabBarController {
     // MARK: - Initializers
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        calculationController = MainCoordinator().start()
+        calculationCoordinator = MainCoordinator()
+        calculationController = calculationCoordinator.start()
         mockController1 = MockController()
         mockController2 = MockController()
         super.init(nibName: nil, bundle: nil)
