@@ -12,15 +12,6 @@ struct ResultHeaderBubbleView: View {
         VStack {
             Text("Some text")
         }
-        .background(Color.black)
-        .shadow(
-            color: Color(
-                DesignManager.shared.theme[.background(.shadow)]
-            ),
-            radius: 100,
-            y: 10
-        )
-        .padding(20)
     }
 }
 
