@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B26D3052A3E0E6E005DDF17 /* TheoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26D3042A3E0E6E005DDF17 /* TheoryItem.swift */; };
+		4B26D3072A3E10A6005DDF17 /* BubbleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26D3062A3E10A6005DDF17 /* BubbleContainerView.swift */; };
+		4BB4CDFA2A3E0C9B00599FC3 /* TheoryRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4CDF92A3E0C9B00599FC3 /* TheoryRootView.swift */; };
 		8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */; };
 		8A093F70294D030C0088C9A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6E294D030C0088C9A1 /* Strings.swift */; };
 		8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */; };
@@ -101,6 +104,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B26D3042A3E0E6E005DDF17 /* TheoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryItem.swift; sourceTree = "<group>"; };
+		4B26D3062A3E10A6005DDF17 /* BubbleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleContainerView.swift; sourceTree = "<group>"; };
+		4BB4CDF92A3E0C9B00599FC3 /* TheoryRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryRootView.swift; sourceTree = "<group>"; };
 		8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		8A093F6E294D030C0088C9A1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8A093F7E294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localize.strings; sourceTree = "<group>"; };
@@ -210,6 +216,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B26D3022A3E0E5A005DDF17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B26D3042A3E0E6E005DDF17 /* TheoryItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4B26D3032A3E0E5E005DDF17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4CDF92A3E0C9B00599FC3 /* TheoryRootView.swift */,
+				4B26D3062A3E10A6005DDF17 /* BubbleContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BB4CDF62A3E0C3500599FC3 /* TheoreticalMaterials */ = {
+			isa = PBXGroup;
+			children = (
+				4B26D3032A3E0E5E005DDF17 /* Views */,
+				4B26D3022A3E0E5A005DDF17 /* Models */,
+			);
+			path = TheoreticalMaterials;
+			sourceTree = "<group>";
+		};
 		8A093F3C294CFA530088C9A1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +521,7 @@
 		8AD07B51294BBD090065E7D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4BB4CDF62A3E0C3500599FC3 /* TheoreticalMaterials */,
 				8AD8F7C0296CE50B0041EDAE /* Services */,
 				8A7810C92A3E0B86007B9A62 /* ResultScreen */,
 				8AD8F7AD296CA95B0041EDAE /* ConclusionScreen */,
@@ -891,6 +924,7 @@
 				8AD8F7B4296CAA500041EDAE /* ConclusionViewController.swift in Sources */,
 				8AF8C8852953AB59007246E2 /* ButtonCellProtocols.swift in Sources */,
 				8AB42B1C294BCD9500C04DF9 /* DesignManager.swift in Sources */,
+				4B26D3052A3E0E6E005DDF17 /* TheoryItem.swift in Sources */,
 				8AD8F7BF296CB8150041EDAE /* ConclusionControllerModel.swift in Sources */,
 				8A26FDBF295B2BE2007D7D14 /* MethodConfigurationControllerModel.swift in Sources */,
 				8AF8C877295381D6007246E2 /* RadiobuttonCellProtocols.swift in Sources */,
@@ -922,6 +956,7 @@
 				8AD8F7BD296CB1C80041EDAE /* ConclusionModel.swift in Sources */,
 				8AF8C87A295382BE007246E2 /* VariablesAndConstraintsCollectionCellViewModel.swift in Sources */,
 				8AF8C88129538BA7007246E2 /* BottomLineTextField.swift in Sources */,
+				4B26D3072A3E10A6005DDF17 /* BubbleContainerView.swift in Sources */,
 				8AB42B27294BD5D500C04DF9 /* ConfigurableItem.swift in Sources */,
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
 				8A897020295C7CFD009FAE22 /* UIImage+Extension.swift in Sources */,
@@ -934,6 +969,7 @@
 				8AC763CA2959C37500B97A23 /* MethodConfigurationViewController.swift in Sources */,
 				8AD8F7CA296D0A500041EDAE /* TextWithTitleCollectionCellViewModel.swift in Sources */,
 				8AF8C86C29536F62007246E2 /* Reusable.swift in Sources */,
+				4BB4CDFA2A3E0C9B00599FC3 /* TheoryRootView.swift in Sources */,
 				8A49B75B295274D500EA18C6 /* MainButton.swift in Sources */,
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 				8AF8C87F29538358007246E2 /* ButtonCollectionCellViewModel.swift in Sources */,
