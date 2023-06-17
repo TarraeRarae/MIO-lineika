@@ -13,23 +13,26 @@ final class MainCoordinator {
 
     private let navigationController: UINavigationController
     private let methodConfigurationCoordinator: MethodConfigurationCoordinator
+    private let resultScreenCoordinator: ResultScreenCoordinator
 
     // MARK: - Initializers
 
     init() {
         navigationController = UINavigationController()
         methodConfigurationCoordinator = MethodConfigurationCoordinator()
+        resultScreenCoordinator = ResultScreenCoordinator()
     }
 
     // MARK: - Internal methods 
 
     func start() -> UINavigationController {
-        let viewModel = MainViewModel()
-        bindMainViewModel(viewModel)
-
-        let viewController = MainViewController(viewModel: viewModel)
-
-        navigationController.viewControllers = [viewController]
+//        let viewModel = MainViewModel()
+//        bindMainViewModel(viewModel)
+//
+//        let viewController = MainViewController(viewModel: viewModel)
+//
+//        navigationController.viewControllers = [viewController]
+        resultScreenCoordinator.start(navigationController: navigationController)
         return navigationController
     }
 }

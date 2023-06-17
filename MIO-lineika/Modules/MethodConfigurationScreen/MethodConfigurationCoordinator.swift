@@ -12,6 +12,7 @@ final class MethodConfigurationCoordinator {
     // MARK: - Private properties
 
     private let conclusionCoordinator: ConclusionCoordinator
+    private let resultScreenCoordinator: ResultScreenCoordinator
 
     private var navigationController: UINavigationController?
 
@@ -19,6 +20,7 @@ final class MethodConfigurationCoordinator {
 
     init() {
         conclusionCoordinator = ConclusionCoordinator()
+        resultScreenCoordinator = ResultScreenCoordinator()
     }
 
     // MARK: - Internal methods
@@ -49,9 +51,6 @@ private extension MethodConfigurationCoordinator {
     }
 
     func toConclusion(model: ConclusionModel) {
-        conclusionCoordinator.start(
-            navigationController: navigationController,
-            model: model
-        )
+        resultScreenCoordinator.start(navigationController: navigationController)
     }
 }

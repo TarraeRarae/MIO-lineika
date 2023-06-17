@@ -117,6 +117,10 @@ internal enum L10n {
     /// Вид оптимизации
     internal static let title = L10n.tr("Localize", "Optimizations.title", fallback: "Вид оптимизации")
   }
+  internal enum ResultScreen {
+    /// Решение задачи
+    internal static let title = L10n.tr("Localize", "ResultScreen.title", fallback: "Решение задачи")
+  }
   internal enum VariableConstaints {
     internal enum Constraints {
       /// Количество ограничений
