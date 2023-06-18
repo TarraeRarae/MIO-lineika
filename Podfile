@@ -8,7 +8,6 @@ target 'MIO-lineika' do
   pod 'SnapKit'
   pod 'SwiftGen'
   pod 'IQKeyboardManagerSwift'
-  pod 'SVProgressHUD'
 
 post_install do |installer|
     installer.generated_projects.each do |project|

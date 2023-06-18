@@ -44,6 +44,10 @@
 		8A5E5395295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5E5394295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift */; };
 		8A5E5397295BA97800EE58E4 /* SubtitleCollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5E5396295BA97800EE58E4 /* SubtitleCollectionHeader.swift */; };
 		8A6CDB70294E8B06005B2D7F /* ButtonCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CDB6F294E8B06005B2D7F /* ButtonCollectionCell.swift */; };
+		8A7810CB2A3E0B96007B9A62 /* ResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7810CA2A3E0B96007B9A62 /* ResultScreen.swift */; };
+		8A7810CD2A3E0C24007B9A62 /* ResultScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7810CC2A3E0C23007B9A62 /* ResultScreenCoordinator.swift */; };
+		8A7810D02A3E15FA007B9A62 /* GraphicMethodResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7810CF2A3E15FA007B9A62 /* GraphicMethodResultView.swift */; };
+		8A7810D32A3E1720007B9A62 /* ResultHeaderBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7810D22A3E1720007B9A62 /* ResultHeaderBubbleView.swift */; };
 		8A89701E295C6AE9009FAE22 /* BackBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89701D295C6AE9009FAE22 /* BackBarButtonView.swift */; };
 		8A897020295C7CFD009FAE22 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89701F295C7CFD009FAE22 /* UIImage+Extension.swift */; };
 		8AAA32422958FA4600AEAE4C /* UITabBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAA32412958FA4600AEAE4C /* UITabBar+Extension.swift */; };
@@ -139,6 +143,10 @@
 		8A5E5394295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodConfigurationCoordinator.swift; sourceTree = "<group>"; };
 		8A5E5396295BA97800EE58E4 /* SubtitleCollectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleCollectionHeader.swift; sourceTree = "<group>"; };
 		8A6CDB6F294E8B06005B2D7F /* ButtonCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionCell.swift; sourceTree = "<group>"; };
+		8A7810CA2A3E0B96007B9A62 /* ResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreen.swift; sourceTree = "<group>"; };
+		8A7810CC2A3E0C23007B9A62 /* ResultScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenCoordinator.swift; sourceTree = "<group>"; };
+		8A7810CF2A3E15FA007B9A62 /* GraphicMethodResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicMethodResultView.swift; sourceTree = "<group>"; };
+		8A7810D22A3E1720007B9A62 /* ResultHeaderBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderBubbleView.swift; sourceTree = "<group>"; };
 		8A89701D295C6AE9009FAE22 /* BackBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonView.swift; sourceTree = "<group>"; };
 		8A89701F295C7CFD009FAE22 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8AAA32412958FA4600AEAE4C /* UITabBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extension.swift"; sourceTree = "<group>"; };
@@ -378,6 +386,33 @@
 			path = ConstraintsSystemCell;
 			sourceTree = "<group>";
 		};
+		8A7810C92A3E0B86007B9A62 /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8A7810CA2A3E0B96007B9A62 /* ResultScreen.swift */,
+				8A7810CC2A3E0C23007B9A62 /* ResultScreenCoordinator.swift */,
+				8A7810CE2A3E1595007B9A62 /* MethodsViews */,
+			);
+			path = ResultScreen;
+			sourceTree = "<group>";
+		};
+		8A7810CE2A3E1595007B9A62 /* MethodsViews */ = {
+			isa = PBXGroup;
+			children = (
+				8A7810CF2A3E15FA007B9A62 /* GraphicMethodResultView.swift */,
+				8A7810D12A3E16F8007B9A62 /* Subviews */,
+			);
+			path = MethodsViews;
+			sourceTree = "<group>";
+		};
+		8A7810D12A3E16F8007B9A62 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				8A7810D22A3E1720007B9A62 /* ResultHeaderBubbleView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		8AB42B15294BCC8800C04DF9 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +529,7 @@
 			children = (
 				4BB4CDF62A3E0C3500599FC3 /* TheoreticalMaterials */,
 				8AD8F7C0296CE50B0041EDAE /* Services */,
+				8A7810C92A3E0B86007B9A62 /* ResultScreen */,
 				8AD8F7AD296CA95B0041EDAE /* ConclusionScreen */,
 				8AC763C62959C31900B97A23 /* MethodConfigurationScreen */,
 				8AF5AA272958CF4400B75D4B /* MockControllers */,
@@ -907,6 +943,7 @@
 				8AF8C87529538181007246E2 /* DividerCollectionCellViewModel.swift in Sources */,
 				8AD8F7B2296CA9AF0041EDAE /* ConclusionCoordinator.swift in Sources */,
 				8AF8C8902953B7E3007246E2 /* Fonts.swift in Sources */,
+				8A7810CB2A3E0B96007B9A62 /* ResultScreen.swift in Sources */,
 				8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */,
 				8AC763CC2959C4A000B97A23 /* MethodConfigurationViewModel.swift in Sources */,
 				8A49B75E2952817E00EA18C6 /* RadiobuttonCollectionCellViewModel.swift in Sources */,
@@ -915,6 +952,7 @@
 				8AC763D32959C84A00B97A23 /* MethodConfigurationSectionItem.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
 				8A5DA3D1295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift in Sources */,
+				8A7810D32A3E1720007B9A62 /* ResultHeaderBubbleView.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,
 				8AD8F7C2296CE52A0041EDAE /* StraightSimplexService.swift in Sources */,
 				8AD8F7B7296CAA5A0041EDAE /* ConclusionViewModel.swift in Sources */,
@@ -931,6 +969,7 @@
 				8AD07B3E294BB9560065E7D8 /* AppDelegate.swift in Sources */,
 				8A897020295C7CFD009FAE22 /* UIImage+Extension.swift in Sources */,
 				8AB42B2D294BD98900C04DF9 /* RadiobuttonCollectionCell.swift in Sources */,
+				8A7810CD2A3E0C24007B9A62 /* ResultScreenCoordinator.swift in Sources */,
 				8A89701E295C6AE9009FAE22 /* BackBarButtonView.swift in Sources */,
 				8A1623F6294D2A1B0068744D /* CollectionViewCell.swift in Sources */,
 				8A1623FC294DF49C0068744D /* TitleCollectionCell.swift in Sources */,
@@ -943,6 +982,7 @@
 				8AB42B1F294BCE2700C04DF9 /* UIColor+Extension.swift in Sources */,
 				8AF8C87F29538358007246E2 /* ButtonCollectionCellViewModel.swift in Sources */,
 				8A5E5395295BA64C00EE58E4 /* MethodConfigurationCoordinator.swift in Sources */,
+				8A7810D02A3E15FA007B9A62 /* GraphicMethodResultView.swift in Sources */,
 				8A5DA3D4295E681000CC88C0 /* ConstraintsSystemCollectionCellViewModel.swift in Sources */,
 				8AF8C87C295382D0007246E2 /* VariablesAndConstraintsCellProtocols.swift in Sources */,
 			);

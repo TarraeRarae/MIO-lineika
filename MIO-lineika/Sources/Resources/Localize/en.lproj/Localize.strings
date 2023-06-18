@@ -93,3 +93,7 @@ MethodConfigurationScreen.constraintsSystemCell.title = "Система лине
 // MARK: - Special symbols
 
 Arrow.right = "→";
+
+// MARK: - Result screen
+
+ResultScreen.title = "Решение задачи";

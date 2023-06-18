@@ -1,28 +1,24 @@
 PODS:
   - IQKeyboardManagerSwift (6.5.10)
   - SnapKit (5.6.0)
-  - SVProgressHUD (2.2.5)
   - SwiftGen (6.6.2)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - SnapKit
-  - SVProgressHUD
   - SwiftGen
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManagerSwift
     - SnapKit
-    - SVProgressHUD
     - SwiftGen
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
 
-PODFILE CHECKSUM: d59af9fbe2c6aad5e30f0884f44dc5c4dc7c9d79
+PODFILE CHECKSUM: 714baf2b1d71cc3221b57ba1f622ad8fb0b244ad
 
 COCOAPODS: 1.11.3

@@ -20,15 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = TabBarController()
 
-//        let model = MethodConfigurationModel(
-//            method: .straightSimplex,
-//            variables: 3,
-//            constraints: 9,
-//            optimization: .max
-//        )
-//        let viewModel = MethodConfigurationViewModel(model: model)
-//        window?.rootViewController = MethodConfigurationViewController(viewModel: viewModel)
-
         window?.makeKeyAndVisible()
         return true
     }
