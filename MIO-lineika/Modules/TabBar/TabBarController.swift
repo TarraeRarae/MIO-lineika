@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class TabBarController: UITabBarController {
 
@@ -19,16 +20,17 @@ final class TabBarController: UITabBarController {
 
     private let calculationCoordinator: MainCoordinator
     private let calculationController: UINavigationController
-    private let mockController1: UIViewController
-    private let mockController2: UIViewController
+    private let informationController: UIViewController
 
     // MARK: - Initializers
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         calculationCoordinator = MainCoordinator()
         calculationController = calculationCoordinator.start()
-        mockController1 = MockController()
-        mockController2 = MockController()
+        informationController = UIHostingController(rootView: NavigationView(content: {
+            TheoryRootView()
+                .rootToolBar(title: "Теоретические материалы")
+        }))
         super.init(nibName: nil, bundle: nil)
         commonInit()
     }
@@ -68,13 +70,7 @@ private extension TabBarController {
             selectedImage: Asset.Tabbar.calculationItemEnabled.image
         )
 
-        mockController1.tabBarItem = UITabBarItem(
-            title: nil,
-            image: Asset.Tabbar.photoItemDisabled.image,
-            selectedImage: Asset.Tabbar.photoItemEnabled.image
-        )
-
-        mockController2.tabBarItem = UITabBarItem(
+        informationController.tabBarItem = UITabBarItem(
             title: nil,
             image: Asset.Tabbar.theoryItemDisabled.image,
             selectedImage: Asset.Tabbar.theoryItemEnabled.image
@@ -82,8 +78,7 @@ private extension TabBarController {
 
         viewControllers = [
             calculationController,
-            mockController1,
-            mockController2
+            informationController
         ]
     }
 }

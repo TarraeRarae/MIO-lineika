@@ -5,7 +5,7 @@
 //  Created by Misha Fedorov on 17.06.2023.
 //
 
-import Foundation
+import SwiftUI
 
 enum TheoryItems: Identifiable, CaseIterable {
     
@@ -48,6 +48,21 @@ extension TheoryItems {
             return "Модифицированный симплекс метод"
         case .methodOfArtificialVariables:
             return "Двойственный симплекс метод"
+        }
+    }
+    
+    var contenImage: Image? {
+        switch self {
+        case .graphicMethod:
+            return Image(uiImage: Asset.graphicalMethod.image)
+        case .directSimplexMethod:
+            return Image(uiImage: Asset.directMethod.image)
+        case .dualSimplexMethod:
+            return nil
+        case .modifiedSimplexMethod:
+            return nil
+        case .methodOfArtificialVariables:
+            return nil
         }
     }
 }
