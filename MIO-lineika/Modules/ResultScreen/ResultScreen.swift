@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResultScreen: View {
     var body: some View {
-        GraphicMethodResultView()
+        Text("123")
     }
 }
 
