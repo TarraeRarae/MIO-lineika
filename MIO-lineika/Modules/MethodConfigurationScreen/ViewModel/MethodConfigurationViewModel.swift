@@ -219,7 +219,8 @@ private extension MethodConfigurationViewModel {
         let model = ConclusionModel(
             function: function,
             constraints: constraints,
-            optimization: model.optimization
+            optimization: model.optimization,
+            method: model.method
         )
 
         route(.toConclusion(model: model))

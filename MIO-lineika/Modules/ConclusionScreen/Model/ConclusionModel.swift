@@ -11,6 +11,7 @@ struct ConclusionModel {
     let function: [Int]
     let constraints: [[Int]]
     let optimization: OptimizationType
+    let method: MethodType
 
     var functionString: String {
         var functionString = "F = "
