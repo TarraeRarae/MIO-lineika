@@ -12,12 +12,15 @@ struct ResultBubbleContainer: View {
     
     var image: UIImage
     
-    init(image: UIImage) {
+    var isAnswer: Bool
+    
+    init(image: UIImage, isAnswer: Bool = false) {
         self.image = image
+        self.isAnswer = isAnswer
     }
     
     var body: some View {
-        BubbleContainerView {
+        BubbleContainerView(borderedContainer: isAnswer){
             HStack {
                 Image(uiImage: image)
             }
@@ -29,6 +32,6 @@ struct ResultBubbleContainer: View {
 
 struct ResultBubbleContainer_Previews: PreviewProvider {
     static var previews: some View {
-        ResultBubbleContainer(image: UIImage(named: "i1")!)
+        ResultBubbleContainer(image: UIImage(named: "i1")!, isAnswer: true)
     }
 }

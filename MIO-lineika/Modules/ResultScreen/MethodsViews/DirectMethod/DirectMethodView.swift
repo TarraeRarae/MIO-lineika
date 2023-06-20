@@ -61,25 +61,28 @@ struct DirectMethodView: View {
                     
                     ResultBubbleContainer(image: Asset.DirectMethod.i9.image)
                     
-                    BubbleContainerView {
-                        VStack(alignment: .leading) {
-                            Text("Симплекс таблица")
-                                .font(FontFamily.Nunito.medium.swiftUIFont(size: 16))
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                Image(uiImage: Asset.DirectMethod.i10.image)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    .padding(.horizontal, 20)
+
                     
                 }
                 
+                BubbleContainerView {
+                    VStack(alignment: .leading) {
+                        Text("Симплекс таблица")
+                            .font(FontFamily.Nunito.medium.swiftUIFont(size: 16))
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            Image(uiImage: Asset.DirectMethod.i10.image)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.horizontal, 20)
+                
                 ResultBubbleContainer(image: Asset.DirectMethod.i11.image)
                 
-                ResultBubbleContainer(image: Asset.DirectMethod.i12.image)
+                ResultBubbleContainer(image: Asset.DirectMethod.i12.image, isAnswer: true)
             }
+            .padding(.vertical, 20)
         }
     }
 }

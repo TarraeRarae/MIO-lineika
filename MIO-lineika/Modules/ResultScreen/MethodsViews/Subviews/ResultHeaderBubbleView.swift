@@ -59,7 +59,7 @@ private extension MethodType {
         case .straightSimplex:
             return "прямым симлекс методом"
         case .artificialVariables:
-            return "todo"
+            return "методом искусственных переменных"
         case .modifiedSimplex:
             return "todo"
         case .binarySimplex:

@@ -15,6 +15,8 @@
 		4B26D3122A3F7C21005DDF17 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26D3112A3F7C21005DDF17 /* Color+Extension.swift */; };
 		4B26D3142A3F7FDD005DDF17 /* ResultBubbleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26D3132A3F7FDD005DDF17 /* ResultBubbleContainer.swift */; };
 		4BB4CDFA2A3E0C9B00599FC3 /* TheoryRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4CDF92A3E0C9B00599FC3 /* TheoryRootView.swift */; };
+		4BD9CED82A4254DD00B88672 /* ArtificialVariablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD9CED72A4254DD00B88672 /* ArtificialVariablesView.swift */; };
+		4BD9CEDB2A426C7E00B88672 /* ModifiedMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD9CEDA2A426C7E00B88672 /* ModifiedMethodView.swift */; };
 		8A093F6F294D030C0088C9A1 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */; };
 		8A093F70294D030C0088C9A1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A093F6E294D030C0088C9A1 /* Strings.swift */; };
 		8A093F7F294D04260088C9A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A093F7B294D04260088C9A1 /* LaunchScreen.storyboard */; };
@@ -119,6 +121,8 @@
 		4B26D3112A3F7C21005DDF17 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		4B26D3132A3F7FDD005DDF17 /* ResultBubbleContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBubbleContainer.swift; sourceTree = "<group>"; };
 		4BB4CDF92A3E0C9B00599FC3 /* TheoryRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheoryRootView.swift; sourceTree = "<group>"; };
+		4BD9CED72A4254DD00B88672 /* ArtificialVariablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtificialVariablesView.swift; sourceTree = "<group>"; };
+		4BD9CEDA2A426C7E00B88672 /* ModifiedMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifiedMethodView.swift; sourceTree = "<group>"; };
 		8A093F6D294D030C0088C9A1 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		8A093F6E294D030C0088C9A1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		8A093F7E294D04260088C9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localize.strings; sourceTree = "<group>"; };
@@ -263,6 +267,22 @@
 				4B26D3022A3E0E5A005DDF17 /* Models */,
 			);
 			path = TheoreticalMaterials;
+			sourceTree = "<group>";
+		};
+		4BD9CED62A4254BB00B88672 /* ArtificialVariables */ = {
+			isa = PBXGroup;
+			children = (
+				4BD9CED72A4254DD00B88672 /* ArtificialVariablesView.swift */,
+			);
+			path = ArtificialVariables;
+			sourceTree = "<group>";
+		};
+		4BD9CED92A426C7200B88672 /* ModifiedMethod */ = {
+			isa = PBXGroup;
+			children = (
+				4BD9CEDA2A426C7E00B88672 /* ModifiedMethodView.swift */,
+			);
+			path = ModifiedMethod;
 			sourceTree = "<group>";
 		};
 		8A093F3C294CFA530088C9A1 /* Sources */ = {
@@ -418,6 +438,8 @@
 		8A7810CE2A3E1595007B9A62 /* MethodsViews */ = {
 			isa = PBXGroup;
 			children = (
+				4BD9CED92A426C7200B88672 /* ModifiedMethod */,
+				4BD9CED62A4254BB00B88672 /* ArtificialVariables */,
 				4B26D30E2A3F77E7005DDF17 /* DirectMethod */,
 				8A7810D62A3E2940007B9A62 /* GraphicMethod */,
 				8A7810D12A3E16F8007B9A62 /* Subviews */,
@@ -970,6 +992,7 @@
 				8AF8C877295381D6007246E2 /* RadiobuttonCellProtocols.swift in Sources */,
 				8A1623F8294DE2490068744D /* Settings.swift in Sources */,
 				8A1623FF294DF9080068744D /* CollectionCellViewModelConstructor.swift in Sources */,
+				4BD9CEDB2A426C7E00B88672 /* ModifiedMethodView.swift in Sources */,
 				4B26D3142A3F7FDD005DDF17 /* ResultBubbleContainer.swift in Sources */,
 				8A1623EE294D1E690068744D /* TableCellViewModel.swift in Sources */,
 				8A162406294E03F00068744D /* DividerCollectionCell.swift in Sources */,
@@ -986,6 +1009,7 @@
 				8AF8C88E2953B2F0007246E2 /* CollectionHeaderConstructor.swift in Sources */,
 				8AC763D32959C84A00B97A23 /* MethodConfigurationSectionItem.swift in Sources */,
 				8A162403294E02D20068744D /* LightTheme.swift in Sources */,
+				4BD9CED82A4254DD00B88672 /* ArtificialVariablesView.swift in Sources */,
 				8A5DA3D1295E5FCA00CC88C0 /* ConstraintsSystemCollectionCell.swift in Sources */,
 				8A7810D32A3E1720007B9A62 /* ResultHeaderBubbleView.swift in Sources */,
 				8A093F70294D030C0088C9A1 /* Strings.swift in Sources */,

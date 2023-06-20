@@ -95,21 +95,21 @@ private extension MainViewModel {
             ),
             CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.graphic),
-                isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
-                horizontalOffset: 12
+                horizontalOffset: 12,
+                delegate: self
             ),
             CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.artificialVariables),
-                isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
-                horizontalOffset: 12
+                horizontalOffset: 12,
+                delegate: self
             ),
             CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.modifiedSimplex),
-                isEnabled: false,
                 insets: UIEdgeInsets(top: 6, left: 25, bottom: 6, right: 25),
-                horizontalOffset: 12
+                horizontalOffset: 12,
+                delegate: self
             ),
             CollectionCellViewModelConstructor.shared.makeRadiobuttonCellViewModel(
                 configurableSetting: .method(.binarySimplex),
