@@ -34,6 +34,20 @@ internal enum Asset {
   internal enum Brackets {
     internal static let figuralBracket = ImageAsset(name: "figuralBracket")
   }
+  internal enum DirectMethod {
+    internal static let i1 = ImageAsset(name: "i1")
+    internal static let i10 = ImageAsset(name: "i10")
+    internal static let i11 = ImageAsset(name: "i11")
+    internal static let i12 = ImageAsset(name: "i12")
+    internal static let i2 = ImageAsset(name: "i2")
+    internal static let i3 = ImageAsset(name: "i3")
+    internal static let i4 = ImageAsset(name: "i4")
+    internal static let i5 = ImageAsset(name: "i5")
+    internal static let i6 = ImageAsset(name: "i6")
+    internal static let i7 = ImageAsset(name: "i7")
+    internal static let i8 = ImageAsset(name: "i8")
+    internal static let i9 = ImageAsset(name: "i9")
+  }
   internal enum Navigation {
     internal static let backButton = ImageAsset(name: "backButton")
   }
@@ -49,8 +63,6 @@ internal enum Asset {
     internal static let theoryItemDisabled = ImageAsset(name: "theoryItemDisabled")
     internal static let theoryItemEnabled = ImageAsset(name: "theoryItemEnabled")
   }
-
-  internal static let baseInformation = ImageAsset(name: "baseInformation")
   internal static let directMethod = ImageAsset(name: "directMethod")
   internal static let graphicalMethod = ImageAsset(name: "graphicalMethod")
 }

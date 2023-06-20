@@ -13,7 +13,7 @@ struct ResultHeaderBubbleView: View {
 
     var body: some View {
         BubbleContainerView(content: {
-            VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text("Задача")
                     .font(FontFamily.Nunito.semiBold.swiftUIFont(size: 20))
                 Text("Найти оптимальное значение функции")
@@ -36,7 +36,12 @@ struct ResultHeaderBubbleView: View {
                         }
                     }
                 }
+                
+                Text(model.method.methodName)
+                    .font(FontFamily.Nunito.light.swiftUIFont(size: 12))
+                    .foregroundColor(Color(hex: 0x2d2031))
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         })
         .padding(.horizontal, 20)
     }
@@ -46,12 +51,30 @@ struct ResultHeaderBubbleView: View {
     }
 }
 
+private extension MethodType {
+    var methodName: String {
+        switch self {
+        case .graphic:
+            return "todo: "
+        case .straightSimplex:
+            return "прямым симлекс методом"
+        case .artificialVariables:
+            return "todo"
+        case .modifiedSimplex:
+            return "todo"
+        case .binarySimplex:
+            return "todo"
+        }
+    }
+}
+
 struct ResultBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         ResultHeaderBubbleView(model: ConclusionModel(
             function: [-1, 2, 3],
             constraints: [[1, 2, 3], [3, 4, 5], [5, 6, 7]],
-            optimization: .max
+            optimization: .max,
+            method: .straightSimplex
         ))
     }
 }

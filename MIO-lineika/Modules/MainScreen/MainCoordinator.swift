@@ -26,13 +26,19 @@ final class MainCoordinator {
     // MARK: - Internal methods 
 
     func start() -> UINavigationController {
-//        let viewModel = MainViewModel()
-//        bindMainViewModel(viewModel)
-//
-//        let viewController = MainViewController(viewModel: viewModel)
-//
-//        navigationController.viewControllers = [viewController]
-        resultScreenCoordinator.start(navigationController: navigationController)
+        let viewModel = MainViewModel()
+        bindMainViewModel(viewModel)
+
+        let viewController = MainViewController(viewModel: viewModel)
+
+        navigationController.viewControllers = [viewController]
+//        resultScreenCoordinator.start(navigationController: navigationController, model:  ConclusionModel(
+//            function: [1, 2, 3, 4],
+//            constraints: [[1, 2], [1, 2]],
+//            optimization: .max,
+//            method: .straightSimplex
+//        )
+//        )
         return navigationController
     }
 }

@@ -29,7 +29,8 @@ struct GraphicMethodResultView_Previews: PreviewProvider {
                 model: ConclusionModel(
                     function: [-1, 2, 3],
                     constraints: [[1, 2, 3], [3, 4, 5], [5, 6, 7]],
-                    optimization: .max
+                    optimization: .max,
+                    method: .straightSimplex
                 )
             )
         )

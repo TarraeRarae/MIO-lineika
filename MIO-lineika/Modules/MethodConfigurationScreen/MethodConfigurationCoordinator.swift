@@ -51,6 +51,6 @@ private extension MethodConfigurationCoordinator {
     }
 
     func toConclusion(model: ConclusionModel) {
-        resultScreenCoordinator.start(navigationController: navigationController)
+        resultScreenCoordinator.start(navigationController: navigationController, model: model)
     }
 }
