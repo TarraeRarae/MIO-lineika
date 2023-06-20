@@ -12,13 +12,19 @@ struct ResultScreen: View {
     @State var model: ConclusionModel
     
     @ViewBuilder var body: some View {
-        RoundedRectangle(cornerRadius: 30)
-            .fill(.white)
-            .overlay {
-                content
-            }
-            .clipped()
-            .shadow(color: Color(hex: 0x1B17381A, alpha: 0.1), radius: 100, y: 10)
+        ZStack {
+            Color(hex: 0xF6F6F6)
+                .ignoresSafeArea()
+            
+            Rectangle()
+                .fill(.white)
+                .overlay {
+                    content
+                }
+                .cornerRadius(30)
+                .shadow(color: Color(hex: 0x1B17381A, alpha: 0.1), radius: 100, y: 10)
+        }
+
 
             
     }

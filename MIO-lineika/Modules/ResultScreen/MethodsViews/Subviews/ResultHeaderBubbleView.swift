@@ -44,6 +44,7 @@ struct ResultHeaderBubbleView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         })
         .padding(.horizontal, 20)
+        .padding(.top, 20)
     }
 
     init(model: ConclusionModel) {

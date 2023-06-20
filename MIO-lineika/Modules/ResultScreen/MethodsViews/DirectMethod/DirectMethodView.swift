@@ -82,7 +82,6 @@ struct DirectMethodView: View {
                 
                 ResultBubbleContainer(image: Asset.DirectMethod.i12.image, isAnswer: true)
             }
-            .padding(.vertical, 20)
         }
     }
 }

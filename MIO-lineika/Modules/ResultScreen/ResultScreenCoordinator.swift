@@ -19,6 +19,7 @@ final class ResultScreenCoordinator {
         let controller = UIHostingController(rootView: ResultScreen(model: model))
         controller.navigationItem.title = L10n.ResultScreen.title
         self.navigationController = navigationController
+        self.navigationController?.navigationBar.isTranslucent = true
         navigationController?.pushViewController(controller, animated: true)
     }
 }

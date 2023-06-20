@@ -103,7 +103,6 @@ struct ArtificialVariablesView: View {
                     ResultBubbleContainer(image: Asset.ArtificialVariables.a16.image, isAnswer: true)
                 }
             }
-            .padding(.vertical, 20)
 
         }
     }

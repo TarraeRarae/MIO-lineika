@@ -32,7 +32,6 @@ struct GraphicMethodResultView: View {
                 .padding(.horizontal, 20)
 
             }
-            .padding(.vertical, 20)
         }
     }
 
@@ -42,12 +41,11 @@ struct GraphicMethodResultView: View {
     
     func Bubble(with title: String?, img: UIImage) -> some View{
         BubbleContainerView {
-            VStack {
+            VStack(alignment: .leading) {
                 if let title {
                     Text(title)
                         .font(FontFamily.Nunito.regular.swiftUIFont(size: 14))
                         .foregroundColor(Color(hex: 0x2D2031))
-                        .frame(alignment: .leading)
                 }
 
                 
